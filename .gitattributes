@@ -5,6 +5,11 @@
 *.ini  linguist-detectable=true
 *.md   linguist-detectable=true
 
+# Linguist treats a docs/ directory as documentation and drops it from the
+# stats. The runbook and RCA are a deliberate part of this project, so count them.
+docs/**    linguist-documentation=false
+*.md       linguist-documentation=false
+
 # Raw Ansible output - kept as reference, but not authored source.
 logs/** linguist-generated=true
 
