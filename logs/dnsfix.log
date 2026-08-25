@@ -1,0 +1,705 @@
+
+PLAY [Check Ansible version] ***************************************************
+Tuesday 25 August 2026  19:56:59 +0530 (0:00:00.047)       0:00:00.047 ******** 
+
+TASK [Check 2.18.0 <= Ansible version < 2.19.0] ********************************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  19:56:59 +0530 (0:00:00.063)       0:00:00.111 ******** 
+
+TASK [Check that python netaddr is installed] **********************************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  19:56:59 +0530 (0:00:00.107)       0:00:00.218 ******** 
+
+TASK [Check that jinja is not too old (install via pip)] ***********************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+PLAY [Inventory setup and validation] ******************************************
+Tuesday 25 August 2026  19:56:59 +0530 (0:00:00.078)       0:00:00.297 ******** 
+
+TASK [dynamic_groups : Match needed groups by their old names or definition] ***
+ok: [k8s-cp-0] => (item={'key': 'k8s_cluster', 'value': ['kube_node', 'kube_control_plane', 'calico_rr']})
+ok: [k8s-w-0] => (item={'key': 'k8s_cluster', 'value': ['kube_node', 'kube_control_plane', 'calico_rr']})
+Tuesday 25 August 2026  19:57:00 +0530 (0:00:00.181)       0:00:00.478 ******** 
+
+TASK [validate_inventory : Fail if removed variables are used] *****************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  19:57:00 +0530 (0:00:00.068)       0:00:00.546 ******** 
+
+TASK [validate_inventory : Stop if kube_control_plane group is empty] **********
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  19:57:00 +0530 (0:00:00.056)       0:00:00.602 ******** 
+
+TASK [validate_inventory : Stop if etcd group is empty in external etcd mode] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  19:57:00 +0530 (0:00:00.055)       0:00:00.658 ******** 
+Tuesday 25 August 2026  19:57:00 +0530 (0:00:00.056)       0:00:00.715 ******** 
+
+TASK [validate_inventory : Stop if unsupported version of Kubernetes] **********
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [k8s-w-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  19:57:00 +0530 (0:00:00.092)       0:00:00.807 ******** 
+
+TASK [validate_inventory : Stop if known booleans are set as strings (Use JSON format on CLI: -e "{'key': true }")] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  19:57:00 +0530 (0:00:00.058)       0:00:00.866 ******** 
+
+TASK [validate_inventory : Stop if even number of etcd hosts] ******************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  19:57:00 +0530 (0:00:00.059)       0:00:00.925 ******** 
+Tuesday 25 August 2026  19:57:00 +0530 (0:00:00.067)       0:00:00.993 ******** 
+Tuesday 25 August 2026  19:57:00 +0530 (0:00:00.074)       0:00:01.067 ******** 
+Tuesday 25 August 2026  19:57:00 +0530 (0:00:00.077)       0:00:01.144 ******** 
+
+TASK [validate_inventory : Check that kube_service_addresses is a network range] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  19:57:00 +0530 (0:00:00.099)       0:00:01.244 ******** 
+
+TASK [validate_inventory : Check that kube_pods_subnet is a network range] *****
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  19:57:01 +0530 (0:00:00.121)       0:00:01.366 ******** 
+
+TASK [validate_inventory : Check that kube_pods_subnet does not collide with kube_service_addresses] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  19:57:01 +0530 (0:00:00.133)       0:00:01.499 ******** 
+Tuesday 25 August 2026  19:57:01 +0530 (0:00:00.071)       0:00:01.570 ******** 
+Tuesday 25 August 2026  19:57:01 +0530 (0:00:00.048)       0:00:01.618 ******** 
+Tuesday 25 August 2026  19:57:01 +0530 (0:00:00.132)       0:00:01.751 ******** 
+Tuesday 25 August 2026  19:57:01 +0530 (0:00:00.065)       0:00:01.817 ******** 
+Tuesday 25 August 2026  19:57:01 +0530 (0:00:00.065)       0:00:01.883 ******** 
+
+TASK [validate_inventory : Stop if unsupported options selected] ***************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  19:57:01 +0530 (0:00:00.084)       0:00:01.967 ******** 
+Tuesday 25 August 2026  19:57:01 +0530 (0:00:00.080)       0:00:02.048 ******** 
+Tuesday 25 August 2026  19:57:01 +0530 (0:00:00.072)       0:00:02.120 ******** 
+Tuesday 25 August 2026  19:57:01 +0530 (0:00:00.070)       0:00:02.190 ******** 
+Tuesday 25 August 2026  19:57:01 +0530 (0:00:00.097)       0:00:02.288 ******** 
+
+TASK [validate_inventory : Ensure minimum containerd version] ******************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  19:57:01 +0530 (0:00:00.064)       0:00:02.353 ******** 
+Tuesday 25 August 2026  19:57:02 +0530 (0:00:00.082)       0:00:02.435 ******** 
+[WARNING]: Could not match supplied host pattern, ignoring: bastion
+[WARNING]: Could not match supplied host pattern, ignoring: calico_rr
+
+TASK [validate_inventory : Download_file | Check if requested Kubernetes are supported] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [k8s-w-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+PLAY [Install bastion ssh config] **********************************************
+skipping: no hosts matched
+
+PLAY [Bootstrap hosts for Ansible] *********************************************
+
+PLAY [Gather facts] ************************************************************
+Tuesday 25 August 2026  19:57:02 +0530 (0:00:00.335)       0:00:02.770 ******** 
+Tuesday 25 August 2026  19:57:02 +0530 (0:00:00.082)       0:00:02.853 ******** 
+
+TASK [network_facts : Set computed IPs variables] ******************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:02 +0530 (0:00:00.111)       0:00:02.964 ******** 
+Tuesday 25 August 2026  19:57:02 +0530 (0:00:00.070)       0:00:03.035 ******** 
+
+TASK [Gather minimal facts] ****************************************************
+ok: [k8s-w-0]
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  19:57:03 +0530 (0:00:00.931)       0:00:03.966 ******** 
+
+TASK [Gather necessary facts (network)] ****************************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:04 +0530 (0:00:00.791)       0:00:04.757 ******** 
+
+TASK [Gather necessary facts (hardware)] ***************************************
+ok: [k8s-w-0]
+ok: [k8s-cp-0]
+
+PLAY [Prepare for etcd install] ************************************************
+Tuesday 25 August 2026  19:57:05 +0530 (0:00:01.151)       0:00:05.909 ******** 
+Tuesday 25 August 2026  19:57:05 +0530 (0:00:00.069)       0:00:05.979 ******** 
+
+TASK [kubernetes/preinstall : Check resolvconf] ********************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:06 +0530 (0:00:00.495)       0:00:06.474 ******** 
+
+TASK [kubernetes/preinstall : Check existence of /etc/resolvconf/resolv.conf.d] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:06 +0530 (0:00:00.448)       0:00:06.922 ******** 
+
+TASK [kubernetes/preinstall : Check status of /etc/resolv.conf] ****************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:06 +0530 (0:00:00.358)       0:00:07.281 ******** 
+
+TASK [kubernetes/preinstall : Fetch resolv.conf] *******************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:07 +0530 (0:00:00.437)       0:00:07.719 ******** 
+
+TASK [kubernetes/preinstall : NetworkManager | Check if host has NetworkManager] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:07 +0530 (0:00:00.367)       0:00:08.087 ******** 
+
+TASK [kubernetes/preinstall : Check systemd-resolved] **************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:08 +0530 (0:00:00.382)       0:00:08.469 ******** 
+
+TASK [kubernetes/preinstall : Set default dns if remove_default_searchdomains is false] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:08 +0530 (0:00:00.094)       0:00:08.564 ******** 
+
+TASK [kubernetes/preinstall : Set dns facts] ***********************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:08 +0530 (0:00:00.100)       0:00:08.664 ******** 
+
+TASK [kubernetes/preinstall : Check if kubelet is configured] ******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:08 +0530 (0:00:00.361)       0:00:09.026 ******** 
+
+TASK [kubernetes/preinstall : Check if early DNS configuration stage] **********
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:08 +0530 (0:00:00.145)       0:00:09.172 ******** 
+
+TASK [kubernetes/preinstall : Target resolv.conf files] ************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:08 +0530 (0:00:00.089)       0:00:09.262 ******** 
+Tuesday 25 August 2026  19:57:08 +0530 (0:00:00.065)       0:00:09.327 ******** 
+
+TASK [kubernetes/preinstall : Check if /etc/dhclient.conf exists] **************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:09 +0530 (0:00:00.323)       0:00:09.650 ******** 
+Tuesday 25 August 2026  19:57:09 +0530 (0:00:00.066)       0:00:09.717 ******** 
+
+TASK [kubernetes/preinstall : Check if /etc/dhcp/dhclient.conf exists] *********
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:09 +0530 (0:00:00.368)       0:00:10.086 ******** 
+Tuesday 25 August 2026  19:57:09 +0530 (0:00:00.070)       0:00:10.157 ******** 
+Tuesday 25 August 2026  19:57:09 +0530 (0:00:00.069)       0:00:10.226 ******** 
+
+TASK [kubernetes/preinstall : Target dhclient hook file for Debian family] *****
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:09 +0530 (0:00:00.091)       0:00:10.317 ******** 
+Tuesday 25 August 2026  19:57:10 +0530 (0:00:00.066)       0:00:10.383 ******** 
+
+TASK [kubernetes/preinstall : Check /usr readonly] *****************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:10 +0530 (0:00:00.320)       0:00:10.704 ******** 
+Tuesday 25 August 2026  19:57:10 +0530 (0:00:00.068)       0:00:10.773 ******** 
+Tuesday 25 August 2026  19:57:10 +0530 (0:00:00.072)       0:00:10.846 ******** 
+Tuesday 25 August 2026  19:57:10 +0530 (0:00:00.078)       0:00:10.924 ******** 
+Tuesday 25 August 2026  19:57:10 +0530 (0:00:00.110)       0:00:11.035 ******** 
+Tuesday 25 August 2026  19:57:10 +0530 (0:00:00.213)       0:00:11.248 ******** 
+Tuesday 25 August 2026  19:57:10 +0530 (0:00:00.068)       0:00:11.317 ******** 
+Tuesday 25 August 2026  19:57:11 +0530 (0:00:00.064)       0:00:11.382 ******** 
+
+TASK [kubernetes/preinstall : Create systemd-resolved drop-in directory] *******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:11 +0530 (0:00:00.393)       0:00:11.775 ******** 
+
+TASK [kubernetes/preinstall : Write Kubespray DNS settings to systemd-resolved] ***
+changed: [k8s-cp-0]
+changed: [k8s-w-0]
+Tuesday 25 August 2026  19:57:12 +0530 (0:00:01.024)       0:00:12.799 ******** 
+
+TASK [kubernetes/preinstall : NetworkManager | Add nameservers to NM configuration] ***
+changed: [k8s-w-0]
+changed: [k8s-cp-0]
+Tuesday 25 August 2026  19:57:13 +0530 (0:00:00.568)       0:00:13.368 ******** 
+
+TASK [kubernetes/preinstall : Set default dns if remove_default_searchdomains is false] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:13 +0530 (0:00:00.100)       0:00:13.469 ******** 
+
+TASK [kubernetes/preinstall : NetworkManager | Add DNS search to NM configuration] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:13 +0530 (0:00:00.352)       0:00:13.822 ******** 
+
+TASK [kubernetes/preinstall : NetworkManager | Add DNS options to NM configuration] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:13 +0530 (0:00:00.379)       0:00:14.201 ******** 
+Tuesday 25 August 2026  19:57:13 +0530 (0:00:00.091)       0:00:14.293 ******** 
+Tuesday 25 August 2026  19:57:14 +0530 (0:00:00.123)       0:00:14.416 ******** 
+Tuesday 25 August 2026  19:57:14 +0530 (0:00:00.080)       0:00:14.496 ******** 
+Tuesday 25 August 2026  19:57:14 +0530 (0:00:00.064)       0:00:14.561 ******** 
+Tuesday 25 August 2026  19:57:14 +0530 (0:00:00.554)       0:00:15.116 ******** 
+
+RUNNING HANDLER [kubernetes/preinstall : Preinstall | reload NetworkManager] ***
+changed: [k8s-w-0]
+changed: [k8s-cp-0]
+Tuesday 25 August 2026  19:57:16 +0530 (0:00:01.596)       0:00:16.712 ******** 
+
+RUNNING HANDLER [kubernetes/preinstall : Preinstall | reload kubelet] **********
+changed: [k8s-w-0]
+changed: [k8s-cp-0]
+Tuesday 25 August 2026  19:57:17 +0530 (0:00:00.697)       0:00:17.410 ******** 
+
+RUNNING HANDLER [kubernetes/preinstall : Preinstall | kube-apiserver configured] ***
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  19:57:17 +0530 (0:00:00.442)       0:00:17.853 ******** 
+
+RUNNING HANDLER [kubernetes/preinstall : Preinstall | kube-controller configured] ***
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  19:57:17 +0530 (0:00:00.344)       0:00:18.197 ******** 
+Tuesday 25 August 2026  19:57:17 +0530 (0:00:00.075)       0:00:18.273 ******** 
+
+RUNNING HANDLER [kubernetes/preinstall : Preinstall | restart kube-controller-manager crio/containerd] ***
+changed: [k8s-cp-0]
+Tuesday 25 August 2026  19:57:18 +0530 (0:00:00.910)       0:00:19.183 ******** 
+Tuesday 25 August 2026  19:57:18 +0530 (0:00:00.068)       0:00:19.251 ******** 
+
+RUNNING HANDLER [kubernetes/preinstall : Preinstall | restart kube-apiserver crio/containerd] ***
+changed: [k8s-cp-0]
+Tuesday 25 August 2026  19:57:19 +0530 (0:00:00.689)       0:00:19.941 ******** 
+[WARNING]: Could not match supplied host pattern, ignoring:
+_kubespray_needs_etcd
+
+RUNNING HANDLER [kubernetes/preinstall : Preinstall | Restart systemd-resolved] ***
+changed: [k8s-cp-0]
+changed: [k8s-w-0]
+
+PLAY [Add worker nodes to the etcd play if needed] *****************************
+
+PLAY [Install etcd] ************************************************************
+
+PLAY [Install Kubernetes nodes] ************************************************
+
+PLAY [Install the control plane] ***********************************************
+
+PLAY [Invoke kubeadm and install a CNI] ****************************************
+
+PLAY [Install Calico Route Reflector] ******************************************
+skipping: no hosts matched
+
+PLAY [Patch Kubernetes for Windows] ********************************************
+
+PLAY [Install Kubernetes apps] *************************************************
+Tuesday 25 August 2026  19:57:21 +0530 (0:00:02.071)       0:00:22.012 ******** 
+
+TASK [kubernetes-apps/ansible : Kubernetes Apps | CoreDNS] *********************
+changed: [k8s-cp-0] => (item=coredns-clusterrole.yml.j2)
+changed: [k8s-cp-0] => (item=coredns-clusterrolebinding.yml.j2)
+changed: [k8s-cp-0] => (item=coredns-config.yml.j2)
+changed: [k8s-cp-0] => (item=coredns-deployment.yml.j2)
+changed: [k8s-cp-0] => (item=coredns-sa.yml.j2)
+changed: [k8s-cp-0] => (item=coredns-svc.yml.j2)
+changed: [k8s-cp-0] => (item=dns-autoscaler-sa.yml.j2)
+changed: [k8s-cp-0] => (item=dns-autoscaler.yml.j2)
+changed: [k8s-cp-0] => (item=dns-autoscaler-clusterrole.yml.j2)
+changed: [k8s-cp-0] => (item=dns-autoscaler-clusterrolebinding.yml.j2)
+Tuesday 25 August 2026  19:57:29 +0530 (0:00:07.350)       0:00:29.363 ******** 
+Tuesday 25 August 2026  19:57:29 +0530 (0:00:00.257)       0:00:29.621 ******** 
+
+TASK [kubernetes-apps/ansible : Kubernetes Apps | nodelocalDNS] ****************
+changed: [k8s-cp-0] => (item=nodelocaldns-config.yml.j2)
+changed: [k8s-cp-0] => (item=nodelocaldns-daemonset.yml.j2)
+changed: [k8s-cp-0] => (item=nodelocaldns-sa.yml.j2)
+Tuesday 25 August 2026  19:57:31 +0530 (0:00:02.441)       0:00:32.062 ******** 
+
+PLAY [Apply resolv.conf changes now that cluster DNS is up] ********************
+Tuesday 25 August 2026  19:57:31 +0530 (0:00:00.289)       0:00:32.352 ******** 
+
+TASK [adduser : User | Create User Group] **************************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:32 +0530 (0:00:00.402)       0:00:32.754 ******** 
+
+TASK [adduser : User | Create User] ********************************************
+ok: [k8s-w-0]
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  19:57:33 +0530 (0:00:00.623)       0:00:33.378 ******** 
+Tuesday 25 August 2026  19:57:33 +0530 (0:00:00.079)       0:00:33.457 ******** 
+Tuesday 25 August 2026  19:57:33 +0530 (0:00:00.078)       0:00:33.536 ******** 
+Tuesday 25 August 2026  19:57:33 +0530 (0:00:00.068)       0:00:33.604 ******** 
+Tuesday 25 August 2026  19:57:33 +0530 (0:00:00.072)       0:00:33.677 ******** 
+Tuesday 25 August 2026  19:57:33 +0530 (0:00:00.072)       0:00:33.750 ******** 
+
+TASK [kubernetes/preinstall : Check resolvconf] ********************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:33 +0530 (0:00:00.407)       0:00:34.157 ******** 
+
+TASK [kubernetes/preinstall : Check existence of /etc/resolvconf/resolv.conf.d] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:34 +0530 (0:00:00.411)       0:00:34.569 ******** 
+
+TASK [kubernetes/preinstall : Check status of /etc/resolv.conf] ****************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:34 +0530 (0:00:00.423)       0:00:34.993 ******** 
+
+TASK [kubernetes/preinstall : Fetch resolv.conf] *******************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:35 +0530 (0:00:00.361)       0:00:35.355 ******** 
+
+TASK [kubernetes/preinstall : NetworkManager | Check if host has NetworkManager] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:35 +0530 (0:00:00.490)       0:00:35.845 ******** 
+
+TASK [kubernetes/preinstall : Check systemd-resolved] **************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:35 +0530 (0:00:00.382)       0:00:36.228 ******** 
+
+TASK [kubernetes/preinstall : Set default dns if remove_default_searchdomains is false] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:35 +0530 (0:00:00.097)       0:00:36.325 ******** 
+
+TASK [kubernetes/preinstall : Set dns facts] ***********************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:36 +0530 (0:00:00.095)       0:00:36.421 ******** 
+
+TASK [kubernetes/preinstall : Check if kubelet is configured] ******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:36 +0530 (0:00:00.391)       0:00:36.813 ******** 
+
+TASK [kubernetes/preinstall : Check if early DNS configuration stage] **********
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:36 +0530 (0:00:00.143)       0:00:36.956 ******** 
+
+TASK [kubernetes/preinstall : Target resolv.conf files] ************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:36 +0530 (0:00:00.106)       0:00:37.063 ******** 
+Tuesday 25 August 2026  19:57:36 +0530 (0:00:00.076)       0:00:37.140 ******** 
+
+TASK [kubernetes/preinstall : Check if /etc/dhclient.conf exists] **************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:37 +0530 (0:00:00.356)       0:00:37.496 ******** 
+Tuesday 25 August 2026  19:57:37 +0530 (0:00:00.086)       0:00:37.582 ******** 
+
+TASK [kubernetes/preinstall : Check if /etc/dhcp/dhclient.conf exists] *********
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:37 +0530 (0:00:00.474)       0:00:38.057 ******** 
+Tuesday 25 August 2026  19:57:37 +0530 (0:00:00.081)       0:00:38.139 ******** 
+Tuesday 25 August 2026  19:57:37 +0530 (0:00:00.072)       0:00:38.211 ******** 
+
+TASK [kubernetes/preinstall : Target dhclient hook file for Debian family] *****
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:37 +0530 (0:00:00.091)       0:00:38.303 ******** 
+Tuesday 25 August 2026  19:57:38 +0530 (0:00:00.068)       0:00:38.372 ******** 
+
+TASK [kubernetes/preinstall : Check /usr readonly] *****************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:38 +0530 (0:00:00.382)       0:00:38.754 ******** 
+Tuesday 25 August 2026  19:57:38 +0530 (0:00:00.076)       0:00:38.831 ******** 
+Tuesday 25 August 2026  19:57:38 +0530 (0:00:00.047)       0:00:38.878 ******** 
+Tuesday 25 August 2026  19:57:38 +0530 (0:00:00.081)       0:00:38.959 ******** 
+Tuesday 25 August 2026  19:57:38 +0530 (0:00:00.079)       0:00:39.039 ******** 
+Tuesday 25 August 2026  19:57:38 +0530 (0:00:00.070)       0:00:39.109 ******** 
+Tuesday 25 August 2026  19:57:38 +0530 (0:00:00.071)       0:00:39.180 ******** 
+Tuesday 25 August 2026  19:57:38 +0530 (0:00:00.070)       0:00:39.251 ******** 
+Tuesday 25 August 2026  19:57:38 +0530 (0:00:00.080)       0:00:39.331 ******** 
+Tuesday 25 August 2026  19:57:39 +0530 (0:00:00.065)       0:00:39.396 ******** 
+Tuesday 25 August 2026  19:57:39 +0530 (0:00:00.068)       0:00:39.465 ******** 
+Tuesday 25 August 2026  19:57:39 +0530 (0:00:00.173)       0:00:39.639 ******** 
+Tuesday 25 August 2026  19:57:39 +0530 (0:00:00.063)       0:00:39.702 ******** 
+Tuesday 25 August 2026  19:57:39 +0530 (0:00:00.070)       0:00:39.773 ******** 
+Tuesday 25 August 2026  19:57:39 +0530 (0:00:00.067)       0:00:39.840 ******** 
+Tuesday 25 August 2026  19:57:39 +0530 (0:00:00.100)       0:00:39.940 ******** 
+Tuesday 25 August 2026  19:57:39 +0530 (0:00:00.121)       0:00:40.062 ******** 
+Tuesday 25 August 2026  19:57:39 +0530 (0:00:00.074)       0:00:40.137 ******** 
+Tuesday 25 August 2026  19:57:39 +0530 (0:00:00.094)       0:00:40.231 ******** 
+Tuesday 25 August 2026  19:57:39 +0530 (0:00:00.104)       0:00:40.335 ******** 
+Tuesday 25 August 2026  19:57:40 +0530 (0:00:00.099)       0:00:40.434 ******** 
+Tuesday 25 August 2026  19:57:40 +0530 (0:00:00.142)       0:00:40.576 ******** 
+Tuesday 25 August 2026  19:57:40 +0530 (0:00:00.074)       0:00:40.651 ******** 
+Tuesday 25 August 2026  19:57:40 +0530 (0:00:00.080)       0:00:40.731 ******** 
+Tuesday 25 August 2026  19:57:40 +0530 (0:00:00.129)       0:00:40.861 ******** 
+Tuesday 25 August 2026  19:57:40 +0530 (0:00:00.121)       0:00:40.982 ******** 
+Tuesday 25 August 2026  19:57:40 +0530 (0:00:00.072)       0:00:41.055 ******** 
+Tuesday 25 August 2026  19:57:40 +0530 (0:00:00.081)       0:00:41.136 ******** 
+
+TASK [kubernetes/preinstall : Create systemd-resolved drop-in directory] *******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:41 +0530 (0:00:00.368)       0:00:41.505 ******** 
+
+TASK [kubernetes/preinstall : Write Kubespray DNS settings to systemd-resolved] ***
+changed: [k8s-cp-0]
+changed: [k8s-w-0]
+Tuesday 25 August 2026  19:57:42 +0530 (0:00:00.869)       0:00:42.374 ******** 
+
+TASK [kubernetes/preinstall : NetworkManager | Ensure NetworkManager conf.d dir] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:42 +0530 (0:00:00.365)       0:00:42.740 ******** 
+
+TASK [kubernetes/preinstall : NetworkManager | Prevent NetworkManager from managing Calico interfaces (cali*/tunl*/vxlan.calico)] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:43 +0530 (0:00:00.840)       0:00:43.580 ******** 
+
+TASK [kubernetes/preinstall : NetworkManager | Prevent NetworkManager from managing K8S interfaces (kube-ipvs0/nodelocaldns)] ***
+ok: [k8s-w-0]
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  19:57:44 +0530 (0:00:00.865)       0:00:44.446 ******** 
+
+TASK [kubernetes/preinstall : NetworkManager | Add nameservers to NM configuration] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:45 +0530 (0:00:00.993)       0:00:45.439 ******** 
+
+TASK [kubernetes/preinstall : Set default dns if remove_default_searchdomains is false] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:45 +0530 (0:00:00.174)       0:00:45.614 ******** 
+
+TASK [kubernetes/preinstall : NetworkManager | Add DNS search to NM configuration] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:45 +0530 (0:00:00.626)       0:00:46.240 ******** 
+
+TASK [kubernetes/preinstall : NetworkManager | Add DNS options to NM configuration] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  19:57:46 +0530 (0:00:00.567)       0:00:46.808 ******** 
+Tuesday 25 August 2026  19:57:46 +0530 (0:00:00.113)       0:00:46.921 ******** 
+Tuesday 25 August 2026  19:57:46 +0530 (0:00:00.103)       0:00:47.024 ******** 
+Tuesday 25 August 2026  19:57:46 +0530 (0:00:00.103)       0:00:47.128 ******** 
+Tuesday 25 August 2026  19:57:46 +0530 (0:00:00.122)       0:00:47.250 ******** 
+Tuesday 25 August 2026  19:57:47 +0530 (0:00:00.150)       0:00:47.401 ******** 
+Tuesday 25 August 2026  19:57:47 +0530 (0:00:00.106)       0:00:47.507 ******** 
+Tuesday 25 August 2026  19:57:47 +0530 (0:00:00.107)       0:00:47.615 ******** 
+Tuesday 25 August 2026  19:57:47 +0530 (0:00:00.111)       0:00:47.727 ******** 
+Tuesday 25 August 2026  19:57:47 +0530 (0:00:00.127)       0:00:47.855 ******** 
+Tuesday 25 August 2026  19:57:47 +0530 (0:00:00.148)       0:00:48.004 ******** 
+Tuesday 25 August 2026  19:57:47 +0530 (0:00:00.090)       0:00:48.094 ******** 
+Tuesday 25 August 2026  19:57:47 +0530 (0:00:00.115)       0:00:48.210 ******** 
+Tuesday 25 August 2026  19:57:47 +0530 (0:00:00.083)       0:00:48.293 ******** 
+Tuesday 25 August 2026  19:57:48 +0530 (0:00:00.077)       0:00:48.370 ******** 
+Tuesday 25 August 2026  19:57:48 +0530 (0:00:00.073)       0:00:48.443 ******** 
+Tuesday 25 August 2026  19:57:48 +0530 (0:00:00.064)       0:00:48.508 ******** 
+Tuesday 25 August 2026  19:57:48 +0530 (0:00:00.068)       0:00:48.577 ******** 
+Tuesday 25 August 2026  19:57:48 +0530 (0:00:00.076)       0:00:48.654 ******** 
+Tuesday 25 August 2026  19:57:48 +0530 (0:00:00.077)       0:00:48.731 ******** 
+Tuesday 25 August 2026  19:57:48 +0530 (0:00:00.076)       0:00:48.808 ******** 
+Tuesday 25 August 2026  19:57:48 +0530 (0:00:00.077)       0:00:48.885 ******** 
+Tuesday 25 August 2026  19:57:48 +0530 (0:00:00.083)       0:00:48.969 ******** 
+Tuesday 25 August 2026  19:57:48 +0530 (0:00:00.071)       0:00:49.041 ******** 
+Tuesday 25 August 2026  19:57:48 +0530 (0:00:00.071)       0:00:49.113 ******** 
+Tuesday 25 August 2026  19:57:48 +0530 (0:00:00.168)       0:00:49.281 ******** 
+Tuesday 25 August 2026  19:57:48 +0530 (0:00:00.066)       0:00:49.347 ******** 
+Tuesday 25 August 2026  19:57:49 +0530 (0:00:00.073)       0:00:49.421 ******** 
+Tuesday 25 August 2026  19:57:49 +0530 (0:00:00.069)       0:00:49.491 ******** 
+Tuesday 25 August 2026  19:57:49 +0530 (0:00:00.089)       0:00:49.580 ******** 
+Tuesday 25 August 2026  19:57:49 +0530 (0:00:00.133)       0:00:49.713 ******** 
+Tuesday 25 August 2026  19:57:49 +0530 (0:00:00.116)       0:00:49.830 ******** 
+Tuesday 25 August 2026  19:57:49 +0530 (0:00:00.110)       0:00:49.940 ******** 
+Tuesday 25 August 2026  19:57:49 +0530 (0:00:00.117)       0:00:50.058 ******** 
+Tuesday 25 August 2026  19:57:49 +0530 (0:00:00.064)       0:00:50.123 ******** 
+Tuesday 25 August 2026  19:57:49 +0530 (0:00:00.090)       0:00:50.214 ******** 
+
+RUNNING HANDLER [kubernetes/preinstall : Preinstall | Restart systemd-resolved] ***
+changed: [k8s-cp-0]
+changed: [k8s-w-0]
+Tuesday 25 August 2026  19:57:50 +0530 (0:00:00.823)       0:00:51.037 ******** 
+Tuesday 25 August 2026  19:57:50 +0530 (0:00:00.072)       0:00:51.110 ******** 
+
+TASK [Run calico checks] *******************************************************
+included: network_plugin/calico for k8s-cp-0, k8s-w-0
+Tuesday 25 August 2026  19:57:51 +0530 (0:00:00.245)       0:00:51.355 ******** 
+
+TASK [network_plugin/calico : Stop if legacy encapsulation variables are detected (ipip)] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  19:57:51 +0530 (0:00:00.077)       0:00:51.433 ******** 
+
+TASK [network_plugin/calico : Stop if legacy encapsulation variables are detected (ipip_mode)] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  19:57:51 +0530 (0:00:00.080)       0:00:51.514 ******** 
+
+TASK [network_plugin/calico : Stop if legacy encapsulation variables are detected (calcio_ipam_autoallocateblocks)] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  19:57:51 +0530 (0:00:00.081)       0:00:51.595 ******** 
+
+TASK [network_plugin/calico : Stop if supported Calico versions] ***************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  19:57:51 +0530 (0:00:00.086)       0:00:51.681 ******** 
+
+TASK [network_plugin/calico : Check if calicoctl.sh exists] ********************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  19:57:51 +0530 (0:00:00.341)       0:00:52.022 ******** 
+
+TASK [network_plugin/calico : Check if calico ready] ***************************
+changed: [k8s-cp-0]
+Tuesday 25 August 2026  19:57:52 +0530 (0:00:00.493)       0:00:52.516 ******** 
+
+TASK [network_plugin/calico : Get current calico version] **********************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  19:57:52 +0530 (0:00:00.405)       0:00:52.921 ******** 
+
+TASK [network_plugin/calico : Assert that current calico version is enough for upgrade] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  19:57:52 +0530 (0:00:00.100)       0:00:53.021 ******** 
+Tuesday 25 August 2026  19:57:52 +0530 (0:00:00.078)       0:00:53.100 ******** 
+Tuesday 25 August 2026  19:57:52 +0530 (0:00:00.068)       0:00:53.169 ******** 
+
+TASK [network_plugin/calico : Check vars defined correctly] ********************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  19:57:52 +0530 (0:00:00.092)       0:00:53.261 ******** 
+
+TASK [network_plugin/calico : Check calico network backend defined correctly] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  19:57:52 +0530 (0:00:00.084)       0:00:53.346 ******** 
+
+TASK [network_plugin/calico : Check ipip and vxlan mode defined correctly] *****
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  19:57:53 +0530 (0:00:00.080)       0:00:53.426 ******** 
+Tuesday 25 August 2026  19:57:53 +0530 (0:00:00.057)       0:00:53.484 ******** 
+
+TASK [network_plugin/calico : Check ipip and vxlan mode if simultaneously enabled] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  19:57:53 +0530 (0:00:00.085)       0:00:53.570 ******** 
+
+TASK [network_plugin/calico : Get Calico default-pool configuration] ***********
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  19:57:53 +0530 (0:00:00.378)       0:00:53.949 ******** 
+
+TASK [network_plugin/calico : Set calico_pool_conf] ****************************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  19:57:53 +0530 (0:00:00.088)       0:00:54.037 ******** 
+
+TASK [network_plugin/calico : Check if inventory match current cluster configuration] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  19:57:53 +0530 (0:00:00.309)       0:00:54.347 ******** 
+Tuesday 25 August 2026  19:57:54 +0530 (0:00:00.062)       0:00:54.409 ******** 
+Tuesday 25 August 2026  19:57:54 +0530 (0:00:00.065)       0:00:54.475 ******** 
+Tuesday 25 August 2026  19:57:54 +0530 (0:00:00.064)       0:00:54.539 ******** 
+Tuesday 25 August 2026  19:57:54 +0530 (0:00:00.058)       0:00:54.598 ******** 
+Tuesday 25 August 2026  19:57:54 +0530 (0:00:00.057)       0:00:54.656 ******** 
+
+PLAY RECAP *********************************************************************
+k8s-cp-0                   : ok=93   changed=12   unreachable=0    failed=0    skipped=118  rescued=0    ignored=0   
+k8s-w-0                    : ok=59   changed=7    unreachable=0    failed=0    skipped=104  rescued=0    ignored=0   
+
+Tuesday 25 August 2026  19:57:54 +0530 (0:00:00.114)       0:00:54.770 ******** 
+=============================================================================== 
+kubernetes-apps/ansible : Kubernetes Apps | CoreDNS --------------------- 7.35s
+kubernetes-apps/ansible : Kubernetes Apps | nodelocalDNS ---------------- 2.44s
+kubernetes/preinstall : Preinstall | Restart systemd-resolved ----------- 2.07s
+kubernetes/preinstall : Preinstall | reload NetworkManager -------------- 1.60s
+Gather necessary facts (hardware) --------------------------------------- 1.15s
+kubernetes/preinstall : Write Kubespray DNS settings to systemd-resolved --- 1.02s
+kubernetes/preinstall : NetworkManager | Add nameservers to NM configuration --- 0.99s
+Gather minimal facts ---------------------------------------------------- 0.93s
+kubernetes/preinstall : Preinstall | restart kube-controller-manager crio/containerd --- 0.91s
+kubernetes/preinstall : Write Kubespray DNS settings to systemd-resolved --- 0.87s
+kubernetes/preinstall : NetworkManager | Prevent NetworkManager from managing K8S interfaces (kube-ipvs0/nodelocaldns) --- 0.87s
+kubernetes/preinstall : NetworkManager | Prevent NetworkManager from managing Calico interfaces (cali*/tunl*/vxlan.calico) --- 0.84s
+kubernetes/preinstall : Preinstall | Restart systemd-resolved ----------- 0.82s
+Gather necessary facts (network) ---------------------------------------- 0.79s
+kubernetes/preinstall : Preinstall | reload kubelet --------------------- 0.70s
+kubernetes/preinstall : Preinstall | restart kube-apiserver crio/containerd --- 0.69s
+kubernetes/preinstall : NetworkManager | Add DNS search to NM configuration --- 0.63s
+adduser : User | Create User -------------------------------------------- 0.62s
+kubernetes/preinstall : NetworkManager | Add nameservers to NM configuration --- 0.57s
+kubernetes/preinstall : NetworkManager | Add DNS options to NM configuration --- 0.57s

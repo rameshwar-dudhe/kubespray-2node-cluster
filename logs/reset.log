@@ -1,0 +1,1170 @@
+
+PLAY [Check Ansible version] ***************************************************
+Tuesday 25 August 2026  20:26:13 +0530 (0:00:00.051)       0:00:00.051 ******** 
+
+TASK [Check 2.18.0 <= Ansible version < 2.19.0] ********************************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:26:13 +0530 (0:00:00.046)       0:00:00.097 ******** 
+
+TASK [Check that python netaddr is installed] **********************************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:26:13 +0530 (0:00:00.080)       0:00:00.178 ******** 
+
+TASK [Check that jinja is not too old (install via pip)] ***********************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+PLAY [Inventory setup and validation] ******************************************
+Tuesday 25 August 2026  20:26:13 +0530 (0:00:00.052)       0:00:00.231 ******** 
+
+TASK [dynamic_groups : Match needed groups by their old names or definition] ***
+ok: [k8s-cp-0] => (item={'key': 'k8s_cluster', 'value': ['kube_node', 'kube_control_plane', 'calico_rr']})
+ok: [k8s-w-0] => (item={'key': 'k8s_cluster', 'value': ['kube_node', 'kube_control_plane', 'calico_rr']})
+Tuesday 25 August 2026  20:26:13 +0530 (0:00:00.313)       0:00:00.544 ******** 
+
+TASK [validate_inventory : Fail if removed variables are used] *****************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:26:14 +0530 (0:00:00.281)       0:00:00.826 ******** 
+
+TASK [validate_inventory : Stop if kube_control_plane group is empty] **********
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:26:14 +0530 (0:00:00.115)       0:00:00.941 ******** 
+
+TASK [validate_inventory : Stop if etcd group is empty in external etcd mode] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:26:14 +0530 (0:00:00.099)       0:00:01.040 ******** 
+Tuesday 25 August 2026  20:26:14 +0530 (0:00:00.089)       0:00:01.129 ******** 
+
+TASK [validate_inventory : Stop if unsupported version of Kubernetes] **********
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [k8s-w-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:26:14 +0530 (0:00:00.088)       0:00:01.218 ******** 
+
+TASK [validate_inventory : Stop if known booleans are set as strings (Use JSON format on CLI: -e "{'key': true }")] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:26:14 +0530 (0:00:00.064)       0:00:01.283 ******** 
+
+TASK [validate_inventory : Stop if even number of etcd hosts] ******************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:26:14 +0530 (0:00:00.065)       0:00:01.348 ******** 
+Tuesday 25 August 2026  20:26:14 +0530 (0:00:00.134)       0:00:01.483 ******** 
+Tuesday 25 August 2026  20:26:14 +0530 (0:00:00.061)       0:00:01.544 ******** 
+Tuesday 25 August 2026  20:26:14 +0530 (0:00:00.061)       0:00:01.606 ******** 
+
+TASK [validate_inventory : Check that kube_service_addresses is a network range] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:26:15 +0530 (0:00:00.099)       0:00:01.705 ******** 
+
+TASK [validate_inventory : Check that kube_pods_subnet is a network range] *****
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:26:15 +0530 (0:00:00.127)       0:00:01.832 ******** 
+
+TASK [validate_inventory : Check that kube_pods_subnet does not collide with kube_service_addresses] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:26:15 +0530 (0:00:00.113)       0:00:01.945 ******** 
+Tuesday 25 August 2026  20:26:15 +0530 (0:00:00.041)       0:00:01.987 ******** 
+Tuesday 25 August 2026  20:26:15 +0530 (0:00:00.075)       0:00:02.062 ******** 
+Tuesday 25 August 2026  20:26:15 +0530 (0:00:00.063)       0:00:02.126 ******** 
+Tuesday 25 August 2026  20:26:15 +0530 (0:00:00.055)       0:00:02.182 ******** 
+Tuesday 25 August 2026  20:26:15 +0530 (0:00:00.048)       0:00:02.230 ******** 
+
+TASK [validate_inventory : Stop if unsupported options selected] ***************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:26:15 +0530 (0:00:00.070)       0:00:02.301 ******** 
+Tuesday 25 August 2026  20:26:15 +0530 (0:00:00.089)       0:00:02.390 ******** 
+Tuesday 25 August 2026  20:26:15 +0530 (0:00:00.063)       0:00:02.454 ******** 
+Tuesday 25 August 2026  20:26:15 +0530 (0:00:00.061)       0:00:02.515 ******** 
+Tuesday 25 August 2026  20:26:15 +0530 (0:00:00.082)       0:00:02.597 ******** 
+
+TASK [validate_inventory : Ensure minimum containerd version] ******************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:26:16 +0530 (0:00:00.115)       0:00:02.713 ******** 
+Tuesday 25 August 2026  20:26:16 +0530 (0:00:00.058)       0:00:02.771 ******** 
+[WARNING]: Could not match supplied host pattern, ignoring: bastion
+[WARNING]: Could not match supplied host pattern, ignoring: calico_rr
+
+TASK [validate_inventory : Download_file | Check if requested Kubernetes are supported] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [k8s-w-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+PLAY [Install bastion ssh config] **********************************************
+skipping: no hosts matched
+
+PLAY [Bootstrap hosts for Ansible] *********************************************
+Tuesday 25 August 2026  20:26:16 +0530 (0:00:00.241)       0:00:03.012 ******** 
+[WARNING]: raw module does not support the environment keyword
+
+TASK [bootstrap_os : Fetch /etc/os-release] ************************************
+ok: [k8s-w-0]
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:26:16 +0530 (0:00:00.447)       0:00:03.459 ******** 
+Tuesday 25 August 2026  20:26:16 +0530 (0:00:00.221)       0:00:03.680 ******** 
+
+TASK [bootstrap_os : Include tasks] ********************************************
+included: /home/claude/Desktop/kubespray/roles/bootstrap_os/tasks/ubuntu.yml for k8s-cp-0, k8s-w-0 => (item=/home/claude/Desktop/kubespray/roles/bootstrap_os/tasks/ubuntu.yml)
+Tuesday 25 August 2026  20:26:17 +0530 (0:00:00.240)       0:00:03.920 ******** 
+
+TASK [bootstrap_os : Check if bootstrap is needed] *****************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:18 +0530 (0:00:00.894)       0:00:04.815 ******** 
+
+TASK [bootstrap_os : Check http::proxy in apt configuration files] *************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:18 +0530 (0:00:00.316)       0:00:05.132 ******** 
+Tuesday 25 August 2026  20:26:18 +0530 (0:00:00.111)       0:00:05.244 ******** 
+
+TASK [bootstrap_os : Check https::proxy in apt configuration files] ************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:18 +0530 (0:00:00.129)       0:00:05.374 ******** 
+Tuesday 25 August 2026  20:26:18 +0530 (0:00:00.090)       0:00:05.464 ******** 
+Tuesday 25 August 2026  20:26:18 +0530 (0:00:00.064)       0:00:05.529 ******** 
+Tuesday 25 August 2026  20:26:18 +0530 (0:00:00.073)       0:00:05.603 ******** 
+Tuesday 25 August 2026  20:26:18 +0530 (0:00:00.068)       0:00:05.671 ******** 
+Tuesday 25 August 2026  20:26:19 +0530 (0:00:00.065)       0:00:05.737 ******** 
+
+TASK [system_packages : Gather OS information] *********************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:21 +0530 (0:00:02.037)       0:00:07.774 ******** 
+Tuesday 25 August 2026  20:26:21 +0530 (0:00:00.079)       0:00:07.854 ******** 
+Tuesday 25 August 2026  20:26:21 +0530 (0:00:00.094)       0:00:07.948 ******** 
+Tuesday 25 August 2026  20:26:21 +0530 (0:00:00.065)       0:00:08.014 ******** 
+Tuesday 25 August 2026  20:26:21 +0530 (0:00:00.069)       0:00:08.084 ******** 
+
+TASK [system_packages : Manage packages] ***************************************
+ok: [k8s-cp-0] => (item=install)
+ok: [k8s-w-0] => (item=install)
+Tuesday 25 August 2026  20:26:23 +0530 (0:00:01.839)       0:00:09.923 ******** 
+
+TASK [bootstrap_os : Create remote_tmp for it is used by another module] *******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:23 +0530 (0:00:00.433)       0:00:10.357 ******** 
+
+TASK [bootstrap_os : Gather facts] *********************************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:24 +0530 (0:00:00.816)       0:00:11.173 ******** 
+
+TASK [bootstrap_os : Assign inventory name to unconfigured hostnames (non-CoreOS, non-Flatcar, Suse and ClearLinux, non-Fedora)] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:25 +0530 (0:00:01.023)       0:00:12.197 ******** 
+
+TASK [bootstrap_os : Ensure bash_completion.d folder exists] *******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+
+PLAY [Gather facts] ************************************************************
+Tuesday 25 August 2026  20:26:25 +0530 (0:00:00.494)       0:00:12.691 ******** 
+Tuesday 25 August 2026  20:26:26 +0530 (0:00:00.071)       0:00:12.763 ******** 
+
+TASK [network_facts : Set computed IPs variables] ******************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:26 +0530 (0:00:00.105)       0:00:12.868 ******** 
+Tuesday 25 August 2026  20:26:26 +0530 (0:00:00.091)       0:00:12.960 ******** 
+
+TASK [Gather minimal facts] ****************************************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:26 +0530 (0:00:00.637)       0:00:13.597 ******** 
+
+TASK [Gather necessary facts (network)] ****************************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:28 +0530 (0:00:01.826)       0:00:15.424 ******** 
+
+TASK [Gather necessary facts (hardware)] ***************************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+
+PLAY [Reset cluster] ***********************************************************
+Tuesday 25 August 2026  20:26:29 +0530 (0:00:01.103)       0:00:16.527 ******** 
+Tuesday 25 August 2026  20:26:29 +0530 (0:00:00.072)       0:00:16.599 ******** 
+Tuesday 25 August 2026  20:26:29 +0530 (0:00:00.087)       0:00:16.686 ******** 
+
+TASK [Gather information about installed services] *****************************
+ok: [k8s-w-0]
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:26:37 +0530 (0:00:07.555)       0:00:24.242 ******** 
+
+TASK [adduser : User | Create User Group] **************************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:37 +0530 (0:00:00.428)       0:00:24.670 ******** 
+
+TASK [adduser : User | Create User] ********************************************
+ok: [k8s-w-0]
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:26:38 +0530 (0:00:00.619)       0:00:25.290 ******** 
+
+TASK [kubernetes/preinstall : Check if /etc/fstab exists] **********************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:39 +0530 (0:00:00.446)       0:00:25.736 ******** 
+
+TASK [kubernetes/preinstall : Remove swapfile from /etc/fstab] *****************
+ok: [k8s-w-0] => (item=swap)
+ok: [k8s-cp-0] => (item=swap)
+ok: [k8s-w-0] => (item=none)
+ok: [k8s-cp-0] => (item=none)
+Tuesday 25 August 2026  20:26:39 +0530 (0:00:00.798)       0:00:26.534 ******** 
+
+TASK [kubernetes/preinstall : Mask swap.target (persist swapoff)] **************
+ok: [k8s-w-0]
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:26:40 +0530 (0:00:00.829)       0:00:27.364 ******** 
+
+TASK [kubernetes/preinstall : Disable swap] ************************************
+changed: [k8s-w-0]
+changed: [k8s-cp-0]
+Tuesday 25 August 2026  20:26:41 +0530 (0:00:00.438)       0:00:27.803 ******** 
+Tuesday 25 August 2026  20:26:41 +0530 (0:00:00.065)       0:00:27.868 ******** 
+
+TASK [kubernetes/preinstall : Check resolvconf] ********************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:41 +0530 (0:00:00.353)       0:00:28.222 ******** 
+
+TASK [kubernetes/preinstall : Check existence of /etc/resolvconf/resolv.conf.d] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:41 +0530 (0:00:00.346)       0:00:28.568 ******** 
+
+TASK [kubernetes/preinstall : Check status of /etc/resolv.conf] ****************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:42 +0530 (0:00:00.346)       0:00:28.915 ******** 
+
+TASK [kubernetes/preinstall : Fetch resolv.conf] *******************************
+ok: [k8s-w-0]
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:26:42 +0530 (0:00:00.501)       0:00:29.416 ******** 
+
+TASK [kubernetes/preinstall : NetworkManager | Check if host has NetworkManager] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:43 +0530 (0:00:00.402)       0:00:29.819 ******** 
+
+TASK [kubernetes/preinstall : Check systemd-resolved] **************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:43 +0530 (0:00:00.382)       0:00:30.202 ******** 
+
+TASK [kubernetes/preinstall : Set default dns if remove_default_searchdomains is false] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:43 +0530 (0:00:00.212)       0:00:30.414 ******** 
+
+TASK [kubernetes/preinstall : Set dns facts] ***********************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:43 +0530 (0:00:00.085)       0:00:30.499 ******** 
+
+TASK [kubernetes/preinstall : Check if kubelet is configured] ******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:44 +0530 (0:00:00.346)       0:00:30.846 ******** 
+
+TASK [kubernetes/preinstall : Check if early DNS configuration stage] **********
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:44 +0530 (0:00:00.089)       0:00:30.935 ******** 
+
+TASK [kubernetes/preinstall : Target resolv.conf files] ************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:44 +0530 (0:00:00.085)       0:00:31.021 ******** 
+Tuesday 25 August 2026  20:26:44 +0530 (0:00:00.074)       0:00:31.095 ******** 
+
+TASK [kubernetes/preinstall : Check if /etc/dhclient.conf exists] **************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:44 +0530 (0:00:00.369)       0:00:31.464 ******** 
+Tuesday 25 August 2026  20:26:44 +0530 (0:00:00.073)       0:00:31.538 ******** 
+
+TASK [kubernetes/preinstall : Check if /etc/dhcp/dhclient.conf exists] *********
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:45 +0530 (0:00:00.381)       0:00:31.919 ******** 
+Tuesday 25 August 2026  20:26:45 +0530 (0:00:00.077)       0:00:31.997 ******** 
+Tuesday 25 August 2026  20:26:45 +0530 (0:00:00.077)       0:00:32.074 ******** 
+
+TASK [kubernetes/preinstall : Target dhclient hook file for Debian family] *****
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:45 +0530 (0:00:00.111)       0:00:32.186 ******** 
+Tuesday 25 August 2026  20:26:45 +0530 (0:00:00.073)       0:00:32.260 ******** 
+
+TASK [kubernetes/preinstall : Check /usr readonly] *****************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:45 +0530 (0:00:00.369)       0:00:32.629 ******** 
+Tuesday 25 August 2026  20:26:46 +0530 (0:00:00.079)       0:00:32.709 ******** 
+Tuesday 25 August 2026  20:26:46 +0530 (0:00:00.050)       0:00:32.759 ******** 
+
+TASK [kubernetes/preinstall : Stop if non systemd OS type] *********************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [k8s-w-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:26:46 +0530 (0:00:00.098)       0:00:32.857 ******** 
+
+TASK [kubernetes/preinstall : Stop if the os does not support] *****************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [k8s-w-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:26:46 +0530 (0:00:00.125)       0:00:32.983 ******** 
+
+TASK [kubernetes/preinstall : Stop if memory is too small for control plane nodes] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:26:46 +0530 (0:00:00.069)       0:00:33.052 ******** 
+
+TASK [kubernetes/preinstall : Stop if memory is too small for nodes] ***********
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [k8s-w-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:26:46 +0530 (0:00:00.097)       0:00:33.150 ******** 
+
+TASK [kubernetes/preinstall : Stop if cgroups are not enabled on nodes] ********
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:46 +0530 (0:00:00.385)       0:00:33.535 ******** 
+
+TASK [kubernetes/preinstall : Stop if ip var does not match local ips] *********
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [k8s-w-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:26:46 +0530 (0:00:00.101)       0:00:33.637 ******** 
+
+TASK [kubernetes/preinstall : Stop if access_ip is not pingable] ***************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:47 +0530 (0:00:00.427)       0:00:34.064 ******** 
+Tuesday 25 August 2026  20:26:47 +0530 (0:00:00.081)       0:00:34.146 ******** 
+Tuesday 25 August 2026  20:26:47 +0530 (0:00:00.081)       0:00:34.227 ******** 
+
+TASK [kubernetes/preinstall : Stop if bad hostname] ****************************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [k8s-w-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:26:47 +0530 (0:00:00.098)       0:00:34.326 ******** 
+Tuesday 25 August 2026  20:26:47 +0530 (0:00:00.081)       0:00:34.407 ******** 
+Tuesday 25 August 2026  20:26:47 +0530 (0:00:00.067)       0:00:34.474 ******** 
+
+TASK [kubernetes/preinstall : Create kubernetes directories] *******************
+ok: [k8s-cp-0] => (item=/etc/kubernetes)
+ok: [k8s-w-0] => (item=/etc/kubernetes)
+ok: [k8s-cp-0] => (item=/etc/kubernetes/manifests)
+ok: [k8s-w-0] => (item=/etc/kubernetes/manifests)
+ok: [k8s-cp-0] => (item=/usr/local/bin/kubernetes-scripts)
+ok: [k8s-w-0] => (item=/usr/local/bin/kubernetes-scripts)
+ok: [k8s-cp-0] => (item=/usr/libexec/kubernetes/kubelet-plugins/volume/exec)
+ok: [k8s-w-0] => (item=/usr/libexec/kubernetes/kubelet-plugins/volume/exec)
+Tuesday 25 August 2026  20:26:49 +0530 (0:00:01.338)       0:00:35.813 ******** 
+
+TASK [kubernetes/preinstall : Create other directories of root owner] **********
+ok: [k8s-cp-0] => (item=/etc/kubernetes/ssl)
+ok: [k8s-w-0] => (item=/etc/kubernetes/ssl)
+ok: [k8s-cp-0] => (item=/usr/local/bin)
+ok: [k8s-w-0] => (item=/usr/local/bin)
+Tuesday 25 August 2026  20:26:49 +0530 (0:00:00.713)       0:00:36.527 ******** 
+
+TASK [kubernetes/preinstall : Check if kubernetes kubeadm compat cert dir exists] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:50 +0530 (0:00:00.386)       0:00:36.913 ******** 
+Tuesday 25 August 2026  20:26:50 +0530 (0:00:00.073)       0:00:36.987 ******** 
+
+TASK [kubernetes/preinstall : Create cni directories] **************************
+ok: [k8s-cp-0] => (item=/etc/cni/net.d)
+ok: [k8s-w-0] => (item=/etc/cni/net.d)
+ok: [k8s-cp-0] => (item=/opt/cni/bin)
+ok: [k8s-w-0] => (item=/opt/cni/bin)
+Tuesday 25 August 2026  20:26:51 +0530 (0:00:00.734)       0:00:37.721 ******** 
+
+TASK [kubernetes/preinstall : Create calico cni directories] *******************
+ok: [k8s-cp-0] => (item=/var/lib/calico)
+ok: [k8s-w-0] => (item=/var/lib/calico)
+Tuesday 25 August 2026  20:26:51 +0530 (0:00:00.404)       0:00:38.126 ******** 
+Tuesday 25 August 2026  20:26:51 +0530 (0:00:00.156)       0:00:38.282 ******** 
+Tuesday 25 August 2026  20:26:51 +0530 (0:00:00.069)       0:00:38.351 ******** 
+Tuesday 25 August 2026  20:26:51 +0530 (0:00:00.072)       0:00:38.423 ******** 
+Tuesday 25 August 2026  20:26:51 +0530 (0:00:00.097)       0:00:38.521 ******** 
+Tuesday 25 August 2026  20:26:51 +0530 (0:00:00.100)       0:00:38.621 ******** 
+Tuesday 25 August 2026  20:26:52 +0530 (0:00:00.081)       0:00:38.703 ******** 
+Tuesday 25 August 2026  20:26:52 +0530 (0:00:00.064)       0:00:38.767 ******** 
+
+TASK [kubernetes/preinstall : Create systemd-resolved drop-in directory] *******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:52 +0530 (0:00:00.370)       0:00:39.137 ******** 
+
+TASK [kubernetes/preinstall : Write Kubespray DNS settings to systemd-resolved] ***
+changed: [k8s-w-0]
+changed: [k8s-cp-0]
+Tuesday 25 August 2026  20:26:53 +0530 (0:00:01.047)       0:00:40.184 ******** 
+
+TASK [kubernetes/preinstall : NetworkManager | Ensure NetworkManager conf.d dir] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:53 +0530 (0:00:00.417)       0:00:40.601 ******** 
+
+TASK [kubernetes/preinstall : NetworkManager | Prevent NetworkManager from managing Calico interfaces (cali*/tunl*/vxlan.calico)] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:54 +0530 (0:00:00.775)       0:00:41.377 ******** 
+
+TASK [kubernetes/preinstall : NetworkManager | Prevent NetworkManager from managing K8S interfaces (kube-ipvs0/nodelocaldns)] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:55 +0530 (0:00:00.826)       0:00:42.203 ******** 
+
+TASK [kubernetes/preinstall : NetworkManager | Add nameservers to NM configuration] ***
+changed: [k8s-w-0]
+changed: [k8s-cp-0]
+Tuesday 25 August 2026  20:26:56 +0530 (0:00:00.641)       0:00:42.844 ******** 
+
+TASK [kubernetes/preinstall : Set default dns if remove_default_searchdomains is false] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:56 +0530 (0:00:00.129)       0:00:42.973 ******** 
+
+TASK [kubernetes/preinstall : NetworkManager | Add DNS search to NM configuration] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:56 +0530 (0:00:00.394)       0:00:43.368 ******** 
+
+TASK [kubernetes/preinstall : NetworkManager | Add DNS options to NM configuration] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:57 +0530 (0:00:00.399)       0:00:43.768 ******** 
+Tuesday 25 August 2026  20:26:57 +0530 (0:00:00.104)       0:00:43.872 ******** 
+Tuesday 25 August 2026  20:26:57 +0530 (0:00:00.065)       0:00:43.938 ******** 
+Tuesday 25 August 2026  20:26:57 +0530 (0:00:00.066)       0:00:44.005 ******** 
+
+TASK [kubernetes/preinstall : Clean previously used sysctl file locations] *****
+ok: [k8s-cp-0] => (item=ipv4-ip_forward.conf)
+ok: [k8s-w-0] => (item=ipv4-ip_forward.conf)
+ok: [k8s-cp-0] => (item=bridge-nf-call.conf)
+ok: [k8s-w-0] => (item=bridge-nf-call.conf)
+Tuesday 25 August 2026  20:26:58 +0530 (0:00:00.733)       0:00:44.738 ******** 
+
+TASK [kubernetes/preinstall : Stat sysctl file configuration] ******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:58 +0530 (0:00:00.399)       0:00:45.138 ******** 
+Tuesday 25 August 2026  20:26:58 +0530 (0:00:00.081)       0:00:45.220 ******** 
+
+TASK [kubernetes/preinstall : Make sure sysctl file path folder exists] ********
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:58 +0530 (0:00:00.373)       0:00:45.593 ******** 
+
+TASK [kubernetes/preinstall : Enable ip forwarding] ****************************
+ok: [k8s-w-0]
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:26:59 +0530 (0:00:00.429)       0:00:46.023 ******** 
+Tuesday 25 August 2026  20:26:59 +0530 (0:00:00.082)       0:00:46.106 ******** 
+
+TASK [kubernetes/preinstall : Check if we need to set fs.may_detach_mounts] ****
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:26:59 +0530 (0:00:00.349)       0:00:46.455 ******** 
+Tuesday 25 August 2026  20:26:59 +0530 (0:00:00.082)       0:00:46.537 ******** 
+
+TASK [kubernetes/preinstall : Ensure kubelet expected parameters are set] ******
+ok: [k8s-cp-0] => (item={'name': 'kernel.keys.root_maxbytes', 'value': 25000000})
+ok: [k8s-w-0] => (item={'name': 'kernel.keys.root_maxbytes', 'value': 25000000})
+ok: [k8s-cp-0] => (item={'name': 'kernel.keys.root_maxkeys', 'value': 1000000})
+ok: [k8s-w-0] => (item={'name': 'kernel.keys.root_maxkeys', 'value': 1000000})
+ok: [k8s-cp-0] => (item={'name': 'kernel.panic', 'value': 10})
+ok: [k8s-w-0] => (item={'name': 'kernel.panic', 'value': 10})
+ok: [k8s-cp-0] => (item={'name': 'kernel.panic_on_oops', 'value': 1})
+ok: [k8s-w-0] => (item={'name': 'kernel.panic_on_oops', 'value': 1})
+ok: [k8s-cp-0] => (item={'name': 'vm.overcommit_memory', 'value': 1})
+ok: [k8s-w-0] => (item={'name': 'vm.overcommit_memory', 'value': 1})
+ok: [k8s-cp-0] => (item={'name': 'vm.panic_on_oom', 'value': 0})
+ok: [k8s-w-0] => (item={'name': 'vm.panic_on_oom', 'value': 0})
+Tuesday 25 August 2026  20:27:01 +0530 (0:00:01.977)       0:00:48.515 ******** 
+
+TASK [kubernetes/preinstall : Read current sysctl values] **********************
+ok: [k8s-cp-0] => (item={'key': 'fs.inotify.max_user_instances', 'value': 8192})
+ok: [k8s-w-0] => (item={'key': 'fs.inotify.max_user_instances', 'value': 8192})
+Tuesday 25 August 2026  20:27:02 +0530 (0:00:00.392)       0:00:48.908 ******** 
+Tuesday 25 August 2026  20:27:02 +0530 (0:00:00.096)       0:00:49.005 ******** 
+
+TASK [kubernetes/preinstall : Check dummy module] ******************************
+ok: [k8s-w-0]
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:27:02 +0530 (0:00:00.545)       0:00:49.550 ******** 
+Tuesday 25 August 2026  20:27:02 +0530 (0:00:00.074)       0:00:49.625 ******** 
+
+TASK [kubernetes/preinstall : Disable fapolicyd service] ***********************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:27:03 +0530 (0:00:00.546)       0:00:50.172 ******** 
+Tuesday 25 August 2026  20:27:03 +0530 (0:00:00.137)       0:00:50.310 ******** 
+Tuesday 25 August 2026  20:27:03 +0530 (0:00:00.066)       0:00:50.376 ******** 
+Tuesday 25 August 2026  20:27:03 +0530 (0:00:00.063)       0:00:50.439 ******** 
+Tuesday 25 August 2026  20:27:03 +0530 (0:00:00.061)       0:00:50.500 ******** 
+Tuesday 25 August 2026  20:27:03 +0530 (0:00:00.062)       0:00:50.563 ******** 
+Tuesday 25 August 2026  20:27:03 +0530 (0:00:00.072)       0:00:50.636 ******** 
+Tuesday 25 August 2026  20:27:04 +0530 (0:00:00.067)       0:00:50.703 ******** 
+Tuesday 25 August 2026  20:27:04 +0530 (0:00:00.064)       0:00:50.768 ******** 
+Tuesday 25 August 2026  20:27:04 +0530 (0:00:00.075)       0:00:50.843 ******** 
+Tuesday 25 August 2026  20:27:04 +0530 (0:00:00.075)       0:00:50.919 ******** 
+Tuesday 25 August 2026  20:27:04 +0530 (0:00:00.071)       0:00:50.990 ******** 
+Tuesday 25 August 2026  20:27:04 +0530 (0:00:00.081)       0:00:51.071 ******** 
+Tuesday 25 August 2026  20:27:04 +0530 (0:00:00.087)       0:00:51.159 ******** 
+Tuesday 25 August 2026  20:27:04 +0530 (0:00:00.077)       0:00:51.236 ******** 
+Tuesday 25 August 2026  20:27:04 +0530 (0:00:00.072)       0:00:51.309 ******** 
+Tuesday 25 August 2026  20:27:04 +0530 (0:00:00.078)       0:00:51.387 ******** 
+Tuesday 25 August 2026  20:27:04 +0530 (0:00:00.049)       0:00:51.437 ******** 
+Tuesday 25 August 2026  20:27:04 +0530 (0:00:00.024)       0:00:51.461 ******** 
+
+RUNNING HANDLER [kubernetes/preinstall : Preinstall | reload NetworkManager] ***
+changed: [k8s-cp-0]
+changed: [k8s-w-0]
+Tuesday 25 August 2026  20:27:05 +0530 (0:00:01.093)       0:00:52.555 ******** 
+Tuesday 25 August 2026  20:27:05 +0530 (0:00:00.094)       0:00:52.650 ******** 
+
+RUNNING HANDLER [kubernetes/preinstall : Preinstall | Restart systemd-resolved] ***
+changed: [k8s-cp-0]
+changed: [k8s-w-0]
+Tuesday 25 August 2026  20:27:06 +0530 (0:00:00.823)       0:00:53.474 ******** 
+
+TASK [kubernetes/preinstall : Check if we are running inside a Azure VM] *******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:27:07 +0530 (0:00:00.347)       0:00:53.822 ******** 
+
+TASK [Run calico checks] *******************************************************
+included: network_plugin/calico for k8s-cp-0, k8s-w-0
+Tuesday 25 August 2026  20:27:07 +0530 (0:00:00.232)       0:00:54.054 ******** 
+
+TASK [network_plugin/calico : Stop if legacy encapsulation variables are detected (ipip)] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:27:07 +0530 (0:00:00.073)       0:00:54.128 ******** 
+
+TASK [network_plugin/calico : Stop if legacy encapsulation variables are detected (ipip_mode)] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:27:07 +0530 (0:00:00.071)       0:00:54.199 ******** 
+
+TASK [network_plugin/calico : Stop if legacy encapsulation variables are detected (calcio_ipam_autoallocateblocks)] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:27:07 +0530 (0:00:00.079)       0:00:54.278 ******** 
+
+TASK [network_plugin/calico : Stop if supported Calico versions] ***************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:27:07 +0530 (0:00:00.078)       0:00:54.356 ******** 
+
+TASK [network_plugin/calico : Check if calicoctl.sh exists] ********************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:27:07 +0530 (0:00:00.319)       0:00:54.676 ******** 
+
+TASK [network_plugin/calico : Check if calico ready] ***************************
+changed: [k8s-cp-0]
+Tuesday 25 August 2026  20:27:08 +0530 (0:00:00.372)       0:00:55.049 ******** 
+
+TASK [network_plugin/calico : Get current calico version] **********************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:27:08 +0530 (0:00:00.416)       0:00:55.466 ******** 
+
+TASK [network_plugin/calico : Assert that current calico version is enough for upgrade] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:27:08 +0530 (0:00:00.082)       0:00:55.548 ******** 
+Tuesday 25 August 2026  20:27:08 +0530 (0:00:00.065)       0:00:55.614 ******** 
+Tuesday 25 August 2026  20:27:08 +0530 (0:00:00.057)       0:00:55.672 ******** 
+
+TASK [network_plugin/calico : Check vars defined correctly] ********************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:27:09 +0530 (0:00:00.082)       0:00:55.754 ******** 
+
+TASK [network_plugin/calico : Check calico network backend defined correctly] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:27:09 +0530 (0:00:00.073)       0:00:55.828 ******** 
+
+TASK [network_plugin/calico : Check ipip and vxlan mode defined correctly] *****
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:27:09 +0530 (0:00:00.072)       0:00:55.901 ******** 
+Tuesday 25 August 2026  20:27:09 +0530 (0:00:00.060)       0:00:55.961 ******** 
+
+TASK [network_plugin/calico : Check ipip and vxlan mode if simultaneously enabled] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:27:09 +0530 (0:00:00.227)       0:00:56.189 ******** 
+
+TASK [network_plugin/calico : Get Calico default-pool configuration] ***********
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:27:09 +0530 (0:00:00.421)       0:00:56.610 ******** 
+
+TASK [network_plugin/calico : Set calico_pool_conf] ****************************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:27:10 +0530 (0:00:00.089)       0:00:56.699 ******** 
+
+TASK [network_plugin/calico : Check if inventory match current cluster configuration] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:27:10 +0530 (0:00:00.092)       0:00:56.792 ******** 
+Tuesday 25 August 2026  20:27:10 +0530 (0:00:00.062)       0:00:56.854 ******** 
+Tuesday 25 August 2026  20:27:10 +0530 (0:00:00.068)       0:00:56.923 ******** 
+Tuesday 25 August 2026  20:27:10 +0530 (0:00:00.067)       0:00:56.991 ******** 
+Tuesday 25 August 2026  20:27:10 +0530 (0:00:00.060)       0:00:57.051 ******** 
+Tuesday 25 August 2026  20:27:10 +0530 (0:00:00.066)       0:00:57.118 ******** 
+Tuesday 25 August 2026  20:27:10 +0530 (0:00:00.138)       0:00:57.257 ******** 
+
+TASK [reset : Reset | stop services] *******************************************
+changed: [k8s-w-0] => (item=kubelet.service)
+changed: [k8s-cp-0] => (item=kubelet.service)
+ok: [k8s-w-0] => (item=cri-dockerd.service)
+ok: [k8s-cp-0] => (item=cri-dockerd.service)
+ok: [k8s-w-0] => (item=cri-dockerd.socket)
+ok: [k8s-cp-0] => (item=cri-dockerd.socket)
+Tuesday 25 August 2026  20:27:12 +0530 (0:00:02.339)       0:00:59.597 ******** 
+
+TASK [reset : Reset | remove services] *****************************************
+changed: [k8s-cp-0] => (item=kubelet.service)
+changed: [k8s-w-0] => (item=kubelet.service)
+ok: [k8s-cp-0] => (item=cri-dockerd.service)
+ok: [k8s-w-0] => (item=cri-dockerd.service)
+ok: [k8s-cp-0] => (item=cri-dockerd.socket)
+ok: [k8s-w-0] => (item=cri-dockerd.socket)
+ok: [k8s-cp-0] => (item=calico-node.service)
+ok: [k8s-w-0] => (item=calico-node.service)
+ok: [k8s-cp-0] => (item=containerd.service.d/http-proxy.conf)
+ok: [k8s-w-0] => (item=containerd.service.d/http-proxy.conf)
+ok: [k8s-cp-0] => (item=crio.service.d/http-proxy.conf)
+ok: [k8s-w-0] => (item=crio.service.d/http-proxy.conf)
+ok: [k8s-cp-0] => (item=k8s-certs-renew.service)
+ok: [k8s-w-0] => (item=k8s-certs-renew.service)
+ok: [k8s-cp-0] => (item=k8s-certs-renew.timer)
+ok: [k8s-w-0] => (item=k8s-certs-renew.timer)
+Tuesday 25 August 2026  20:27:15 +0530 (0:00:02.308)       0:01:01.905 ******** 
+Tuesday 25 August 2026  20:27:15 +0530 (0:00:00.068)       0:01:01.973 ******** 
+
+TASK [reset : Reset | systemctl daemon-reload] *********************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:27:16 +0530 (0:00:01.072)       0:01:03.046 ******** 
+
+TASK [reset : Reset | check if crictl is present] ******************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:27:16 +0530 (0:00:00.333)       0:01:03.380 ******** 
+
+TASK [reset : Reset | stop all cri containers] *********************************
+changed: [k8s-cp-0]
+changed: [k8s-w-0]
+Tuesday 25 August 2026  20:27:18 +0530 (0:00:01.422)       0:01:04.803 ******** 
+
+TASK [reset : Reset | force remove all cri containers] *************************
+changed: [k8s-cp-0]
+changed: [k8s-w-0]
+Tuesday 25 August 2026  20:27:18 +0530 (0:00:00.429)       0:01:05.232 ******** 
+Tuesday 25 August 2026  20:27:18 +0530 (0:00:00.070)       0:01:05.302 ******** 
+Tuesday 25 August 2026  20:27:18 +0530 (0:00:00.084)       0:01:05.387 ******** 
+FAILED - RETRYING: [k8s-cp-0]: Reset | stop all cri pods (5 retries left).
+FAILED - RETRYING: [k8s-w-0]: Reset | stop all cri pods (5 retries left).
+FAILED - RETRYING: [k8s-cp-0]: Reset | stop all cri pods (4 retries left).
+FAILED - RETRYING: [k8s-w-0]: Reset | stop all cri pods (4 retries left).
+FAILED - RETRYING: [k8s-cp-0]: Reset | stop all cri pods (3 retries left).
+FAILED - RETRYING: [k8s-w-0]: Reset | stop all cri pods (3 retries left).
+FAILED - RETRYING: [k8s-w-0]: Reset | stop all cri pods (2 retries left).
+FAILED - RETRYING: [k8s-cp-0]: Reset | stop all cri pods (2 retries left).
+FAILED - RETRYING: [k8s-cp-0]: Reset | stop all cri pods (1 retries left).
+FAILED - RETRYING: [k8s-w-0]: Reset | stop all cri pods (1 retries left).
+
+TASK [reset : Reset | stop all cri pods] ***************************************
+fatal: [k8s-cp-0]: FAILED! => {"attempts": 5, "changed": true, "cmd": "set -o pipefail && /usr/local/bin/crictl pods -q | xargs -r /usr/local/bin/crictl -t 60s stopp", "delta": "0:00:00.127363", "end": "2026-08-25 20:27:46.103231", "msg": "non-zero return code", "rc": 123, "start": "2026-08-25 20:27:45.975868", "stderr": "E0825 20:27:46.100412   58879 log.go:32] \"StopPodSandbox from runtime service failed\" err=\"rpc error: code = Unknown desc = failed to destroy network for sandbox \\\"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\" podSandboxID=\"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\"\ntime=\"2026-08-25T20:27:46+05:30\" level=fatal msg=\"stopping the pod sandbox \\\"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\\\": rpc error: code = Unknown desc = failed to destroy network for sandbox \\\"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\"", "stderr_lines": ["E0825 20:27:46.100412   58879 log.go:32] \"StopPodSandbox from runtime service failed\" err=\"rpc error: code = Unknown desc = failed to destroy network for sandbox \\\"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\" podSandboxID=\"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\"", "time=\"2026-08-25T20:27:46+05:30\" level=fatal msg=\"stopping the pod sandbox \\\"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\\\": rpc error: code = Unknown desc = failed to destroy network for sandbox \\\"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\""], "stdout": "", "stdout_lines": []}
+...ignoring
+fatal: [k8s-w-0]: FAILED! => {"attempts": 5, "changed": true, "cmd": "set -o pipefail && /usr/local/bin/crictl pods -q | xargs -r /usr/local/bin/crictl -t 60s stopp", "delta": "0:00:00.127096", "end": "2026-08-25 20:27:46.094768", "msg": "non-zero return code", "rc": 123, "start": "2026-08-25 20:27:45.967672", "stderr": "E0825 20:27:46.092450   62402 log.go:32] \"StopPodSandbox from runtime service failed\" err=\"rpc error: code = Unknown desc = failed to destroy network for sandbox \\\"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\" podSandboxID=\"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\"\ntime=\"2026-08-25T20:27:46+05:30\" level=fatal msg=\"stopping the pod sandbox \\\"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\\\": rpc error: code = Unknown desc = failed to destroy network for sandbox \\\"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\"", "stderr_lines": ["E0825 20:27:46.092450   62402 log.go:32] \"StopPodSandbox from runtime service failed\" err=\"rpc error: code = Unknown desc = failed to destroy network for sandbox \\\"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\" podSandboxID=\"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\"", "time=\"2026-08-25T20:27:46+05:30\" level=fatal msg=\"stopping the pod sandbox \\\"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\\\": rpc error: code = Unknown desc = failed to destroy network for sandbox \\\"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\""], "stdout": "", "stdout_lines": []}
+...ignoring
+Tuesday 25 August 2026  20:27:46 +0530 (0:00:27.451)       0:01:32.838 ******** 
+FAILED - RETRYING: [k8s-cp-0]: Reset | force remove all cri pods (5 retries left).
+FAILED - RETRYING: [k8s-w-0]: Reset | force remove all cri pods (5 retries left).
+FAILED - RETRYING: [k8s-cp-0]: Reset | force remove all cri pods (4 retries left).
+FAILED - RETRYING: [k8s-w-0]: Reset | force remove all cri pods (4 retries left).
+FAILED - RETRYING: [k8s-cp-0]: Reset | force remove all cri pods (3 retries left).
+FAILED - RETRYING: [k8s-w-0]: Reset | force remove all cri pods (3 retries left).
+FAILED - RETRYING: [k8s-cp-0]: Reset | force remove all cri pods (2 retries left).
+FAILED - RETRYING: [k8s-w-0]: Reset | force remove all cri pods (2 retries left).
+FAILED - RETRYING: [k8s-cp-0]: Reset | force remove all cri pods (1 retries left).
+FAILED - RETRYING: [k8s-w-0]: Reset | force remove all cri pods (1 retries left).
+
+TASK [reset : Reset | force remove all cri pods] *******************************
+fatal: [k8s-cp-0]: FAILED! => {"attempts": 5, "changed": true, "cmd": ["/usr/local/bin/crictl", "rmp", "-a", "-f"], "delta": "0:00:00.120817", "end": "2026-08-25 20:28:13.414897", "msg": "non-zero return code", "rc": 1, "start": "2026-08-25 20:28:13.294080", "stderr": "E0825 20:28:13.412175   59403 log.go:32] \"RemovePodSandbox from runtime service failed\" err=\"rpc error: code = Unknown desc = failed to forcibly stop sandbox \\\"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\\\": failed to destroy network for sandbox \\\"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\" podSandboxID=\"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\"\nremoving the pod sandbox \"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\": rpc error: code = Unknown desc = failed to forcibly stop sandbox \"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\": failed to destroy network for sandbox \"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 127.0.0.1:6443: connect: connection refused", "stderr_lines": ["E0825 20:28:13.412175   59403 log.go:32] \"RemovePodSandbox from runtime service failed\" err=\"rpc error: code = Unknown desc = failed to forcibly stop sandbox \\\"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\\\": failed to destroy network for sandbox \\\"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\" podSandboxID=\"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\"", "removing the pod sandbox \"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\": rpc error: code = Unknown desc = failed to forcibly stop sandbox \"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\": failed to destroy network for sandbox \"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 127.0.0.1:6443: connect: connection refused"], "stdout": "", "stdout_lines": []}
+fatal: [k8s-w-0]: FAILED! => {"attempts": 5, "changed": true, "cmd": ["/usr/local/bin/crictl", "rmp", "-a", "-f"], "delta": "0:00:00.127427", "end": "2026-08-25 20:28:13.673984", "msg": "non-zero return code", "rc": 1, "start": "2026-08-25 20:28:13.546557", "stderr": "E0825 20:28:13.651879   63207 log.go:32] \"RemovePodSandbox from runtime service failed\" err=\"rpc error: code = Unknown desc = failed to forcibly stop sandbox \\\"baaba3b512b5c6e10b4f3781f85ffa537719f6442683ec508a3f33625d509387\\\": failed to destroy network for sandbox \\\"baaba3b512b5c6e10b4f3781f85ffa537719f6442683ec508a3f33625d509387\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\" podSandboxID=\"baaba3b512b5c6e10b4f3781f85ffa537719f6442683ec508a3f33625d509387\"\nE0825 20:28:13.652005   63207 log.go:32] \"RemovePodSandbox from runtime service failed\" err=\"rpc error: code = Unknown desc = failed to forcibly stop sandbox \\\"719b440deb9b790e49620d04c3bd7a260dfe7135ff64681e409d6b5f12fefa37\\\": failed to destroy network for sandbox \\\"719b440deb9b790e49620d04c3bd7a260dfe7135ff64681e409d6b5f12fefa37\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\" podSandboxID=\"719b440deb9b790e49620d04c3bd7a260dfe7135ff64681e409d6b5f12fefa37\"\nE0825 20:28:13.659083   63207 log.go:32] \"RemovePodSandbox from runtime service failed\" err=\"rpc error: code = Unknown desc = failed to forcibly stop sandbox \\\"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\\\": failed to destroy network for sandbox \\\"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\" podSandboxID=\"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\"\nE0825 20:28:13.670749   63207 log.go:32] \"RemovePodSandbox from runtime service failed\" err=\"rpc error: code = Unknown desc = failed to forcibly stop sandbox \\\"a56f7f90bd26833aacd2e751d2d98c4724587d2ea7bb56a1059a8145fd187cbc\\\": failed to destroy network for sandbox \\\"a56f7f90bd26833aacd2e751d2d98c4724587d2ea7bb56a1059a8145fd187cbc\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\" podSandboxID=\"a56f7f90bd26833aacd2e751d2d98c4724587d2ea7bb56a1059a8145fd187cbc\"\nremoving the pod sandbox \"baaba3b512b5c6e10b4f3781f85ffa537719f6442683ec508a3f33625d509387\": rpc error: code = Unknown desc = failed to forcibly stop sandbox \"baaba3b512b5c6e10b4f3781f85ffa537719f6442683ec508a3f33625d509387\": failed to destroy network for sandbox \"baaba3b512b5c6e10b4f3781f85ffa537719f6442683ec508a3f33625d509387\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 127.0.0.1:6443: connect: connection refused\nremoving the pod sandbox \"719b440deb9b790e49620d04c3bd7a260dfe7135ff64681e409d6b5f12fefa37\": rpc error: code = Unknown desc = failed to forcibly stop sandbox \"719b440deb9b790e49620d04c3bd7a260dfe7135ff64681e409d6b5f12fefa37\": failed to destroy network for sandbox \"719b440deb9b790e49620d04c3bd7a260dfe7135ff64681e409d6b5f12fefa37\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 127.0.0.1:6443: connect: connection refused\nremoving the pod sandbox \"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\": rpc error: code = Unknown desc = failed to forcibly stop sandbox \"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\": failed to destroy network for sandbox \"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 127.0.0.1:6443: connect: connection refused\nremoving the pod sandbox \"a56f7f90bd26833aacd2e751d2d98c4724587d2ea7bb56a1059a8145fd187cbc\": rpc error: code = Unknown desc = failed to forcibly stop sandbox \"a56f7f90bd26833aacd2e751d2d98c4724587d2ea7bb56a1059a8145fd187cbc\": failed to destroy network for sandbox \"a56f7f90bd26833aacd2e751d2d98c4724587d2ea7bb56a1059a8145fd187cbc\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 127.0.0.1:6443: connect: connection refused", "stderr_lines": ["E0825 20:28:13.651879   63207 log.go:32] \"RemovePodSandbox from runtime service failed\" err=\"rpc error: code = Unknown desc = failed to forcibly stop sandbox \\\"baaba3b512b5c6e10b4f3781f85ffa537719f6442683ec508a3f33625d509387\\\": failed to destroy network for sandbox \\\"baaba3b512b5c6e10b4f3781f85ffa537719f6442683ec508a3f33625d509387\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\" podSandboxID=\"baaba3b512b5c6e10b4f3781f85ffa537719f6442683ec508a3f33625d509387\"", "E0825 20:28:13.652005   63207 log.go:32] \"RemovePodSandbox from runtime service failed\" err=\"rpc error: code = Unknown desc = failed to forcibly stop sandbox \\\"719b440deb9b790e49620d04c3bd7a260dfe7135ff64681e409d6b5f12fefa37\\\": failed to destroy network for sandbox \\\"719b440deb9b790e49620d04c3bd7a260dfe7135ff64681e409d6b5f12fefa37\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\" podSandboxID=\"719b440deb9b790e49620d04c3bd7a260dfe7135ff64681e409d6b5f12fefa37\"", "E0825 20:28:13.659083   63207 log.go:32] \"RemovePodSandbox from runtime service failed\" err=\"rpc error: code = Unknown desc = failed to forcibly stop sandbox \\\"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\\\": failed to destroy network for sandbox \\\"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\" podSandboxID=\"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\"", "E0825 20:28:13.670749   63207 log.go:32] \"RemovePodSandbox from runtime service failed\" err=\"rpc error: code = Unknown desc = failed to forcibly stop sandbox \\\"a56f7f90bd26833aacd2e751d2d98c4724587d2ea7bb56a1059a8145fd187cbc\\\": failed to destroy network for sandbox \\\"a56f7f90bd26833aacd2e751d2d98c4724587d2ea7bb56a1059a8145fd187cbc\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\" podSandboxID=\"a56f7f90bd26833aacd2e751d2d98c4724587d2ea7bb56a1059a8145fd187cbc\"", "removing the pod sandbox \"baaba3b512b5c6e10b4f3781f85ffa537719f6442683ec508a3f33625d509387\": rpc error: code = Unknown desc = failed to forcibly stop sandbox \"baaba3b512b5c6e10b4f3781f85ffa537719f6442683ec508a3f33625d509387\": failed to destroy network for sandbox \"baaba3b512b5c6e10b4f3781f85ffa537719f6442683ec508a3f33625d509387\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 127.0.0.1:6443: connect: connection refused", "removing the pod sandbox \"719b440deb9b790e49620d04c3bd7a260dfe7135ff64681e409d6b5f12fefa37\": rpc error: code = Unknown desc = failed to forcibly stop sandbox \"719b440deb9b790e49620d04c3bd7a260dfe7135ff64681e409d6b5f12fefa37\": failed to destroy network for sandbox \"719b440deb9b790e49620d04c3bd7a260dfe7135ff64681e409d6b5f12fefa37\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 127.0.0.1:6443: connect: connection refused", "removing the pod sandbox \"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\": rpc error: code = Unknown desc = failed to forcibly stop sandbox \"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\": failed to destroy network for sandbox \"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 127.0.0.1:6443: connect: connection refused", "removing the pod sandbox \"a56f7f90bd26833aacd2e751d2d98c4724587d2ea7bb56a1059a8145fd187cbc\": rpc error: code = Unknown desc = failed to forcibly stop sandbox \"a56f7f90bd26833aacd2e751d2d98c4724587d2ea7bb56a1059a8145fd187cbc\": failed to destroy network for sandbox \"a56f7f90bd26833aacd2e751d2d98c4724587d2ea7bb56a1059a8145fd187cbc\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 127.0.0.1:6443: connect: connection refused"], "stdout": "", "stdout_lines": []}
+Tuesday 25 August 2026  20:28:13 +0530 (0:00:27.575)       0:02:00.414 ******** 
+
+TASK [reset : Reset | force remove all cri pods (rescue)] **********************
+fatal: [k8s-cp-0]: FAILED! => {"changed": true, "cmd": "ip netns list | cut -d' ' -f 1 | xargs -n1 ip netns delete && /usr/local/bin/crictl rmp -a -f", "delta": "0:00:00.140540", "end": "2026-08-25 20:28:14.090121", "msg": "non-zero return code", "rc": 1, "start": "2026-08-25 20:28:13.949581", "stderr": "E0825 20:28:14.087024   59442 log.go:32] \"RemovePodSandbox from runtime service failed\" err=\"rpc error: code = Unknown desc = failed to forcibly stop sandbox \\\"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\\\": failed to destroy network for sandbox \\\"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\" podSandboxID=\"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\"\nremoving the pod sandbox \"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\": rpc error: code = Unknown desc = failed to forcibly stop sandbox \"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\": failed to destroy network for sandbox \"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 127.0.0.1:6443: connect: connection refused", "stderr_lines": ["E0825 20:28:14.087024   59442 log.go:32] \"RemovePodSandbox from runtime service failed\" err=\"rpc error: code = Unknown desc = failed to forcibly stop sandbox \\\"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\\\": failed to destroy network for sandbox \\\"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\" podSandboxID=\"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\"", "removing the pod sandbox \"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\": rpc error: code = Unknown desc = failed to forcibly stop sandbox \"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\": failed to destroy network for sandbox \"ce10df6a0ddc298b504f773ee98298c6d6a580e5db548c582e9e367b8a91562a\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 127.0.0.1:6443: connect: connection refused"], "stdout": "", "stdout_lines": []}
+...ignoring
+fatal: [k8s-w-0]: FAILED! => {"changed": true, "cmd": "ip netns list | cut -d' ' -f 1 | xargs -n1 ip netns delete && /usr/local/bin/crictl rmp -a -f", "delta": "0:00:00.226086", "end": "2026-08-25 20:28:14.186593", "msg": "non-zero return code", "rc": 1, "start": "2026-08-25 20:28:13.960507", "stderr": "E0825 20:28:14.168945   63318 log.go:32] \"RemovePodSandbox from runtime service failed\" err=\"rpc error: code = Unknown desc = failed to forcibly stop sandbox \\\"a56f7f90bd26833aacd2e751d2d98c4724587d2ea7bb56a1059a8145fd187cbc\\\": failed to destroy network for sandbox \\\"a56f7f90bd26833aacd2e751d2d98c4724587d2ea7bb56a1059a8145fd187cbc\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\" podSandboxID=\"a56f7f90bd26833aacd2e751d2d98c4724587d2ea7bb56a1059a8145fd187cbc\"\nE0825 20:28:14.180242   63318 log.go:32] \"RemovePodSandbox from runtime service failed\" err=\"rpc error: code = Unknown desc = failed to forcibly stop sandbox \\\"719b440deb9b790e49620d04c3bd7a260dfe7135ff64681e409d6b5f12fefa37\\\": failed to destroy network for sandbox \\\"719b440deb9b790e49620d04c3bd7a260dfe7135ff64681e409d6b5f12fefa37\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\" podSandboxID=\"719b440deb9b790e49620d04c3bd7a260dfe7135ff64681e409d6b5f12fefa37\"\nE0825 20:28:14.180266   63318 log.go:32] \"RemovePodSandbox from runtime service failed\" err=\"rpc error: code = Unknown desc = failed to forcibly stop sandbox \\\"baaba3b512b5c6e10b4f3781f85ffa537719f6442683ec508a3f33625d509387\\\": failed to destroy network for sandbox \\\"baaba3b512b5c6e10b4f3781f85ffa537719f6442683ec508a3f33625d509387\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\" podSandboxID=\"baaba3b512b5c6e10b4f3781f85ffa537719f6442683ec508a3f33625d509387\"\nE0825 20:28:14.184475   63318 log.go:32] \"RemovePodSandbox from runtime service failed\" err=\"rpc error: code = Unknown desc = failed to forcibly stop sandbox \\\"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\\\": failed to destroy network for sandbox \\\"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\" podSandboxID=\"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\"\nremoving the pod sandbox \"a56f7f90bd26833aacd2e751d2d98c4724587d2ea7bb56a1059a8145fd187cbc\": rpc error: code = Unknown desc = failed to forcibly stop sandbox \"a56f7f90bd26833aacd2e751d2d98c4724587d2ea7bb56a1059a8145fd187cbc\": failed to destroy network for sandbox \"a56f7f90bd26833aacd2e751d2d98c4724587d2ea7bb56a1059a8145fd187cbc\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 127.0.0.1:6443: connect: connection refused\nremoving the pod sandbox \"719b440deb9b790e49620d04c3bd7a260dfe7135ff64681e409d6b5f12fefa37\": rpc error: code = Unknown desc = failed to forcibly stop sandbox \"719b440deb9b790e49620d04c3bd7a260dfe7135ff64681e409d6b5f12fefa37\": failed to destroy network for sandbox \"719b440deb9b790e49620d04c3bd7a260dfe7135ff64681e409d6b5f12fefa37\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 127.0.0.1:6443: connect: connection refused\nremoving the pod sandbox \"baaba3b512b5c6e10b4f3781f85ffa537719f6442683ec508a3f33625d509387\": rpc error: code = Unknown desc = failed to forcibly stop sandbox \"baaba3b512b5c6e10b4f3781f85ffa537719f6442683ec508a3f33625d509387\": failed to destroy network for sandbox \"baaba3b512b5c6e10b4f3781f85ffa537719f6442683ec508a3f33625d509387\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 127.0.0.1:6443: connect: connection refused\nremoving the pod sandbox \"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\": rpc error: code = Unknown desc = failed to forcibly stop sandbox \"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\": failed to destroy network for sandbox \"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 127.0.0.1:6443: connect: connection refused", "stderr_lines": ["E0825 20:28:14.168945   63318 log.go:32] \"RemovePodSandbox from runtime service failed\" err=\"rpc error: code = Unknown desc = failed to forcibly stop sandbox \\\"a56f7f90bd26833aacd2e751d2d98c4724587d2ea7bb56a1059a8145fd187cbc\\\": failed to destroy network for sandbox \\\"a56f7f90bd26833aacd2e751d2d98c4724587d2ea7bb56a1059a8145fd187cbc\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\" podSandboxID=\"a56f7f90bd26833aacd2e751d2d98c4724587d2ea7bb56a1059a8145fd187cbc\"", "E0825 20:28:14.180242   63318 log.go:32] \"RemovePodSandbox from runtime service failed\" err=\"rpc error: code = Unknown desc = failed to forcibly stop sandbox \\\"719b440deb9b790e49620d04c3bd7a260dfe7135ff64681e409d6b5f12fefa37\\\": failed to destroy network for sandbox \\\"719b440deb9b790e49620d04c3bd7a260dfe7135ff64681e409d6b5f12fefa37\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\" podSandboxID=\"719b440deb9b790e49620d04c3bd7a260dfe7135ff64681e409d6b5f12fefa37\"", "E0825 20:28:14.180266   63318 log.go:32] \"RemovePodSandbox from runtime service failed\" err=\"rpc error: code = Unknown desc = failed to forcibly stop sandbox \\\"baaba3b512b5c6e10b4f3781f85ffa537719f6442683ec508a3f33625d509387\\\": failed to destroy network for sandbox \\\"baaba3b512b5c6e10b4f3781f85ffa537719f6442683ec508a3f33625d509387\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\" podSandboxID=\"baaba3b512b5c6e10b4f3781f85ffa537719f6442683ec508a3f33625d509387\"", "E0825 20:28:14.184475   63318 log.go:32] \"RemovePodSandbox from runtime service failed\" err=\"rpc error: code = Unknown desc = failed to forcibly stop sandbox \\\"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\\\": failed to destroy network for sandbox \\\"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\\\": plugin type=\\\"calico\\\" failed (delete): error getting ClusterInformation: Get \\\"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\\\": dial tcp 127.0.0.1:6443: connect: connection refused\" podSandboxID=\"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\"", "removing the pod sandbox \"a56f7f90bd26833aacd2e751d2d98c4724587d2ea7bb56a1059a8145fd187cbc\": rpc error: code = Unknown desc = failed to forcibly stop sandbox \"a56f7f90bd26833aacd2e751d2d98c4724587d2ea7bb56a1059a8145fd187cbc\": failed to destroy network for sandbox \"a56f7f90bd26833aacd2e751d2d98c4724587d2ea7bb56a1059a8145fd187cbc\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 127.0.0.1:6443: connect: connection refused", "removing the pod sandbox \"719b440deb9b790e49620d04c3bd7a260dfe7135ff64681e409d6b5f12fefa37\": rpc error: code = Unknown desc = failed to forcibly stop sandbox \"719b440deb9b790e49620d04c3bd7a260dfe7135ff64681e409d6b5f12fefa37\": failed to destroy network for sandbox \"719b440deb9b790e49620d04c3bd7a260dfe7135ff64681e409d6b5f12fefa37\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 127.0.0.1:6443: connect: connection refused", "removing the pod sandbox \"baaba3b512b5c6e10b4f3781f85ffa537719f6442683ec508a3f33625d509387\": rpc error: code = Unknown desc = failed to forcibly stop sandbox \"baaba3b512b5c6e10b4f3781f85ffa537719f6442683ec508a3f33625d509387\": failed to destroy network for sandbox \"baaba3b512b5c6e10b4f3781f85ffa537719f6442683ec508a3f33625d509387\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 127.0.0.1:6443: connect: connection refused", "removing the pod sandbox \"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\": rpc error: code = Unknown desc = failed to forcibly stop sandbox \"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\": failed to destroy network for sandbox \"5f5c9bb05a56e7baca43834e6a2e83dae14a9e694c9a475962eade89413db4e0\": plugin type=\"calico\" failed (delete): error getting ClusterInformation: Get \"https://localhost:6443/apis/crd.projectcalico.org/v1/clusterinformations/default\": dial tcp 127.0.0.1:6443: connect: connection refused"], "stdout": "", "stdout_lines": []}
+...ignoring
+Tuesday 25 August 2026  20:28:14 +0530 (0:00:00.520)       0:02:00.935 ******** 
+
+TASK [reset : Reset | stop containerd and etcd services] ***********************
+changed: [k8s-w-0] => (item=containerd.service)
+changed: [k8s-cp-0] => (item=containerd.service)
+ok: [k8s-w-0] => (item=etcd.service)
+ok: [k8s-w-0] => (item=etcd-events.service)
+changed: [k8s-cp-0] => (item=etcd.service)
+ok: [k8s-cp-0] => (item=etcd-events.service)
+Tuesday 25 August 2026  20:28:16 +0530 (0:00:02.602)       0:02:03.537 ******** 
+
+TASK [reset : Reset | remove containerd and etcd services] *********************
+changed: [k8s-cp-0] => (item=containerd.service)
+changed: [k8s-w-0] => (item=containerd.service)
+changed: [k8s-cp-0] => (item=etcd.service)
+ok: [k8s-w-0] => (item=etcd.service)
+ok: [k8s-cp-0] => (item=etcd-events.service)
+ok: [k8s-w-0] => (item=etcd-events.service)
+Tuesday 25 August 2026  20:28:17 +0530 (0:00:01.074)       0:02:04.612 ******** 
+
+TASK [reset : Reset | systemctl daemon-reload] *********************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:28:18 +0530 (0:00:00.970)       0:02:05.583 ******** 
+
+TASK [reset : Reset | gather mounted kubelet dirs] *****************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:28:19 +0530 (0:00:00.325)       0:02:05.908 ******** 
+
+TASK [reset : Reset | unmount kubelet dirs] ************************************
+changed: [k8s-cp-0] => (item=/var/lib/kubelet/pods/16a15046-23b8-49bf-a7bf-42594ec574f9/volumes/kubernetes.io~projected/kube-api-access-v8gmg)
+changed: [k8s-w-0] => (item=/var/lib/kubelet/pods/c8c884dc-6c33-4e02-be1c-1b8891cdd5cf/volumes/kubernetes.io~projected/kube-api-access-rfc8s)
+changed: [k8s-cp-0] => (item=/var/lib/kubelet/pods/f006584f-1407-4b7f-b34c-982a8ef0ed73/volumes/kubernetes.io~projected/kube-api-access-hjvc7)
+changed: [k8s-w-0] => (item=/var/lib/kubelet/pods/ef33cf3b-3c43-43f4-8f24-b25e0c3c4b5c/volumes/kubernetes.io~projected/kube-api-access-vl9ms)
+changed: [k8s-cp-0] => (item=/var/lib/kubelet/pods/063ae7b9-52d9-4993-ad23-0e68184cfc9c/volumes/kubernetes.io~projected/kube-api-access-qqrpn)
+changed: [k8s-w-0] => (item=/var/lib/kubelet/pods/d42ea73e-46b7-4284-a954-0aff25aec098/volumes/kubernetes.io~projected/kube-api-access-5c5w9)
+changed: [k8s-cp-0] => (item=/var/lib/kubelet/pods/e318bd6c-3f1f-40c4-8ad0-d28652e90b2c/volumes/kubernetes.io~projected/kube-api-access-mgrkf)
+changed: [k8s-w-0] => (item=/var/lib/kubelet/pods/e31202ba-9f88-43c2-8fc5-cc695dcb15c7/volumes/kubernetes.io~projected/kube-api-access-j8znt)
+changed: [k8s-w-0] => (item=/var/lib/kubelet/pods/bf2b6c06-decf-4ab7-b547-3a69ec0e817c/volumes/kubernetes.io~projected/kube-api-access-2fhk5)
+changed: [k8s-w-0] => (item=/var/lib/kubelet/pods/0a6ee79f-1521-4bea-a5f7-f133888b1c53/volumes/kubernetes.io~projected/kube-api-access-h5gz6)
+changed: [k8s-w-0] => (item=/var/lib/kubelet/pods/960ff869-3cf1-4591-bdf5-d256d301e3ce/volumes/kubernetes.io~projected/kube-api-access-2kzq2)
+Tuesday 25 August 2026  20:28:20 +0530 (0:00:01.685)       0:02:07.593 ******** 
+
+TASK [reset : Set IPv4 iptables default policies to ACCEPT] ********************
+ok: [k8s-cp-0] => (item=INPUT)
+ok: [k8s-w-0] => (item=INPUT)
+ok: [k8s-cp-0] => (item=FORWARD)
+ok: [k8s-w-0] => (item=FORWARD)
+ok: [k8s-cp-0] => (item=OUTPUT)
+ok: [k8s-w-0] => (item=OUTPUT)
+Tuesday 25 August 2026  20:28:21 +0530 (0:00:00.926)       0:02:08.520 ******** 
+
+TASK [reset : Flush iptables] **************************************************
+changed: [k8s-cp-0] => (item=filter)
+changed: [k8s-w-0] => (item=filter)
+changed: [k8s-cp-0] => (item=nat)
+changed: [k8s-w-0] => (item=nat)
+changed: [k8s-cp-0] => (item=mangle)
+changed: [k8s-w-0] => (item=mangle)
+changed: [k8s-cp-0] => (item=raw)
+changed: [k8s-w-0] => (item=raw)
+Tuesday 25 August 2026  20:28:22 +0530 (0:00:01.120)       0:02:09.640 ******** 
+
+TASK [reset : Delete IPv4 user-defined chains] *********************************
+changed: [k8s-cp-0]
+changed: [k8s-w-0]
+Tuesday 25 August 2026  20:28:23 +0530 (0:00:00.301)       0:02:09.941 ******** 
+Tuesday 25 August 2026  20:28:23 +0530 (0:00:00.072)       0:02:10.014 ******** 
+Tuesday 25 August 2026  20:28:23 +0530 (0:00:00.083)       0:02:10.097 ******** 
+Tuesday 25 August 2026  20:28:23 +0530 (0:00:00.064)       0:02:10.161 ******** 
+
+TASK [reset : Clear IPVS virtual server table] *********************************
+changed: [k8s-cp-0]
+changed: [k8s-w-0]
+Tuesday 25 August 2026  20:28:23 +0530 (0:00:00.312)       0:02:10.474 ******** 
+
+TASK [reset : Reset | check kube-ipvs0 network device] *************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:28:24 +0530 (0:00:00.288)       0:02:10.763 ******** 
+
+TASK [reset : Reset | Remove kube-ipvs0] ***************************************
+changed: [k8s-cp-0]
+changed: [k8s-w-0]
+Tuesday 25 August 2026  20:28:24 +0530 (0:00:00.387)       0:02:11.151 ******** 
+
+TASK [reset : Reset | check nodelocaldns network device] ***********************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:28:24 +0530 (0:00:00.283)       0:02:11.434 ******** 
+
+TASK [reset : Reset | Remove nodelocaldns] *************************************
+changed: [k8s-cp-0]
+changed: [k8s-w-0]
+Tuesday 25 August 2026  20:28:25 +0530 (0:00:00.303)       0:02:11.738 ******** 
+
+TASK [reset : Reset | Check whether /var/lib/kubelet directory exists] *********
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:28:25 +0530 (0:00:00.289)       0:02:12.027 ******** 
+
+TASK [reset : Reset | Find files/dirs with immutable flag in /var/lib/kubelet] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:28:25 +0530 (0:00:00.347)       0:02:12.375 ******** 
+Tuesday 25 August 2026  20:28:25 +0530 (0:00:00.072)       0:02:12.448 ******** 
+
+TASK [reset : Reset | delete some files and directories] ***********************
+changed: [k8s-cp-0] => (item=/etc/kubernetes)
+changed: [k8s-w-0] => (item=/etc/kubernetes)
+changed: [k8s-cp-0] => (item=/var/lib/kubelet)
+changed: [k8s-w-0] => (item=/var/lib/kubelet)
+changed: [k8s-w-0] => (item=/var/lib/containerd)
+changed: [k8s-cp-0] => (item=/var/lib/containerd)
+ok: [k8s-w-0] => (item=/root/.kube)
+ok: [k8s-w-0] => (item=/root/.helm)
+ok: [k8s-w-0] => (item=/root/.config/helm)
+changed: [k8s-cp-0] => (item=/root/.kube)
+ok: [k8s-w-0] => (item=/root/.cache/helm)
+ok: [k8s-cp-0] => (item=/root/.helm)
+ok: [k8s-w-0] => (item=/root/.local/share/helm)
+changed: [k8s-cp-0] => (item=/root/.config/helm)
+ok: [k8s-w-0] => (item=/var/lib/etcd)
+changed: [k8s-cp-0] => (item=/root/.cache/helm)
+ok: [k8s-w-0] => (item=/var/lib/etcd-events)
+changed: [k8s-cp-0] => (item=/root/.local/share/helm)
+ok: [k8s-w-0] => (item=/etc/ssl/etcd)
+changed: [k8s-cp-0] => (item=/var/lib/etcd)
+changed: [k8s-w-0] => (item=/var/log/calico)
+ok: [k8s-cp-0] => (item=/var/lib/etcd-events)
+ok: [k8s-w-0] => (item=/var/log/openvswitch)
+changed: [k8s-cp-0] => (item=/etc/ssl/etcd)
+ok: [k8s-w-0] => (item=/var/log/ovn)
+changed: [k8s-cp-0] => (item=/var/log/calico)
+ok: [k8s-w-0] => (item=/var/log/kube-ovn)
+ok: [k8s-cp-0] => (item=/var/log/openvswitch)
+changed: [k8s-w-0] => (item=/var/log/containers)
+ok: [k8s-cp-0] => (item=/var/log/ovn)
+changed: [k8s-w-0] => (item=/etc/cni)
+ok: [k8s-cp-0] => (item=/var/log/kube-ovn)
+changed: [k8s-w-0] => (item=/etc/nerdctl)
+changed: [k8s-cp-0] => (item=/var/log/containers)
+changed: [k8s-w-0] => (item=/etc/nginx)
+changed: [k8s-cp-0] => (item=/etc/cni)
+changed: [k8s-w-0] => (item=/etc/systemd/resolved.conf.d/kubespray.conf)
+changed: [k8s-cp-0] => (item=/etc/nerdctl)
+ok: [k8s-w-0] => (item=/etc/etcd.env)
+ok: [k8s-cp-0] => (item=/etc/nginx)
+ok: [k8s-w-0] => (item=/etc/calico)
+changed: [k8s-cp-0] => (item=/etc/systemd/resolved.conf.d/kubespray.conf)
+changed: [k8s-w-0] => (item=/etc/NetworkManager/conf.d/calico.conf)
+changed: [k8s-w-0] => (item=/etc/NetworkManager/conf.d/dns.conf)
+changed: [k8s-cp-0] => (item=/etc/etcd.env)
+changed: [k8s-w-0] => (item=/etc/NetworkManager/conf.d/k8s.conf)
+ok: [k8s-cp-0] => (item=/etc/calico)
+changed: [k8s-w-0] => (item=/opt/cni)
+changed: [k8s-cp-0] => (item=/etc/NetworkManager/conf.d/calico.conf)
+ok: [k8s-w-0] => (item=/etc/dhcp/dhclient.d/zdnsupdate.sh)
+changed: [k8s-cp-0] => (item=/etc/NetworkManager/conf.d/dns.conf)
+ok: [k8s-w-0] => (item=/etc/dhcp/dhclient-exit-hooks.d/zdnsupdate)
+changed: [k8s-cp-0] => (item=/etc/NetworkManager/conf.d/k8s.conf)
+ok: [k8s-w-0] => (item=/run/flannel)
+ok: [k8s-w-0] => (item=/etc/flannel)
+changed: [k8s-cp-0] => (item=/opt/cni)
+ok: [k8s-w-0] => (item=/run/kubernetes)
+ok: [k8s-cp-0] => (item=/etc/dhcp/dhclient.d/zdnsupdate.sh)
+ok: [k8s-w-0] => (item=/usr/local/share/ca-certificates/etcd-ca.crt)
+ok: [k8s-cp-0] => (item=/etc/dhcp/dhclient-exit-hooks.d/zdnsupdate)
+ok: [k8s-w-0] => (item=/usr/local/share/ca-certificates/kube-ca.crt)
+ok: [k8s-cp-0] => (item=/run/flannel)
+ok: [k8s-w-0] => (item=/etc/ssl/certs/etcd-ca.pem)
+ok: [k8s-cp-0] => (item=/etc/flannel)
+ok: [k8s-w-0] => (item=/etc/ssl/certs/kube-ca.pem)
+ok: [k8s-cp-0] => (item=/run/kubernetes)
+ok: [k8s-w-0] => (item=/etc/pki/ca-trust/source/anchors/etcd-ca.crt)
+changed: [k8s-cp-0] => (item=/usr/local/share/ca-certificates/etcd-ca.crt)
+ok: [k8s-w-0] => (item=/etc/pki/ca-trust/source/anchors/kube-ca.crt)
+ok: [k8s-cp-0] => (item=/usr/local/share/ca-certificates/kube-ca.crt)
+changed: [k8s-w-0] => (item=/var/log/pods/)
+changed: [k8s-cp-0] => (item=/etc/ssl/certs/etcd-ca.pem)
+ok: [k8s-cp-0] => (item=/etc/ssl/certs/kube-ca.pem)
+changed: [k8s-w-0] => (item=/usr/local/bin/kubelet)
+ok: [k8s-cp-0] => (item=/etc/pki/ca-trust/source/anchors/etcd-ca.crt)
+ok: [k8s-w-0] => (item=/usr/local/bin/cri-dockerd)
+ok: [k8s-w-0] => (item=/usr/local/bin/etcd-scripts)
+ok: [k8s-cp-0] => (item=/etc/pki/ca-trust/source/anchors/kube-ca.crt)
+ok: [k8s-w-0] => (item=/usr/local/bin/etcd)
+changed: [k8s-cp-0] => (item=/var/log/pods/)
+ok: [k8s-w-0] => (item=/usr/local/bin/etcd-events)
+changed: [k8s-cp-0] => (item=/usr/local/bin/kubelet)
+ok: [k8s-w-0] => (item=/usr/local/bin/etcdctl)
+ok: [k8s-cp-0] => (item=/usr/local/bin/cri-dockerd)
+ok: [k8s-w-0] => (item=/usr/local/bin/etcdctl.sh)
+changed: [k8s-cp-0] => (item=/usr/local/bin/etcd-scripts)
+changed: [k8s-w-0] => (item=/usr/local/bin/kubernetes-scripts)
+changed: [k8s-cp-0] => (item=/usr/local/bin/etcd)
+ok: [k8s-w-0] => (item=/usr/local/bin/kubectl)
+ok: [k8s-cp-0] => (item=/usr/local/bin/etcd-events)
+changed: [k8s-w-0] => (item=/usr/local/bin/kubeadm)
+changed: [k8s-cp-0] => (item=/usr/local/bin/etcdctl)
+ok: [k8s-w-0] => (item=/usr/local/bin/helm)
+changed: [k8s-cp-0] => (item=/usr/local/bin/etcdctl.sh)
+changed: [k8s-w-0] => (item=/usr/local/bin/calicoctl)
+changed: [k8s-cp-0] => (item=/usr/local/bin/kubernetes-scripts)
+changed: [k8s-w-0] => (item=/usr/local/bin/calicoctl.sh)
+changed: [k8s-cp-0] => (item=/usr/local/bin/kubectl)
+ok: [k8s-w-0] => (item=/usr/local/bin/calico-upgrade)
+changed: [k8s-cp-0] => (item=/usr/local/bin/kubeadm)
+changed: [k8s-w-0] => (item=/usr/local/bin/crictl)
+changed: [k8s-cp-0] => (item=/usr/local/bin/helm)
+changed: [k8s-w-0] => (item=/usr/local/bin/nerdctl)
+changed: [k8s-cp-0] => (item=/usr/local/bin/calicoctl)
+ok: [k8s-w-0] => (item=/usr/local/bin/netctl)
+changed: [k8s-cp-0] => (item=/usr/local/bin/calicoctl.sh)
+ok: [k8s-w-0] => (item=/usr/local/bin/k8s-certs-renew.sh)
+ok: [k8s-cp-0] => (item=/usr/local/bin/calico-upgrade)
+changed: [k8s-w-0] => (item=/var/lib/cni)
+changed: [k8s-cp-0] => (item=/usr/local/bin/crictl)
+ok: [k8s-w-0] => (item=/etc/openvswitch)
+changed: [k8s-cp-0] => (item=/usr/local/bin/nerdctl)
+ok: [k8s-w-0] => (item=/run/openvswitch)
+ok: [k8s-cp-0] => (item=/usr/local/bin/netctl)
+ok: [k8s-w-0] => (item=/var/lib/kube-router)
+changed: [k8s-cp-0] => (item=/usr/local/bin/k8s-certs-renew.sh)
+changed: [k8s-w-0] => (item=/var/lib/calico)
+changed: [k8s-cp-0] => (item=/var/lib/cni)
+ok: [k8s-w-0] => (item=/etc/cilium)
+ok: [k8s-cp-0] => (item=/etc/openvswitch)
+failed: [k8s-w-0] (item=/run/calico) => {"ansible_loop_var": "item", "changed": false, "item": "/run/calico", "msg": "rmtree failed: [Errno 1] Operation not permitted: '/run/calico/cgroup'"}
+ok: [k8s-cp-0] => (item=/run/openvswitch)
+ok: [k8s-w-0] => (item=/etc/bash_completion.d/kubectl.sh)
+ok: [k8s-cp-0] => (item=/var/lib/kube-router)
+changed: [k8s-w-0] => (item=/etc/bash_completion.d/crictl)
+changed: [k8s-cp-0] => (item=/var/lib/calico)
+changed: [k8s-w-0] => (item=/etc/bash_completion.d/nerdctl)
+ok: [k8s-cp-0] => (item=/etc/cilium)
+ok: [k8s-w-0] => (item=/etc/modules-load.d/kube_proxy-ipvs.conf)
+failed: [k8s-cp-0] (item=/run/calico) => {"ansible_loop_var": "item", "changed": false, "item": "/run/calico", "msg": "rmtree failed: [Errno 1] Operation not permitted: '/run/calico/cgroup'"}
+changed: [k8s-w-0] => (item=/etc/modules-load.d/kubespray-br_netfilter.conf)
+changed: [k8s-cp-0] => (item=/etc/bash_completion.d/kubectl.sh)
+ok: [k8s-w-0] => (item=/etc/modules-load.d/kubespray-kata-containers.conf)
+changed: [k8s-cp-0] => (item=/etc/bash_completion.d/crictl)
+changed: [k8s-w-0] => (item=/usr/libexec/kubernetes)
+changed: [k8s-cp-0] => (item=/etc/bash_completion.d/nerdctl)
+ok: [k8s-w-0] => (item=/etc/origin/openvswitch)
+ok: [k8s-cp-0] => (item=/etc/modules-load.d/kube_proxy-ipvs.conf)
+ok: [k8s-w-0] => (item=/etc/origin/ovn)
+changed: [k8s-cp-0] => (item=/etc/modules-load.d/kubespray-br_netfilter.conf)
+changed: [k8s-w-0] => (item=/etc/sysctl.d/99-sysctl.conf)
+ok: [k8s-cp-0] => (item=/etc/modules-load.d/kubespray-kata-containers.conf)
+changed: [k8s-w-0] => (item=/etc/crictl.yaml)
+...ignoring
+changed: [k8s-cp-0] => (item=/usr/libexec/kubernetes)
+ok: [k8s-cp-0] => (item=/etc/origin/openvswitch)
+ok: [k8s-cp-0] => (item=/etc/origin/ovn)
+changed: [k8s-cp-0] => (item=/etc/sysctl.d/99-sysctl.conf)
+changed: [k8s-cp-0] => (item=/etc/crictl.yaml)
+...ignoring
+Tuesday 25 August 2026  20:28:47 +0530 (0:00:22.045)       0:02:34.494 ******** 
+
+TASK [reset : Reset | remove containerd binary files] **************************
+changed: [k8s-cp-0] => (item=containerd)
+changed: [k8s-w-0] => (item=containerd)
+ok: [k8s-cp-0] => (item=containerd-shim)
+ok: [k8s-w-0] => (item=containerd-shim)
+ok: [k8s-w-0] => (item=containerd-shim-runc-v1)
+ok: [k8s-cp-0] => (item=containerd-shim-runc-v1)
+changed: [k8s-w-0] => (item=containerd-shim-runc-v2)
+changed: [k8s-cp-0] => (item=containerd-shim-runc-v2)
+changed: [k8s-w-0] => (item=containerd-stress)
+changed: [k8s-cp-0] => (item=containerd-stress)
+ok: [k8s-w-0] => (item=crictl)
+ok: [k8s-cp-0] => (item=crictl)
+ok: [k8s-w-0] => (item=critest)
+ok: [k8s-cp-0] => (item=critest)
+ok: [k8s-w-0] => (item=ctd-decoder)
+ok: [k8s-cp-0] => (item=ctd-decoder)
+changed: [k8s-w-0] => (item=ctr)
+changed: [k8s-cp-0] => (item=ctr)
+changed: [k8s-w-0] => (item=runc)
+changed: [k8s-cp-0] => (item=runc)
+Tuesday 25 August 2026  20:28:50 +0530 (0:00:02.903)       0:02:37.397 ******** 
+
+TASK [reset : Reset | remove dns settings from dhclient.conf] ******************
+ok: [k8s-cp-0] => (item=/etc/dhclient.conf)
+ok: [k8s-w-0] => (item=/etc/dhclient.conf)
+ok: [k8s-w-0] => (item=/etc/dhcp/dhclient.conf)
+ok: [k8s-cp-0] => (item=/etc/dhcp/dhclient.conf)
+Tuesday 25 August 2026  20:28:51 +0530 (0:00:00.673)       0:02:38.071 ******** 
+
+TASK [Reset | include file with reset tasks specific to the network_plugin if exists] ***
+included: network_plugin/calico for k8s-cp-0, k8s-w-0
+Tuesday 25 August 2026  20:28:51 +0530 (0:00:00.124)       0:02:38.196 ******** 
+
+TASK [network_plugin/calico : Reset | check vxlan.calico network device] *******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:28:51 +0530 (0:00:00.285)       0:02:38.481 ******** 
+
+TASK [network_plugin/calico : Reset | remove the network vxlan.calico device created by calico] ***
+changed: [k8s-cp-0]
+changed: [k8s-w-0]
+Tuesday 25 August 2026  20:28:52 +0530 (0:00:00.335)       0:02:38.816 ******** 
+
+TASK [network_plugin/calico : Reset | check dummy0 network device] *************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:28:52 +0530 (0:00:00.302)       0:02:39.119 ******** 
+Tuesday 25 August 2026  20:28:52 +0530 (0:00:00.051)       0:02:39.171 ******** 
+
+TASK [network_plugin/calico : Reset | get and remove remaining routes set by bird] ***
+ok: [k8s-w-0]
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:28:52 +0530 (0:00:00.376)       0:02:39.547 ******** 
+
+TASK [reset : Gather active network services] **********************************
+ok: [k8s-cp-0] => (item=NetworkManager)
+ok: [k8s-w-0] => (item=NetworkManager)
+ok: [k8s-cp-0] => (item=systemd-networkd)
+ok: [k8s-w-0] => (item=systemd-networkd)
+ok: [k8s-cp-0] => (item=networking)
+ok: [k8s-w-0] => (item=networking)
+ok: [k8s-cp-0] => (item=network)
+ok: [k8s-w-0] => (item=network)
+Tuesday 25 August 2026  20:28:54 +0530 (0:00:01.777)       0:02:41.324 ******** 
+
+TASK [reset : Restart active network services] *********************************
+changed: [k8s-cp-0] => (item=NetworkManager)
+changed: [k8s-w-0] => (item=NetworkManager)
+
+PLAY RECAP *********************************************************************
+k8s-cp-0                   : ok=136  changed=24   unreachable=0    failed=0    skipped=91   rescued=1    ignored=3   
+k8s-w-0                    : ok=107  changed=23   unreachable=0    failed=0    skipped=75   rescued=1    ignored=3   
+
+Tuesday 25 August 2026  20:28:55 +0530 (0:00:00.772)       0:02:42.096 ******** 
+=============================================================================== 
+reset : Reset | force remove all cri pods ------------------------------ 27.58s
+reset : Reset | stop all cri pods -------------------------------------- 27.45s
+reset : Reset | delete some files and directories ---------------------- 22.05s
+Gather information about installed services ----------------------------- 7.56s
+reset : Reset | remove containerd binary files -------------------------- 2.90s
+reset : Reset | stop containerd and etcd services ----------------------- 2.60s
+reset : Reset | stop services ------------------------------------------- 2.34s
+reset : Reset | remove services ----------------------------------------- 2.31s
+system_packages : Gather OS information --------------------------------- 2.04s
+kubernetes/preinstall : Ensure kubelet expected parameters are set ------ 1.98s
+system_packages : Manage packages --------------------------------------- 1.84s
+Gather necessary facts (network) ---------------------------------------- 1.83s
+reset : Gather active network services ---------------------------------- 1.78s
+reset : Reset | unmount kubelet dirs ------------------------------------ 1.69s
+reset : Reset | stop all cri containers --------------------------------- 1.42s
+kubernetes/preinstall : Create kubernetes directories ------------------- 1.34s
+reset : Flush iptables -------------------------------------------------- 1.12s
+Gather necessary facts (hardware) --------------------------------------- 1.10s
+kubernetes/preinstall : Preinstall | reload NetworkManager -------------- 1.09s
+reset : Reset | remove containerd and etcd services --------------------- 1.07s

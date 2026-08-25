@@ -1,0 +1,13 @@
+# never commit generated cluster credentials
+inventory/*/credentials/
+*.creds
+*.pem
+*.key
+admin.conf
+kubeconfig
+
+# local python venv
+.venv/
+__pycache__/
+
+*.retry

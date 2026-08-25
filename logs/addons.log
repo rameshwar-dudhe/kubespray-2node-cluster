@@ -1,0 +1,2037 @@
+
+PLAY [Check Ansible version] ***************************************************
+Tuesday 25 August 2026  20:02:24 +0530 (0:00:00.028)       0:00:00.028 ******** 
+
+TASK [Check 2.18.0 <= Ansible version < 2.19.0] ********************************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:02:24 +0530 (0:00:00.051)       0:00:00.080 ******** 
+
+TASK [Check that python netaddr is installed] **********************************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:02:24 +0530 (0:00:00.110)       0:00:00.190 ******** 
+
+TASK [Check that jinja is not too old (install via pip)] ***********************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+PLAY [Inventory setup and validation] ******************************************
+Tuesday 25 August 2026  20:02:24 +0530 (0:00:00.082)       0:00:00.272 ******** 
+
+TASK [dynamic_groups : Match needed groups by their old names or definition] ***
+ok: [k8s-cp-0] => (item={'key': 'k8s_cluster', 'value': ['kube_node', 'kube_control_plane', 'calico_rr']})
+ok: [k8s-w-0] => (item={'key': 'k8s_cluster', 'value': ['kube_node', 'kube_control_plane', 'calico_rr']})
+Tuesday 25 August 2026  20:02:24 +0530 (0:00:00.161)       0:00:00.433 ******** 
+
+TASK [validate_inventory : Fail if removed variables are used] *****************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:02:24 +0530 (0:00:00.059)       0:00:00.493 ******** 
+
+TASK [validate_inventory : Stop if kube_control_plane group is empty] **********
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:02:24 +0530 (0:00:00.059)       0:00:00.552 ******** 
+
+TASK [validate_inventory : Stop if etcd group is empty in external etcd mode] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:02:24 +0530 (0:00:00.058)       0:00:00.610 ******** 
+Tuesday 25 August 2026  20:02:24 +0530 (0:00:00.062)       0:00:00.673 ******** 
+
+TASK [validate_inventory : Stop if unsupported version of Kubernetes] **********
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [k8s-w-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:02:24 +0530 (0:00:00.096)       0:00:00.769 ******** 
+
+TASK [validate_inventory : Stop if known booleans are set as strings (Use JSON format on CLI: -e "{'key': true }")] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:02:24 +0530 (0:00:00.071)       0:00:00.841 ******** 
+
+TASK [validate_inventory : Stop if even number of etcd hosts] ******************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:02:24 +0530 (0:00:00.062)       0:00:00.903 ******** 
+Tuesday 25 August 2026  20:02:25 +0530 (0:00:00.066)       0:00:00.970 ******** 
+Tuesday 25 August 2026  20:02:25 +0530 (0:00:00.064)       0:00:01.034 ******** 
+Tuesday 25 August 2026  20:02:25 +0530 (0:00:00.064)       0:00:01.099 ******** 
+
+TASK [validate_inventory : Check that kube_service_addresses is a network range] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:02:25 +0530 (0:00:00.099)       0:00:01.198 ******** 
+
+TASK [validate_inventory : Check that kube_pods_subnet is a network range] *****
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:02:25 +0530 (0:00:00.102)       0:00:01.301 ******** 
+
+TASK [validate_inventory : Check that kube_pods_subnet does not collide with kube_service_addresses] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:02:25 +0530 (0:00:00.117)       0:00:01.418 ******** 
+Tuesday 25 August 2026  20:02:25 +0530 (0:00:00.050)       0:00:01.469 ******** 
+Tuesday 25 August 2026  20:02:25 +0530 (0:00:00.052)       0:00:01.522 ******** 
+Tuesday 25 August 2026  20:02:25 +0530 (0:00:00.057)       0:00:01.579 ******** 
+Tuesday 25 August 2026  20:02:25 +0530 (0:00:00.133)       0:00:01.713 ******** 
+Tuesday 25 August 2026  20:02:25 +0530 (0:00:00.047)       0:00:01.761 ******** 
+
+TASK [validate_inventory : Stop if unsupported options selected] ***************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:02:25 +0530 (0:00:00.065)       0:00:01.826 ******** 
+Tuesday 25 August 2026  20:02:25 +0530 (0:00:00.075)       0:00:01.902 ******** 
+Tuesday 25 August 2026  20:02:26 +0530 (0:00:00.065)       0:00:01.968 ******** 
+Tuesday 25 August 2026  20:02:26 +0530 (0:00:00.069)       0:00:02.037 ******** 
+Tuesday 25 August 2026  20:02:26 +0530 (0:00:00.084)       0:00:02.122 ******** 
+
+TASK [validate_inventory : Ensure minimum containerd version] ******************
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+Tuesday 25 August 2026  20:02:26 +0530 (0:00:00.072)       0:00:02.194 ******** 
+Tuesday 25 August 2026  20:02:26 +0530 (0:00:00.066)       0:00:02.261 ******** 
+[WARNING]: Could not match supplied host pattern, ignoring: bastion
+[WARNING]: Could not match supplied host pattern, ignoring: calico_rr
+
+TASK [validate_inventory : Download_file | Check if requested Kubernetes are supported] ***
+ok: [k8s-cp-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+ok: [k8s-w-0] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+PLAY [Install bastion ssh config] **********************************************
+skipping: no hosts matched
+
+PLAY [Bootstrap hosts for Ansible] *********************************************
+
+PLAY [Gather facts] ************************************************************
+Tuesday 25 August 2026  20:02:26 +0530 (0:00:00.315)       0:00:02.576 ******** 
+Tuesday 25 August 2026  20:02:26 +0530 (0:00:00.081)       0:00:02.658 ******** 
+
+TASK [network_facts : Set computed IPs variables] ******************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:02:26 +0530 (0:00:00.115)       0:00:02.773 ******** 
+Tuesday 25 August 2026  20:02:26 +0530 (0:00:00.080)       0:00:02.853 ******** 
+
+TASK [Gather minimal facts] ****************************************************
+ok: [k8s-w-0]
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:02:27 +0530 (0:00:00.814)       0:00:03.668 ******** 
+
+TASK [Gather necessary facts (network)] ****************************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:02:28 +0530 (0:00:00.946)       0:00:04.614 ******** 
+
+TASK [Gather necessary facts (hardware)] ***************************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+
+PLAY [Prepare for etcd install] ************************************************
+Tuesday 25 August 2026  20:02:29 +0530 (0:00:01.101)       0:00:05.716 ******** 
+
+TASK [kubernetes/preinstall : Create kubernetes directories] *******************
+ok: [k8s-cp-0] => (item=/etc/kubernetes)
+ok: [k8s-w-0] => (item=/etc/kubernetes)
+ok: [k8s-w-0] => (item=/etc/kubernetes/manifests)
+ok: [k8s-cp-0] => (item=/etc/kubernetes/manifests)
+ok: [k8s-w-0] => (item=/usr/local/bin/kubernetes-scripts)
+ok: [k8s-cp-0] => (item=/usr/local/bin/kubernetes-scripts)
+ok: [k8s-w-0] => (item=/usr/libexec/kubernetes/kubelet-plugins/volume/exec)
+ok: [k8s-cp-0] => (item=/usr/libexec/kubernetes/kubelet-plugins/volume/exec)
+Tuesday 25 August 2026  20:02:31 +0530 (0:00:01.623)       0:00:07.339 ******** 
+
+TASK [kubernetes/preinstall : Create other directories of root owner] **********
+ok: [k8s-cp-0] => (item=/etc/kubernetes/ssl)
+ok: [k8s-w-0] => (item=/etc/kubernetes/ssl)
+ok: [k8s-cp-0] => (item=/usr/local/bin)
+ok: [k8s-w-0] => (item=/usr/local/bin)
+Tuesday 25 August 2026  20:02:32 +0530 (0:00:01.183)       0:00:08.523 ******** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:02:32 +0530 (0:00:00.104)       0:00:08.627 ******** 
+Tuesday 25 August 2026  20:02:32 +0530 (0:00:00.054)       0:00:08.682 ******** 
+Tuesday 25 August 2026  20:02:32 +0530 (0:00:00.056)       0:00:08.738 ******** 
+Tuesday 25 August 2026  20:02:32 +0530 (0:00:00.097)       0:00:08.836 ******** 
+Tuesday 25 August 2026  20:02:32 +0530 (0:00:00.091)       0:00:08.927 ******** 
+
+TASK [download : Prep_download | Register docker images info] ******************
+ok: [k8s-w-0]
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:02:33 +0530 (0:00:00.985)       0:00:09.912 ******** 
+
+TASK [download : Prep_download | Create staging directory on remote node] ******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:02:34 +0530 (0:00:00.399)       0:00:10.312 ******** 
+Tuesday 25 August 2026  20:02:34 +0530 (0:00:00.058)       0:00:10.371 ******** 
+
+TASK [download : Download | Get kubeadm binary and list of required images] ****
+included: /home/claude/Desktop/kubespray/roles/download/tasks/prep_kubeadm_images.yml for k8s-cp-0
+Tuesday 25 August 2026  20:02:34 +0530 (0:00:00.121)       0:00:10.492 ******** 
+
+TASK [download : Prep_kubeadm_images | Download kubeadm binary] ****************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0
+Tuesday 25 August 2026  20:02:35 +0530 (0:00:00.589)       0:00:11.081 ******** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:02:35 +0530 (0:00:00.585)       0:00:11.667 ******** 
+Tuesday 25 August 2026  20:02:35 +0530 (0:00:00.049)       0:00:11.716 ******** 
+
+TASK [download : Download_file | Set pathname of cached file] ******************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:02:36 +0530 (0:00:01.105)       0:00:12.822 ******** 
+
+TASK [download : Download_file | Create dest directory on node] ****************
+changed: [k8s-cp-0]
+Tuesday 25 August 2026  20:02:38 +0530 (0:00:02.125)       0:00:14.947 ******** 
+Tuesday 25 August 2026  20:02:39 +0530 (0:00:00.050)       0:00:14.997 ******** 
+Tuesday 25 August 2026  20:02:39 +0530 (0:00:00.072)       0:00:15.070 ******** 
+
+TASK [download : Download_file | Download item] ********************************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:02:45 +0530 (0:00:06.759)       0:00:21.830 ******** 
+Tuesday 25 August 2026  20:02:45 +0530 (0:00:00.070)       0:00:21.901 ******** 
+Tuesday 25 August 2026  20:02:45 +0530 (0:00:00.039)       0:00:21.940 ******** 
+Tuesday 25 August 2026  20:02:46 +0530 (0:00:00.039)       0:00:21.979 ******** 
+
+TASK [download : Download_file | Extract file archives] ************************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0
+Tuesday 25 August 2026  20:02:46 +0530 (0:00:00.059)       0:00:22.038 ******** 
+Tuesday 25 August 2026  20:02:46 +0530 (0:00:00.524)       0:00:22.563 ******** 
+
+TASK [download : Prep_kubeadm_images | Copy kubeadm binary from download dir to system path] ***
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:02:48 +0530 (0:00:01.968)       0:00:24.532 ******** 
+
+TASK [download : Prep_kubeadm_images | Create kubeadm config] ******************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:02:49 +0530 (0:00:00.853)       0:00:25.385 ******** 
+
+TASK [download : Prep_kubeadm_images | Generate list of required images] *******
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:02:49 +0530 (0:00:00.336)       0:00:25.722 ******** 
+
+TASK [download : Prep_kubeadm_images | Parse list of images] *******************
+ok: [k8s-cp-0] => (item=registry.k8s.io/kube-apiserver:v1.35.4)
+ok: [k8s-cp-0] => (item=registry.k8s.io/kube-controller-manager:v1.35.4)
+ok: [k8s-cp-0] => (item=registry.k8s.io/kube-scheduler:v1.35.4)
+ok: [k8s-cp-0] => (item=registry.k8s.io/kube-proxy:v1.35.4)
+Tuesday 25 August 2026  20:02:49 +0530 (0:00:00.121)       0:00:25.843 ******** 
+
+TASK [download : Prep_kubeadm_images | Convert list of images to dict for later use] ***
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:02:49 +0530 (0:00:00.084)       0:00:25.928 ******** 
+
+TASK [download : Download | Download files / images] ***************************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-w-0, k8s-cp-0 => (item={'key': 'cni', 'value': {'enabled': True, 'file': True, 'dest': '/tmp/releases/cni-plugins-linux-amd64-1.9.1.tgz', 'checksum': 'sha256:b98f74a0f8522f0a83867178729c1aa70f2158f90c45a2ca8fa791db1c76b303', 'url': 'https://github.com/containernetworking/plugins/releases/download/v1.9.1/cni-plugins-linux-amd64-v1.9.1.tgz', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-w-0, k8s-cp-0 => (item={'key': 'kubeadm', 'value': {'enabled': True, 'file': True, 'dest': '/tmp/releases/kubeadm-1.35.4-amd64', 'checksum': 'sha256:0c0497da793f8897c14e45340da919534b615294a1aab69dc1998896c0f11145', 'url': 'https://dl.k8s.io/release/v1.35.4/bin/linux/amd64/kubeadm', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-w-0, k8s-cp-0 => (item={'key': 'kubelet', 'value': {'enabled': True, 'file': True, 'dest': '/tmp/releases/kubelet-1.35.4-amd64', 'checksum': 'sha256:983a6ba5a49823dcdd745c674e5e2416377dd27d6ad1b42d2befa0fb961a19f6', 'url': 'https://dl.k8s.io/release/v1.35.4/bin/linux/amd64/kubelet', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-w-0, k8s-cp-0 => (item={'key': 'crictl', 'value': {'file': True, 'enabled': True, 'dest': '/tmp/releases/crictl-1.35.0-linux-amd64.tar.gz', 'checksum': 'sha256:2e141e5b22cb189c40365a11807d69b76b9b3caced89fac2f4ec879408ce2177', 'url': 'https://github.com/kubernetes-sigs/cri-tools/releases/download/v1.35.0/crictl-v1.35.0-linux-amd64.tar.gz', 'unarchive': True, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-w-0, k8s-cp-0 => (item={'key': 'runc', 'value': {'file': True, 'enabled': True, 'dest': '/tmp/releases/runc-1.4.2.amd64', 'checksum': 'sha256:ac8a90f9e225bb9322189937b230cdc5478d5753f0e31e1bda98a5cf06bd9539', 'url': 'https://github.com/opencontainers/runc/releases/download/v1.4.2/runc.amd64', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-w-0, k8s-cp-0 => (item={'key': 'containerd', 'value': {'enabled': True, 'file': True, 'dest': '/tmp/releases/containerd-2.2.3-linux-amd64.tar.gz', 'checksum': 'sha256:ca26ef5138f17b847bbeeec36d4bf5e002b54d25858197a870c125d57f44d32f', 'url': 'https://github.com/containerd/containerd/releases/download/v2.2.3/containerd-2.2.3-linux-amd64.tar.gz', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-w-0, k8s-cp-0 => (item={'key': 'nerdctl', 'value': {'file': True, 'enabled': True, 'dest': '/tmp/releases/nerdctl-2.2.2-linux-amd64.tar.gz', 'checksum': 'sha256:6f637760fb2875e3454e97c3de7438fd17281b5996908cbd8ee1c872b0653cc8', 'url': 'https://github.com/containerd/nerdctl/releases/download/v2.2.2/nerdctl-2.2.2-linux-amd64.tar.gz', 'unarchive': True, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-w-0, k8s-cp-0 => (item={'key': 'calicoctl', 'value': {'enabled': True, 'file': True, 'dest': '/tmp/releases/calicoctl-3.31.5-amd64', 'checksum': 'sha256:d1dd3a3fb2f5640987eab589dc1dcb03c47c11b32bc19a65c45c39421cd887d2', 'url': 'https://github.com/projectcalico/calico/releases/download/v3.31.5/calicoctl-linux-amd64', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-w-0, k8s-cp-0 => (item={'key': 'calico_node', 'value': {'enabled': True, 'container': True, 'repo': 'quay.io/calico/node', 'tag': 'v3.31.5', 'checksum': '', 'groups': ['k8s_cluster']}})
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-w-0, k8s-cp-0 => (item={'key': 'calico_cni', 'value': {'enabled': True, 'container': True, 'repo': 'quay.io/calico/cni', 'tag': 'v3.31.5', 'checksum': '', 'groups': ['k8s_cluster']}})
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-w-0, k8s-cp-0 => (item={'key': 'calico_policy', 'value': {'enabled': True, 'container': True, 'repo': 'quay.io/calico/kube-controllers', 'tag': 'v3.31.5', 'checksum': '', 'groups': ['k8s_cluster']}})
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-w-0, k8s-cp-0 => (item={'key': 'pod_infra', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/pause', 'tag': '3.10.1', 'checksum': '', 'groups': ['k8s_cluster']}})
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-w-0, k8s-cp-0 => (item={'key': 'nginx', 'value': {'enabled': True, 'container': True, 'repo': 'docker.io/library/nginx', 'tag': '1.28.2-alpine', 'checksum': '', 'groups': ['kube_node']}})
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-w-0, k8s-cp-0 => (item={'key': 'coredns', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/coredns/coredns', 'tag': 'v1.12.4', 'checksum': '', 'groups': ['k8s_cluster']}})
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-w-0, k8s-cp-0 => (item={'key': 'nodelocaldns', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/dns/k8s-dns-node-cache', 'tag': '1.25.0', 'checksum': '', 'groups': ['k8s_cluster']}})
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-w-0, k8s-cp-0 => (item={'key': 'kubeadm_kube-apiserver', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/kube-apiserver', 'tag': 'v1.35.4', 'groups': ['k8s_cluster']}})
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-w-0, k8s-cp-0 => (item={'key': 'kubeadm_kube-controller-manager', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/kube-controller-manager', 'tag': 'v1.35.4', 'groups': ['k8s_cluster']}})
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-w-0, k8s-cp-0 => (item={'key': 'kubeadm_kube-scheduler', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/kube-scheduler', 'tag': 'v1.35.4', 'groups': ['k8s_cluster']}})
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-w-0, k8s-cp-0 => (item={'key': 'kubeadm_kube-proxy', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/kube-proxy', 'tag': 'v1.35.4', 'groups': ['k8s_cluster']}})
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0 => (item={'key': 'etcd', 'value': {'container': False, 'file': True, 'enabled': True, 'dest': '/tmp/releases/etcd-3.6.10-linux-amd64.tar.gz', 'repo': 'quay.io/coreos/etcd', 'tag': 'v3.6.10', 'checksum': 'sha256:ed579fafab5701e3aaa95509969e7bc74776a4ae5269d32e3928408b406456ec', 'url': 'https://github.com/etcd-io/etcd/releases/download/v3.6.10/etcd-v3.6.10-linux-amd64.tar.gz', 'unarchive': True, 'owner': 'root', 'mode': '0755', 'groups': ['etcd']}})
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0 => (item={'key': 'kubectl', 'value': {'enabled': True, 'file': True, 'dest': '/tmp/releases/kubectl-1.35.4-amd64', 'checksum': 'sha256:b529430df69a688fd61b64ad2299edb5fd71cb58be2a4779dba624c7d3510efd', 'url': 'https://dl.k8s.io/release/v1.35.4/bin/linux/amd64/kubectl', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['kube_control_plane']}})
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0 => (item={'key': 'calico_crds', 'value': {'file': True, 'enabled': True, 'dest': '/tmp/releases/calico-3.31.5-kdd-crds/crds.yaml', 'checksum': 'sha256:1d6d5e523f92ee1e8227a48c016229c668f94035431b82f19139affeb45dbeff', 'url': 'https://github.com/projectcalico/calico/raw/v3.31.5/manifests/crds.yaml', 'owner': 'root', 'mode': '0755', 'groups': ['kube_control_plane']}})
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0 => (item={'key': 'dnsautoscaler', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/cpa/cluster-proportional-autoscaler', 'tag': 'v1.8.8', 'checksum': '', 'groups': ['kube_control_plane']}})
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0 => (item={'key': 'helm', 'value': {'enabled': True, 'file': True, 'dest': '/tmp/releases/helm-3.18.4/helm-3.18.4-linux-amd64.tar.gz', 'checksum': 'sha256:f8180838c23d7c7d797b208861fecb591d9ce1690d8704ed1e4cb8e2add966c1', 'url': 'https://get.helm.sh/helm-v3.18.4-linux-amd64.tar.gz', 'unarchive': True, 'owner': 'root', 'mode': '0755', 'groups': ['kube_control_plane']}})
+included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0 => (item={'key': 'metrics_server', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/metrics-server/metrics-server', 'tag': 'v0.8.1', 'checksum': '', 'groups': ['kube_control_plane']}})
+Tuesday 25 August 2026  20:02:52 +0530 (0:00:02.134)       0:00:28.062 ******** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:02:52 +0530 (0:00:00.088)       0:00:28.150 ******** 
+Tuesday 25 August 2026  20:02:52 +0530 (0:00:00.066)       0:00:28.216 ******** 
+
+TASK [download : Download_file | Set pathname of cached file] ******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:02:52 +0530 (0:00:00.086)       0:00:28.303 ******** 
+
+TASK [download : Download_file | Create dest directory on node] ****************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:02:52 +0530 (0:00:00.382)       0:00:28.686 ******** 
+Tuesday 25 August 2026  20:02:52 +0530 (0:00:00.046)       0:00:28.733 ******** 
+Tuesday 25 August 2026  20:02:52 +0530 (0:00:00.070)       0:00:28.804 ******** 
+
+TASK [download : Download_file | Download item] ********************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:02:53 +0530 (0:00:00.723)       0:00:29.528 ******** 
+Tuesday 25 August 2026  20:02:53 +0530 (0:00:00.076)       0:00:29.604 ******** 
+Tuesday 25 August 2026  20:02:53 +0530 (0:00:00.070)       0:00:29.674 ******** 
+Tuesday 25 August 2026  20:02:53 +0530 (0:00:00.069)       0:00:29.744 ******** 
+
+TASK [download : Download_file | Extract file archives] ************************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
+Tuesday 25 August 2026  20:02:53 +0530 (0:00:00.107)       0:00:29.851 ******** 
+Tuesday 25 August 2026  20:02:53 +0530 (0:00:00.068)       0:00:29.920 ******** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:02:54 +0530 (0:00:00.179)       0:00:30.099 ******** 
+Tuesday 25 August 2026  20:02:54 +0530 (0:00:00.064)       0:00:30.164 ******** 
+
+TASK [download : Download_file | Set pathname of cached file] ******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:02:54 +0530 (0:00:00.085)       0:00:30.249 ******** 
+
+TASK [download : Download_file | Create dest directory on node] ****************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:02:54 +0530 (0:00:00.347)       0:00:30.597 ******** 
+Tuesday 25 August 2026  20:02:54 +0530 (0:00:00.047)       0:00:30.645 ******** 
+Tuesday 25 August 2026  20:02:54 +0530 (0:00:00.064)       0:00:30.709 ******** 
+
+TASK [download : Download_file | Download item] ********************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:02:55 +0530 (0:00:00.849)       0:00:31.559 ******** 
+Tuesday 25 August 2026  20:02:55 +0530 (0:00:00.074)       0:00:31.633 ******** 
+Tuesday 25 August 2026  20:02:55 +0530 (0:00:00.087)       0:00:31.721 ******** 
+Tuesday 25 August 2026  20:02:55 +0530 (0:00:00.077)       0:00:31.799 ******** 
+
+TASK [download : Download_file | Extract file archives] ************************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
+Tuesday 25 August 2026  20:02:56 +0530 (0:00:00.162)       0:00:31.961 ******** 
+Tuesday 25 August 2026  20:02:56 +0530 (0:00:00.077)       0:00:32.039 ******** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:02:56 +0530 (0:00:00.082)       0:00:32.121 ******** 
+Tuesday 25 August 2026  20:02:56 +0530 (0:00:00.065)       0:00:32.186 ******** 
+
+TASK [download : Download_file | Set pathname of cached file] ******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:02:56 +0530 (0:00:00.092)       0:00:32.279 ******** 
+
+TASK [download : Download_file | Create dest directory on node] ****************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:02:56 +0530 (0:00:00.371)       0:00:32.650 ******** 
+Tuesday 25 August 2026  20:02:56 +0530 (0:00:00.047)       0:00:32.698 ******** 
+Tuesday 25 August 2026  20:02:56 +0530 (0:00:00.065)       0:00:32.763 ******** 
+
+TASK [download : Download_file | Download item] ********************************
+ok: [k8s-w-0]
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:02:58 +0530 (0:00:01.542)       0:00:34.306 ******** 
+Tuesday 25 August 2026  20:02:58 +0530 (0:00:00.071)       0:00:34.377 ******** 
+Tuesday 25 August 2026  20:02:58 +0530 (0:00:00.078)       0:00:34.456 ******** 
+Tuesday 25 August 2026  20:02:58 +0530 (0:00:00.079)       0:00:34.535 ******** 
+
+TASK [download : Download_file | Extract file archives] ************************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
+Tuesday 25 August 2026  20:02:58 +0530 (0:00:00.116)       0:00:34.651 ******** 
+Tuesday 25 August 2026  20:02:58 +0530 (0:00:00.074)       0:00:34.726 ******** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:02:58 +0530 (0:00:00.085)       0:00:34.812 ******** 
+Tuesday 25 August 2026  20:02:59 +0530 (0:00:00.171)       0:00:34.984 ******** 
+
+TASK [download : Download_file | Set pathname of cached file] ******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:02:59 +0530 (0:00:00.092)       0:00:35.076 ******** 
+
+TASK [download : Download_file | Create dest directory on node] ****************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:02:59 +0530 (0:00:00.344)       0:00:35.421 ******** 
+Tuesday 25 August 2026  20:02:59 +0530 (0:00:00.044)       0:00:35.465 ******** 
+Tuesday 25 August 2026  20:02:59 +0530 (0:00:00.069)       0:00:35.535 ******** 
+
+TASK [download : Download_file | Download item] ********************************
+ok: [k8s-w-0]
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:03:01 +0530 (0:00:01.631)       0:00:37.167 ******** 
+Tuesday 25 August 2026  20:03:01 +0530 (0:00:00.089)       0:00:37.257 ******** 
+Tuesday 25 August 2026  20:03:01 +0530 (0:00:00.074)       0:00:37.331 ******** 
+Tuesday 25 August 2026  20:03:01 +0530 (0:00:00.074)       0:00:37.406 ******** 
+
+TASK [download : Download_file | Extract file archives] ************************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
+Tuesday 25 August 2026  20:03:01 +0530 (0:00:00.135)       0:00:37.541 ******** 
+
+TASK [download : Extract_file | Unpacking archive] *****************************
+ok: [k8s-w-0]
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:03:05 +0530 (0:00:03.560)       0:00:41.102 ******** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:05 +0530 (0:00:00.084)       0:00:41.186 ******** 
+Tuesday 25 August 2026  20:03:05 +0530 (0:00:00.071)       0:00:41.257 ******** 
+
+TASK [download : Download_file | Set pathname of cached file] ******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:05 +0530 (0:00:00.098)       0:00:41.355 ******** 
+
+TASK [download : Download_file | Create dest directory on node] ****************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:05 +0530 (0:00:00.403)       0:00:41.759 ******** 
+Tuesday 25 August 2026  20:03:05 +0530 (0:00:00.045)       0:00:41.804 ******** 
+Tuesday 25 August 2026  20:03:05 +0530 (0:00:00.069)       0:00:41.874 ******** 
+
+TASK [download : Download_file | Download item] ********************************
+ok: [k8s-w-0]
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:03:07 +0530 (0:00:01.466)       0:00:43.340 ******** 
+Tuesday 25 August 2026  20:03:07 +0530 (0:00:00.070)       0:00:43.411 ******** 
+Tuesday 25 August 2026  20:03:07 +0530 (0:00:00.070)       0:00:43.482 ******** 
+Tuesday 25 August 2026  20:03:07 +0530 (0:00:00.073)       0:00:43.556 ******** 
+
+TASK [download : Download_file | Extract file archives] ************************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
+Tuesday 25 August 2026  20:03:07 +0530 (0:00:00.124)       0:00:43.680 ******** 
+Tuesday 25 August 2026  20:03:07 +0530 (0:00:00.081)       0:00:43.761 ******** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:07 +0530 (0:00:00.088)       0:00:43.850 ******** 
+Tuesday 25 August 2026  20:03:07 +0530 (0:00:00.076)       0:00:43.927 ******** 
+
+TASK [download : Download_file | Set pathname of cached file] ******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:08 +0530 (0:00:00.089)       0:00:44.016 ******** 
+
+TASK [download : Download_file | Create dest directory on node] ****************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:08 +0530 (0:00:00.521)       0:00:44.539 ******** 
+Tuesday 25 August 2026  20:03:08 +0530 (0:00:00.046)       0:00:44.585 ******** 
+Tuesday 25 August 2026  20:03:08 +0530 (0:00:00.061)       0:00:44.646 ******** 
+
+TASK [download : Download_file | Download item] ********************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:10 +0530 (0:00:01.778)       0:00:46.425 ******** 
+Tuesday 25 August 2026  20:03:10 +0530 (0:00:00.072)       0:00:46.498 ******** 
+Tuesday 25 August 2026  20:03:10 +0530 (0:00:00.072)       0:00:46.571 ******** 
+Tuesday 25 August 2026  20:03:10 +0530 (0:00:00.103)       0:00:46.674 ******** 
+
+TASK [download : Download_file | Extract file archives] ************************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
+Tuesday 25 August 2026  20:03:10 +0530 (0:00:00.117)       0:00:46.791 ******** 
+Tuesday 25 August 2026  20:03:10 +0530 (0:00:00.083)       0:00:46.875 ******** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:11 +0530 (0:00:00.141)       0:00:47.016 ******** 
+Tuesday 25 August 2026  20:03:11 +0530 (0:00:00.073)       0:00:47.090 ******** 
+
+TASK [download : Download_file | Set pathname of cached file] ******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:11 +0530 (0:00:00.085)       0:00:47.176 ******** 
+
+TASK [download : Download_file | Create dest directory on node] ****************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:11 +0530 (0:00:00.352)       0:00:47.528 ******** 
+Tuesday 25 August 2026  20:03:11 +0530 (0:00:00.047)       0:00:47.576 ******** 
+Tuesday 25 August 2026  20:03:11 +0530 (0:00:00.066)       0:00:47.643 ******** 
+
+TASK [download : Download_file | Download item] ********************************
+ok: [k8s-w-0]
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:03:12 +0530 (0:00:01.015)       0:00:48.658 ******** 
+Tuesday 25 August 2026  20:03:12 +0530 (0:00:00.078)       0:00:48.736 ******** 
+Tuesday 25 August 2026  20:03:12 +0530 (0:00:00.079)       0:00:48.816 ******** 
+Tuesday 25 August 2026  20:03:12 +0530 (0:00:00.086)       0:00:48.902 ******** 
+
+TASK [download : Download_file | Extract file archives] ************************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
+Tuesday 25 August 2026  20:03:13 +0530 (0:00:00.157)       0:00:49.060 ******** 
+
+TASK [download : Extract_file | Unpacking archive] *****************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:15 +0530 (0:00:02.399)       0:00:51.459 ******** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:15 +0530 (0:00:00.098)       0:00:51.557 ******** 
+Tuesday 25 August 2026  20:03:15 +0530 (0:00:00.074)       0:00:51.632 ******** 
+
+TASK [download : Download_file | Set pathname of cached file] ******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:15 +0530 (0:00:00.105)       0:00:51.738 ******** 
+
+TASK [download : Download_file | Create dest directory on node] ****************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:16 +0530 (0:00:00.368)       0:00:52.106 ******** 
+Tuesday 25 August 2026  20:03:16 +0530 (0:00:00.048)       0:00:52.155 ******** 
+Tuesday 25 August 2026  20:03:16 +0530 (0:00:00.062)       0:00:52.217 ******** 
+
+TASK [download : Download_file | Download item] ********************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:17 +0530 (0:00:00.971)       0:00:53.188 ******** 
+Tuesday 25 August 2026  20:03:17 +0530 (0:00:00.079)       0:00:53.268 ******** 
+Tuesday 25 August 2026  20:03:17 +0530 (0:00:00.073)       0:00:53.341 ******** 
+Tuesday 25 August 2026  20:03:17 +0530 (0:00:00.078)       0:00:53.420 ******** 
+
+TASK [download : Download_file | Extract file archives] ************************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
+Tuesday 25 August 2026  20:03:17 +0530 (0:00:00.136)       0:00:53.557 ******** 
+Tuesday 25 August 2026  20:03:17 +0530 (0:00:00.079)       0:00:53.637 ******** 
+
+TASK [download : Set default values for flag variables] ************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:17 +0530 (0:00:00.101)       0:00:53.738 ******** 
+
+TASK [download : Set_container_facts | Display the name of the image being processed] ***
+ok: [k8s-cp-0] => {
+    "msg": "quay.io/calico/node"
+}
+ok: [k8s-w-0] => {
+    "msg": "quay.io/calico/node"
+}
+Tuesday 25 August 2026  20:03:17 +0530 (0:00:00.103)       0:00:53.842 ******** 
+
+TASK [download : Set_container_facts | Set if containers should be pulled by digest] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:18 +0530 (0:00:00.137)       0:00:53.980 ******** 
+
+TASK [download : Set_container_facts | Define by what name to pull the image] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:18 +0530 (0:00:00.087)       0:00:54.067 ******** 
+
+TASK [download : Set_container_facts | Define file name of image] **************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:18 +0530 (0:00:00.083)       0:00:54.151 ******** 
+
+TASK [download : Set_container_facts | Define path of image] *******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:18 +0530 (0:00:00.093)       0:00:54.244 ******** 
+Tuesday 25 August 2026  20:03:18 +0530 (0:00:00.079)       0:00:54.324 ******** 
+
+TASK [download : Set image save/load command for containerd] *******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:18 +0530 (0:00:00.095)       0:00:54.419 ******** 
+Tuesday 25 August 2026  20:03:18 +0530 (0:00:00.080)       0:00:54.500 ******** 
+Tuesday 25 August 2026  20:03:18 +0530 (0:00:00.081)       0:00:54.581 ******** 
+
+TASK [download : Set image save/load command for containerd on localhost] ******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:18 +0530 (0:00:00.104)       0:00:54.686 ******** 
+Tuesday 25 August 2026  20:03:18 +0530 (0:00:00.080)       0:00:54.766 ******** 
+
+TASK [download : Download_container | Prepare container download] **************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
+Tuesday 25 August 2026  20:03:18 +0530 (0:00:00.135)       0:00:54.901 ******** 
+
+TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:19 +0530 (0:00:00.634)       0:00:55.536 ******** 
+
+TASK [download : Check_pull_required | Set pull_required if the desired image is not yet loaded] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:19 +0530 (0:00:00.115)       0:00:55.651 ******** 
+Tuesday 25 August 2026  20:03:19 +0530 (0:00:00.087)       0:00:55.739 ******** 
+
+TASK [download : debug] ********************************************************
+ok: [k8s-cp-0] => {
+    "msg": "Pull quay.io/calico/node:v3.31.5 required is: False"
+}
+ok: [k8s-w-0] => {
+    "msg": "Pull quay.io/calico/node:v3.31.5 required is: False"
+}
+Tuesday 25 August 2026  20:03:19 +0530 (0:00:00.105)       0:00:55.845 ******** 
+Tuesday 25 August 2026  20:03:19 +0530 (0:00:00.078)       0:00:55.923 ******** 
+Tuesday 25 August 2026  20:03:20 +0530 (0:00:00.188)       0:00:56.112 ******** 
+Tuesday 25 August 2026  20:03:20 +0530 (0:00:00.076)       0:00:56.188 ******** 
+Tuesday 25 August 2026  20:03:20 +0530 (0:00:00.093)       0:00:56.282 ******** 
+Tuesday 25 August 2026  20:03:20 +0530 (0:00:00.066)       0:00:56.349 ******** 
+Tuesday 25 August 2026  20:03:20 +0530 (0:00:00.069)       0:00:56.418 ******** 
+Tuesday 25 August 2026  20:03:20 +0530 (0:00:00.076)       0:00:56.494 ******** 
+Tuesday 25 August 2026  20:03:20 +0530 (0:00:00.108)       0:00:56.603 ******** 
+
+TASK [download : Download_container | Remove container image from cache] *******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:20 +0530 (0:00:00.338)       0:00:56.942 ******** 
+
+TASK [download : Set default values for flag variables] ************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:21 +0530 (0:00:00.106)       0:00:57.048 ******** 
+
+TASK [download : Set_container_facts | Display the name of the image being processed] ***
+ok: [k8s-cp-0] => {
+    "msg": "quay.io/calico/cni"
+}
+ok: [k8s-w-0] => {
+    "msg": "quay.io/calico/cni"
+}
+Tuesday 25 August 2026  20:03:21 +0530 (0:00:00.108)       0:00:57.156 ******** 
+
+TASK [download : Set_container_facts | Set if containers should be pulled by digest] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:21 +0530 (0:00:00.151)       0:00:57.308 ******** 
+
+TASK [download : Set_container_facts | Define by what name to pull the image] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:21 +0530 (0:00:00.091)       0:00:57.400 ******** 
+
+TASK [download : Set_container_facts | Define file name of image] **************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:21 +0530 (0:00:00.090)       0:00:57.490 ******** 
+
+TASK [download : Set_container_facts | Define path of image] *******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:21 +0530 (0:00:00.095)       0:00:57.586 ******** 
+Tuesday 25 August 2026  20:03:21 +0530 (0:00:00.069)       0:00:57.655 ******** 
+
+TASK [download : Set image save/load command for containerd] *******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:21 +0530 (0:00:00.099)       0:00:57.754 ******** 
+Tuesday 25 August 2026  20:03:21 +0530 (0:00:00.074)       0:00:57.829 ******** 
+Tuesday 25 August 2026  20:03:21 +0530 (0:00:00.072)       0:00:57.902 ******** 
+
+TASK [download : Set image save/load command for containerd on localhost] ******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:22 +0530 (0:00:00.110)       0:00:58.012 ******** 
+Tuesday 25 August 2026  20:03:22 +0530 (0:00:00.084)       0:00:58.096 ******** 
+
+TASK [download : Download_container | Prepare container download] **************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
+Tuesday 25 August 2026  20:03:22 +0530 (0:00:00.123)       0:00:58.219 ******** 
+
+TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:22 +0530 (0:00:00.625)       0:00:58.845 ******** 
+
+TASK [download : Check_pull_required | Set pull_required if the desired image is not yet loaded] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:23 +0530 (0:00:00.108)       0:00:58.954 ******** 
+Tuesday 25 August 2026  20:03:23 +0530 (0:00:00.088)       0:00:59.042 ******** 
+
+TASK [download : debug] ********************************************************
+ok: [k8s-cp-0] => {
+    "msg": "Pull quay.io/calico/cni:v3.31.5 required is: False"
+}
+ok: [k8s-w-0] => {
+    "msg": "Pull quay.io/calico/cni:v3.31.5 required is: False"
+}
+Tuesday 25 August 2026  20:03:23 +0530 (0:00:00.095)       0:00:59.138 ******** 
+Tuesday 25 August 2026  20:03:23 +0530 (0:00:00.075)       0:00:59.213 ******** 
+Tuesday 25 August 2026  20:03:23 +0530 (0:00:00.196)       0:00:59.410 ******** 
+Tuesday 25 August 2026  20:03:23 +0530 (0:00:00.080)       0:00:59.490 ******** 
+Tuesday 25 August 2026  20:03:23 +0530 (0:00:00.095)       0:00:59.586 ******** 
+Tuesday 25 August 2026  20:03:23 +0530 (0:00:00.067)       0:00:59.653 ******** 
+Tuesday 25 August 2026  20:03:23 +0530 (0:00:00.069)       0:00:59.723 ******** 
+Tuesday 25 August 2026  20:03:23 +0530 (0:00:00.072)       0:00:59.796 ******** 
+Tuesday 25 August 2026  20:03:23 +0530 (0:00:00.105)       0:00:59.901 ******** 
+
+TASK [download : Download_container | Remove container image from cache] *******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:24 +0530 (0:00:00.350)       0:01:00.252 ******** 
+
+TASK [download : Set default values for flag variables] ************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:24 +0530 (0:00:00.097)       0:01:00.350 ******** 
+
+TASK [download : Set_container_facts | Display the name of the image being processed] ***
+ok: [k8s-cp-0] => {
+    "msg": "quay.io/calico/kube-controllers"
+}
+ok: [k8s-w-0] => {
+    "msg": "quay.io/calico/kube-controllers"
+}
+Tuesday 25 August 2026  20:03:24 +0530 (0:00:00.121)       0:01:00.471 ******** 
+
+TASK [download : Set_container_facts | Set if containers should be pulled by digest] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:24 +0530 (0:00:00.168)       0:01:00.640 ******** 
+
+TASK [download : Set_container_facts | Define by what name to pull the image] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:24 +0530 (0:00:00.096)       0:01:00.736 ******** 
+
+TASK [download : Set_container_facts | Define file name of image] **************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:24 +0530 (0:00:00.101)       0:01:00.837 ******** 
+
+TASK [download : Set_container_facts | Define path of image] *******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:24 +0530 (0:00:00.090)       0:01:00.928 ******** 
+Tuesday 25 August 2026  20:03:25 +0530 (0:00:00.076)       0:01:01.005 ******** 
+
+TASK [download : Set image save/load command for containerd] *******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:25 +0530 (0:00:00.092)       0:01:01.097 ******** 
+Tuesday 25 August 2026  20:03:25 +0530 (0:00:00.082)       0:01:01.180 ******** 
+Tuesday 25 August 2026  20:03:25 +0530 (0:00:00.077)       0:01:01.257 ******** 
+
+TASK [download : Set image save/load command for containerd on localhost] ******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:25 +0530 (0:00:00.109)       0:01:01.367 ******** 
+Tuesday 25 August 2026  20:03:25 +0530 (0:00:00.089)       0:01:01.457 ******** 
+
+TASK [download : Download_container | Prepare container download] **************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
+Tuesday 25 August 2026  20:03:25 +0530 (0:00:00.142)       0:01:01.599 ******** 
+
+TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:26 +0530 (0:00:00.638)       0:01:02.237 ******** 
+
+TASK [download : Check_pull_required | Set pull_required if the desired image is not yet loaded] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:26 +0530 (0:00:00.114)       0:01:02.352 ******** 
+Tuesday 25 August 2026  20:03:26 +0530 (0:00:00.082)       0:01:02.434 ******** 
+
+TASK [download : debug] ********************************************************
+ok: [k8s-cp-0] => {
+    "msg": "Pull quay.io/calico/kube-controllers:v3.31.5 required is: False"
+}
+ok: [k8s-w-0] => {
+    "msg": "Pull quay.io/calico/kube-controllers:v3.31.5 required is: False"
+}
+Tuesday 25 August 2026  20:03:26 +0530 (0:00:00.103)       0:01:02.537 ******** 
+Tuesday 25 August 2026  20:03:26 +0530 (0:00:00.076)       0:01:02.614 ******** 
+Tuesday 25 August 2026  20:03:26 +0530 (0:00:00.186)       0:01:02.801 ******** 
+Tuesday 25 August 2026  20:03:26 +0530 (0:00:00.072)       0:01:02.873 ******** 
+Tuesday 25 August 2026  20:03:27 +0530 (0:00:00.096)       0:01:02.969 ******** 
+Tuesday 25 August 2026  20:03:27 +0530 (0:00:00.064)       0:01:03.034 ******** 
+Tuesday 25 August 2026  20:03:27 +0530 (0:00:00.066)       0:01:03.100 ******** 
+Tuesday 25 August 2026  20:03:27 +0530 (0:00:00.072)       0:01:03.172 ******** 
+Tuesday 25 August 2026  20:03:27 +0530 (0:00:00.103)       0:01:03.276 ******** 
+
+TASK [download : Download_container | Remove container image from cache] *******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:27 +0530 (0:00:00.377)       0:01:03.653 ******** 
+
+TASK [download : Set default values for flag variables] ************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:27 +0530 (0:00:00.095)       0:01:03.749 ******** 
+
+TASK [download : Set_container_facts | Display the name of the image being processed] ***
+ok: [k8s-cp-0] => {
+    "msg": "registry.k8s.io/pause"
+}
+ok: [k8s-w-0] => {
+    "msg": "registry.k8s.io/pause"
+}
+Tuesday 25 August 2026  20:03:27 +0530 (0:00:00.118)       0:01:03.867 ******** 
+
+TASK [download : Set_container_facts | Set if containers should be pulled by digest] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:28 +0530 (0:00:00.143)       0:01:04.010 ******** 
+
+TASK [download : Set_container_facts | Define by what name to pull the image] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:28 +0530 (0:00:00.099)       0:01:04.110 ******** 
+
+TASK [download : Set_container_facts | Define file name of image] **************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:28 +0530 (0:00:00.089)       0:01:04.200 ******** 
+
+TASK [download : Set_container_facts | Define path of image] *******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:28 +0530 (0:00:00.093)       0:01:04.293 ******** 
+Tuesday 25 August 2026  20:03:28 +0530 (0:00:00.077)       0:01:04.371 ******** 
+
+TASK [download : Set image save/load command for containerd] *******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:28 +0530 (0:00:00.109)       0:01:04.481 ******** 
+Tuesday 25 August 2026  20:03:28 +0530 (0:00:00.080)       0:01:04.561 ******** 
+Tuesday 25 August 2026  20:03:28 +0530 (0:00:00.078)       0:01:04.640 ******** 
+
+TASK [download : Set image save/load command for containerd on localhost] ******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:28 +0530 (0:00:00.097)       0:01:04.737 ******** 
+Tuesday 25 August 2026  20:03:28 +0530 (0:00:00.074)       0:01:04.811 ******** 
+
+TASK [download : Download_container | Prepare container download] **************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
+Tuesday 25 August 2026  20:03:28 +0530 (0:00:00.129)       0:01:04.940 ******** 
+
+TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:29 +0530 (0:00:00.610)       0:01:05.551 ******** 
+
+TASK [download : Check_pull_required | Set pull_required if the desired image is not yet loaded] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:29 +0530 (0:00:00.110)       0:01:05.662 ******** 
+Tuesday 25 August 2026  20:03:29 +0530 (0:00:00.073)       0:01:05.735 ******** 
+
+TASK [download : debug] ********************************************************
+ok: [k8s-cp-0] => {
+    "msg": "Pull registry.k8s.io/pause:3.10.1 required is: False"
+}
+ok: [k8s-w-0] => {
+    "msg": "Pull registry.k8s.io/pause:3.10.1 required is: False"
+}
+Tuesday 25 August 2026  20:03:29 +0530 (0:00:00.097)       0:01:05.833 ******** 
+Tuesday 25 August 2026  20:03:29 +0530 (0:00:00.084)       0:01:05.918 ******** 
+Tuesday 25 August 2026  20:03:30 +0530 (0:00:00.200)       0:01:06.118 ******** 
+Tuesday 25 August 2026  20:03:30 +0530 (0:00:00.071)       0:01:06.189 ******** 
+Tuesday 25 August 2026  20:03:30 +0530 (0:00:00.094)       0:01:06.284 ******** 
+Tuesday 25 August 2026  20:03:30 +0530 (0:00:00.072)       0:01:06.357 ******** 
+Tuesday 25 August 2026  20:03:30 +0530 (0:00:00.071)       0:01:06.429 ******** 
+Tuesday 25 August 2026  20:03:30 +0530 (0:00:00.072)       0:01:06.502 ******** 
+Tuesday 25 August 2026  20:03:30 +0530 (0:00:00.107)       0:01:06.610 ******** 
+
+TASK [download : Download_container | Remove container image from cache] *******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:31 +0530 (0:00:00.349)       0:01:06.959 ******** 
+
+TASK [download : Set default values for flag variables] ************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:31 +0530 (0:00:00.097)       0:01:07.057 ******** 
+
+TASK [download : Set_container_facts | Display the name of the image being processed] ***
+ok: [k8s-cp-0] => {
+    "msg": "docker.io/library/nginx"
+}
+ok: [k8s-w-0] => {
+    "msg": "docker.io/library/nginx"
+}
+Tuesday 25 August 2026  20:03:31 +0530 (0:00:00.112)       0:01:07.170 ******** 
+
+TASK [download : Set_container_facts | Set if containers should be pulled by digest] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:31 +0530 (0:00:00.107)       0:01:07.278 ******** 
+
+TASK [download : Set_container_facts | Define by what name to pull the image] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:31 +0530 (0:00:00.147)       0:01:07.425 ******** 
+
+TASK [download : Set_container_facts | Define file name of image] **************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:31 +0530 (0:00:00.098)       0:01:07.523 ******** 
+
+TASK [download : Set_container_facts | Define path of image] *******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:31 +0530 (0:00:00.095)       0:01:07.619 ******** 
+Tuesday 25 August 2026  20:03:31 +0530 (0:00:00.072)       0:01:07.692 ******** 
+
+TASK [download : Set image save/load command for containerd] *******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:31 +0530 (0:00:00.096)       0:01:07.788 ******** 
+Tuesday 25 August 2026  20:03:31 +0530 (0:00:00.073)       0:01:07.862 ******** 
+Tuesday 25 August 2026  20:03:31 +0530 (0:00:00.068)       0:01:07.931 ******** 
+
+TASK [download : Set image save/load command for containerd on localhost] ******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:32 +0530 (0:00:00.097)       0:01:08.029 ******** 
+Tuesday 25 August 2026  20:03:32 +0530 (0:00:00.074)       0:01:08.103 ******** 
+
+TASK [download : Download_container | Prepare container download] **************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
+Tuesday 25 August 2026  20:03:32 +0530 (0:00:00.124)       0:01:08.228 ******** 
+
+TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:32 +0530 (0:00:00.639)       0:01:08.867 ******** 
+
+TASK [download : Check_pull_required | Set pull_required if the desired image is not yet loaded] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:33 +0530 (0:00:00.105)       0:01:08.973 ******** 
+Tuesday 25 August 2026  20:03:33 +0530 (0:00:00.080)       0:01:09.053 ******** 
+
+TASK [download : debug] ********************************************************
+ok: [k8s-cp-0] => {
+    "msg": "Pull docker.io/library/nginx:1.28.2-alpine required is: False"
+}
+ok: [k8s-w-0] => {
+    "msg": "Pull docker.io/library/nginx:1.28.2-alpine required is: False"
+}
+Tuesday 25 August 2026  20:03:33 +0530 (0:00:00.093)       0:01:09.147 ******** 
+Tuesday 25 August 2026  20:03:33 +0530 (0:00:00.071)       0:01:09.219 ******** 
+Tuesday 25 August 2026  20:03:33 +0530 (0:00:00.177)       0:01:09.396 ******** 
+Tuesday 25 August 2026  20:03:33 +0530 (0:00:00.073)       0:01:09.470 ******** 
+Tuesday 25 August 2026  20:03:33 +0530 (0:00:00.104)       0:01:09.575 ******** 
+Tuesday 25 August 2026  20:03:33 +0530 (0:00:00.071)       0:01:09.647 ******** 
+Tuesday 25 August 2026  20:03:33 +0530 (0:00:00.076)       0:01:09.723 ******** 
+Tuesday 25 August 2026  20:03:33 +0530 (0:00:00.074)       0:01:09.798 ******** 
+Tuesday 25 August 2026  20:03:33 +0530 (0:00:00.100)       0:01:09.898 ******** 
+
+TASK [download : Download_container | Remove container image from cache] *******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:34 +0530 (0:00:00.370)       0:01:10.269 ******** 
+
+TASK [download : Set default values for flag variables] ************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:34 +0530 (0:00:00.107)       0:01:10.377 ******** 
+
+TASK [download : Set_container_facts | Display the name of the image being processed] ***
+ok: [k8s-cp-0] => {
+    "msg": "registry.k8s.io/coredns/coredns"
+}
+ok: [k8s-w-0] => {
+    "msg": "registry.k8s.io/coredns/coredns"
+}
+Tuesday 25 August 2026  20:03:34 +0530 (0:00:00.115)       0:01:10.492 ******** 
+
+TASK [download : Set_container_facts | Set if containers should be pulled by digest] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:34 +0530 (0:00:00.165)       0:01:10.658 ******** 
+
+TASK [download : Set_container_facts | Define by what name to pull the image] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:34 +0530 (0:00:00.100)       0:01:10.759 ******** 
+
+TASK [download : Set_container_facts | Define file name of image] **************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:34 +0530 (0:00:00.093)       0:01:10.853 ******** 
+
+TASK [download : Set_container_facts | Define path of image] *******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:34 +0530 (0:00:00.091)       0:01:10.944 ******** 
+Tuesday 25 August 2026  20:03:35 +0530 (0:00:00.078)       0:01:11.023 ******** 
+
+TASK [download : Set image save/load command for containerd] *******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:35 +0530 (0:00:00.092)       0:01:11.115 ******** 
+Tuesday 25 August 2026  20:03:35 +0530 (0:00:00.072)       0:01:11.187 ******** 
+Tuesday 25 August 2026  20:03:35 +0530 (0:00:00.072)       0:01:11.260 ******** 
+
+TASK [download : Set image save/load command for containerd on localhost] ******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:35 +0530 (0:00:00.105)       0:01:11.365 ******** 
+Tuesday 25 August 2026  20:03:35 +0530 (0:00:00.091)       0:01:11.457 ******** 
+
+TASK [download : Download_container | Prepare container download] **************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
+Tuesday 25 August 2026  20:03:35 +0530 (0:00:00.136)       0:01:11.594 ******** 
+
+TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:36 +0530 (0:00:00.634)       0:01:12.228 ******** 
+
+TASK [download : Check_pull_required | Set pull_required if the desired image is not yet loaded] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:36 +0530 (0:00:00.111)       0:01:12.339 ******** 
+Tuesday 25 August 2026  20:03:36 +0530 (0:00:00.079)       0:01:12.419 ******** 
+
+TASK [download : debug] ********************************************************
+ok: [k8s-cp-0] => {
+    "msg": "Pull registry.k8s.io/coredns/coredns:v1.12.4 required is: False"
+}
+ok: [k8s-w-0] => {
+    "msg": "Pull registry.k8s.io/coredns/coredns:v1.12.4 required is: False"
+}
+Tuesday 25 August 2026  20:03:36 +0530 (0:00:00.093)       0:01:12.513 ******** 
+Tuesday 25 August 2026  20:03:36 +0530 (0:00:00.077)       0:01:12.590 ******** 
+Tuesday 25 August 2026  20:03:36 +0530 (0:00:00.204)       0:01:12.794 ******** 
+Tuesday 25 August 2026  20:03:36 +0530 (0:00:00.073)       0:01:12.868 ******** 
+Tuesday 25 August 2026  20:03:37 +0530 (0:00:00.098)       0:01:12.966 ******** 
+Tuesday 25 August 2026  20:03:37 +0530 (0:00:00.069)       0:01:13.035 ******** 
+Tuesday 25 August 2026  20:03:37 +0530 (0:00:00.076)       0:01:13.112 ******** 
+Tuesday 25 August 2026  20:03:37 +0530 (0:00:00.071)       0:01:13.184 ******** 
+Tuesday 25 August 2026  20:03:37 +0530 (0:00:00.103)       0:01:13.287 ******** 
+
+TASK [download : Download_container | Remove container image from cache] *******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:37 +0530 (0:00:00.368)       0:01:13.655 ******** 
+
+TASK [download : Set default values for flag variables] ************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:37 +0530 (0:00:00.096)       0:01:13.751 ******** 
+
+TASK [download : Set_container_facts | Display the name of the image being processed] ***
+ok: [k8s-cp-0] => {
+    "msg": "registry.k8s.io/dns/k8s-dns-node-cache"
+}
+ok: [k8s-w-0] => {
+    "msg": "registry.k8s.io/dns/k8s-dns-node-cache"
+}
+Tuesday 25 August 2026  20:03:37 +0530 (0:00:00.111)       0:01:13.863 ******** 
+
+TASK [download : Set_container_facts | Set if containers should be pulled by digest] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:38 +0530 (0:00:00.110)       0:01:13.973 ******** 
+
+TASK [download : Set_container_facts | Define by what name to pull the image] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:38 +0530 (0:00:00.157)       0:01:14.131 ******** 
+
+TASK [download : Set_container_facts | Define file name of image] **************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:38 +0530 (0:00:00.092)       0:01:14.223 ******** 
+
+TASK [download : Set_container_facts | Define path of image] *******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:38 +0530 (0:00:00.096)       0:01:14.320 ******** 
+Tuesday 25 August 2026  20:03:38 +0530 (0:00:00.077)       0:01:14.398 ******** 
+
+TASK [download : Set image save/load command for containerd] *******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:38 +0530 (0:00:00.102)       0:01:14.500 ******** 
+Tuesday 25 August 2026  20:03:38 +0530 (0:00:00.089)       0:01:14.589 ******** 
+Tuesday 25 August 2026  20:03:38 +0530 (0:00:00.076)       0:01:14.666 ******** 
+
+TASK [download : Set image save/load command for containerd on localhost] ******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:38 +0530 (0:00:00.100)       0:01:14.767 ******** 
+Tuesday 25 August 2026  20:03:38 +0530 (0:00:00.077)       0:01:14.844 ******** 
+
+TASK [download : Download_container | Prepare container download] **************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
+Tuesday 25 August 2026  20:03:39 +0530 (0:00:00.124)       0:01:14.969 ******** 
+
+TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:39 +0530 (0:00:00.619)       0:01:15.588 ******** 
+
+TASK [download : Check_pull_required | Set pull_required if the desired image is not yet loaded] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:39 +0530 (0:00:00.104)       0:01:15.692 ******** 
+Tuesday 25 August 2026  20:03:39 +0530 (0:00:00.093)       0:01:15.786 ******** 
+
+TASK [download : debug] ********************************************************
+ok: [k8s-cp-0] => {
+    "msg": "Pull registry.k8s.io/dns/k8s-dns-node-cache:1.25.0 required is: False"
+}
+ok: [k8s-w-0] => {
+    "msg": "Pull registry.k8s.io/dns/k8s-dns-node-cache:1.25.0 required is: False"
+}
+Tuesday 25 August 2026  20:03:39 +0530 (0:00:00.104)       0:01:15.890 ******** 
+Tuesday 25 August 2026  20:03:40 +0530 (0:00:00.080)       0:01:15.970 ******** 
+Tuesday 25 August 2026  20:03:40 +0530 (0:00:00.192)       0:01:16.162 ******** 
+Tuesday 25 August 2026  20:03:40 +0530 (0:00:00.078)       0:01:16.241 ******** 
+Tuesday 25 August 2026  20:03:40 +0530 (0:00:00.096)       0:01:16.338 ******** 
+Tuesday 25 August 2026  20:03:40 +0530 (0:00:00.068)       0:01:16.406 ******** 
+Tuesday 25 August 2026  20:03:40 +0530 (0:00:00.077)       0:01:16.483 ******** 
+Tuesday 25 August 2026  20:03:40 +0530 (0:00:00.067)       0:01:16.550 ******** 
+Tuesday 25 August 2026  20:03:40 +0530 (0:00:00.103)       0:01:16.654 ******** 
+
+TASK [download : Download_container | Remove container image from cache] *******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:41 +0530 (0:00:00.355)       0:01:17.010 ******** 
+
+TASK [download : Set default values for flag variables] ************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:41 +0530 (0:00:00.101)       0:01:17.111 ******** 
+
+TASK [download : Set_container_facts | Display the name of the image being processed] ***
+ok: [k8s-cp-0] => {
+    "msg": "registry.k8s.io/kube-apiserver"
+}
+ok: [k8s-w-0] => {
+    "msg": "registry.k8s.io/kube-apiserver"
+}
+Tuesday 25 August 2026  20:03:41 +0530 (0:00:00.101)       0:01:17.212 ******** 
+
+TASK [download : Set_container_facts | Set if containers should be pulled by digest] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:41 +0530 (0:00:00.146)       0:01:17.359 ******** 
+
+TASK [download : Set_container_facts | Define by what name to pull the image] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:41 +0530 (0:00:00.101)       0:01:17.460 ******** 
+
+TASK [download : Set_container_facts | Define file name of image] **************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:41 +0530 (0:00:00.101)       0:01:17.562 ******** 
+
+TASK [download : Set_container_facts | Define path of image] *******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:41 +0530 (0:00:00.109)       0:01:17.672 ******** 
+Tuesday 25 August 2026  20:03:41 +0530 (0:00:00.077)       0:01:17.749 ******** 
+
+TASK [download : Set image save/load command for containerd] *******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:41 +0530 (0:00:00.097)       0:01:17.846 ******** 
+Tuesday 25 August 2026  20:03:41 +0530 (0:00:00.071)       0:01:17.918 ******** 
+Tuesday 25 August 2026  20:03:42 +0530 (0:00:00.069)       0:01:17.987 ******** 
+
+TASK [download : Set image save/load command for containerd on localhost] ******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:42 +0530 (0:00:00.096)       0:01:18.084 ******** 
+Tuesday 25 August 2026  20:03:42 +0530 (0:00:00.075)       0:01:18.159 ******** 
+
+TASK [download : Download_container | Prepare container download] **************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
+Tuesday 25 August 2026  20:03:42 +0530 (0:00:00.120)       0:01:18.279 ******** 
+
+TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:42 +0530 (0:00:00.651)       0:01:18.931 ******** 
+
+TASK [download : Check_pull_required | Set pull_required if the desired image is not yet loaded] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:43 +0530 (0:00:00.107)       0:01:19.038 ******** 
+Tuesday 25 August 2026  20:03:43 +0530 (0:00:00.079)       0:01:19.117 ******** 
+
+TASK [download : debug] ********************************************************
+ok: [k8s-cp-0] => {
+    "msg": "Pull registry.k8s.io/kube-apiserver:v1.35.4 required is: False"
+}
+ok: [k8s-w-0] => {
+    "msg": "Pull registry.k8s.io/kube-apiserver:v1.35.4 required is: False"
+}
+Tuesday 25 August 2026  20:03:43 +0530 (0:00:00.112)       0:01:19.229 ******** 
+Tuesday 25 August 2026  20:03:43 +0530 (0:00:00.090)       0:01:19.319 ******** 
+Tuesday 25 August 2026  20:03:43 +0530 (0:00:00.210)       0:01:19.530 ******** 
+Tuesday 25 August 2026  20:03:43 +0530 (0:00:00.081)       0:01:19.612 ******** 
+Tuesday 25 August 2026  20:03:43 +0530 (0:00:00.098)       0:01:19.710 ******** 
+Tuesday 25 August 2026  20:03:43 +0530 (0:00:00.069)       0:01:19.779 ******** 
+Tuesday 25 August 2026  20:03:43 +0530 (0:00:00.074)       0:01:19.854 ******** 
+Tuesday 25 August 2026  20:03:43 +0530 (0:00:00.070)       0:01:19.925 ******** 
+Tuesday 25 August 2026  20:03:44 +0530 (0:00:00.098)       0:01:20.023 ******** 
+
+TASK [download : Download_container | Remove container image from cache] *******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:44 +0530 (0:00:00.375)       0:01:20.399 ******** 
+
+TASK [download : Set default values for flag variables] ************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:44 +0530 (0:00:00.110)       0:01:20.509 ******** 
+
+TASK [download : Set_container_facts | Display the name of the image being processed] ***
+ok: [k8s-cp-0] => {
+    "msg": "registry.k8s.io/kube-controller-manager"
+}
+ok: [k8s-w-0] => {
+    "msg": "registry.k8s.io/kube-controller-manager"
+}
+Tuesday 25 August 2026  20:03:44 +0530 (0:00:00.120)       0:01:20.630 ******** 
+
+TASK [download : Set_container_facts | Set if containers should be pulled by digest] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:44 +0530 (0:00:00.113)       0:01:20.744 ******** 
+
+TASK [download : Set_container_facts | Define by what name to pull the image] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:44 +0530 (0:00:00.148)       0:01:20.892 ******** 
+
+TASK [download : Set_container_facts | Define file name of image] **************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:45 +0530 (0:00:00.087)       0:01:20.980 ******** 
+
+TASK [download : Set_container_facts | Define path of image] *******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:45 +0530 (0:00:00.094)       0:01:21.074 ******** 
+Tuesday 25 August 2026  20:03:45 +0530 (0:00:00.069)       0:01:21.144 ******** 
+
+TASK [download : Set image save/load command for containerd] *******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:45 +0530 (0:00:00.093)       0:01:21.237 ******** 
+Tuesday 25 August 2026  20:03:45 +0530 (0:00:00.068)       0:01:21.306 ******** 
+Tuesday 25 August 2026  20:03:45 +0530 (0:00:00.077)       0:01:21.384 ******** 
+
+TASK [download : Set image save/load command for containerd on localhost] ******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:45 +0530 (0:00:00.104)       0:01:21.488 ******** 
+Tuesday 25 August 2026  20:03:45 +0530 (0:00:00.073)       0:01:21.562 ******** 
+
+TASK [download : Download_container | Prepare container download] **************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
+Tuesday 25 August 2026  20:03:45 +0530 (0:00:00.139)       0:01:21.702 ******** 
+
+TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:46 +0530 (0:00:00.627)       0:01:22.329 ******** 
+
+TASK [download : Check_pull_required | Set pull_required if the desired image is not yet loaded] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:46 +0530 (0:00:00.119)       0:01:22.448 ******** 
+Tuesday 25 August 2026  20:03:46 +0530 (0:00:00.091)       0:01:22.540 ******** 
+
+TASK [download : debug] ********************************************************
+ok: [k8s-cp-0] => {
+    "msg": "Pull registry.k8s.io/kube-controller-manager:v1.35.4 required is: False"
+}
+ok: [k8s-w-0] => {
+    "msg": "Pull registry.k8s.io/kube-controller-manager:v1.35.4 required is: False"
+}
+Tuesday 25 August 2026  20:03:46 +0530 (0:00:00.097)       0:01:22.637 ******** 
+Tuesday 25 August 2026  20:03:46 +0530 (0:00:00.085)       0:01:22.723 ******** 
+Tuesday 25 August 2026  20:03:46 +0530 (0:00:00.197)       0:01:22.920 ******** 
+Tuesday 25 August 2026  20:03:47 +0530 (0:00:00.079)       0:01:23.000 ******** 
+Tuesday 25 August 2026  20:03:47 +0530 (0:00:00.099)       0:01:23.099 ******** 
+Tuesday 25 August 2026  20:03:47 +0530 (0:00:00.067)       0:01:23.167 ******** 
+Tuesday 25 August 2026  20:03:47 +0530 (0:00:00.067)       0:01:23.235 ******** 
+Tuesday 25 August 2026  20:03:47 +0530 (0:00:00.068)       0:01:23.303 ******** 
+Tuesday 25 August 2026  20:03:47 +0530 (0:00:00.104)       0:01:23.407 ******** 
+
+TASK [download : Download_container | Remove container image from cache] *******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:47 +0530 (0:00:00.379)       0:01:23.787 ******** 
+
+TASK [download : Set default values for flag variables] ************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:47 +0530 (0:00:00.098)       0:01:23.885 ******** 
+
+TASK [download : Set_container_facts | Display the name of the image being processed] ***
+ok: [k8s-cp-0] => {
+    "msg": "registry.k8s.io/kube-scheduler"
+}
+ok: [k8s-w-0] => {
+    "msg": "registry.k8s.io/kube-scheduler"
+}
+Tuesday 25 August 2026  20:03:48 +0530 (0:00:00.104)       0:01:23.989 ******** 
+
+TASK [download : Set_container_facts | Set if containers should be pulled by digest] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:48 +0530 (0:00:00.141)       0:01:24.131 ******** 
+
+TASK [download : Set_container_facts | Define by what name to pull the image] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:48 +0530 (0:00:00.099)       0:01:24.231 ******** 
+
+TASK [download : Set_container_facts | Define file name of image] **************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:48 +0530 (0:00:00.094)       0:01:24.325 ******** 
+
+TASK [download : Set_container_facts | Define path of image] *******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:48 +0530 (0:00:00.104)       0:01:24.429 ******** 
+Tuesday 25 August 2026  20:03:48 +0530 (0:00:00.086)       0:01:24.516 ******** 
+
+TASK [download : Set image save/load command for containerd] *******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:48 +0530 (0:00:00.107)       0:01:24.624 ******** 
+Tuesday 25 August 2026  20:03:48 +0530 (0:00:00.078)       0:01:24.703 ******** 
+Tuesday 25 August 2026  20:03:48 +0530 (0:00:00.079)       0:01:24.782 ******** 
+
+TASK [download : Set image save/load command for containerd on localhost] ******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:48 +0530 (0:00:00.102)       0:01:24.884 ******** 
+Tuesday 25 August 2026  20:03:49 +0530 (0:00:00.071)       0:01:24.956 ******** 
+
+TASK [download : Download_container | Prepare container download] **************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
+Tuesday 25 August 2026  20:03:49 +0530 (0:00:00.132)       0:01:25.089 ******** 
+
+TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:49 +0530 (0:00:00.614)       0:01:25.704 ******** 
+
+TASK [download : Check_pull_required | Set pull_required if the desired image is not yet loaded] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:49 +0530 (0:00:00.105)       0:01:25.810 ******** 
+Tuesday 25 August 2026  20:03:49 +0530 (0:00:00.084)       0:01:25.894 ******** 
+
+TASK [download : debug] ********************************************************
+ok: [k8s-cp-0] => {
+    "msg": "Pull registry.k8s.io/kube-scheduler:v1.35.4 required is: False"
+}
+ok: [k8s-w-0] => {
+    "msg": "Pull registry.k8s.io/kube-scheduler:v1.35.4 required is: False"
+}
+Tuesday 25 August 2026  20:03:50 +0530 (0:00:00.094)       0:01:25.988 ******** 
+Tuesday 25 August 2026  20:03:50 +0530 (0:00:00.074)       0:01:26.063 ******** 
+Tuesday 25 August 2026  20:03:50 +0530 (0:00:00.186)       0:01:26.250 ******** 
+Tuesday 25 August 2026  20:03:50 +0530 (0:00:00.073)       0:01:26.323 ******** 
+Tuesday 25 August 2026  20:03:50 +0530 (0:00:00.096)       0:01:26.419 ******** 
+Tuesday 25 August 2026  20:03:50 +0530 (0:00:00.071)       0:01:26.491 ******** 
+Tuesday 25 August 2026  20:03:50 +0530 (0:00:00.081)       0:01:26.573 ******** 
+Tuesday 25 August 2026  20:03:50 +0530 (0:00:00.078)       0:01:26.652 ******** 
+Tuesday 25 August 2026  20:03:50 +0530 (0:00:00.102)       0:01:26.754 ******** 
+
+TASK [download : Download_container | Remove container image from cache] *******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:51 +0530 (0:00:00.354)       0:01:27.109 ******** 
+
+TASK [download : Set default values for flag variables] ************************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:51 +0530 (0:00:00.097)       0:01:27.206 ******** 
+
+TASK [download : Set_container_facts | Display the name of the image being processed] ***
+ok: [k8s-cp-0] => {
+    "msg": "registry.k8s.io/kube-proxy"
+}
+ok: [k8s-w-0] => {
+    "msg": "registry.k8s.io/kube-proxy"
+}
+Tuesday 25 August 2026  20:03:51 +0530 (0:00:00.110)       0:01:27.317 ******** 
+
+TASK [download : Set_container_facts | Set if containers should be pulled by digest] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:51 +0530 (0:00:00.106)       0:01:27.423 ******** 
+
+TASK [download : Set_container_facts | Define by what name to pull the image] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:51 +0530 (0:00:00.150)       0:01:27.574 ******** 
+
+TASK [download : Set_container_facts | Define file name of image] **************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:51 +0530 (0:00:00.086)       0:01:27.661 ******** 
+
+TASK [download : Set_container_facts | Define path of image] *******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:51 +0530 (0:00:00.087)       0:01:27.748 ******** 
+Tuesday 25 August 2026  20:03:51 +0530 (0:00:00.078)       0:01:27.827 ******** 
+
+TASK [download : Set image save/load command for containerd] *******************
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:51 +0530 (0:00:00.087)       0:01:27.914 ******** 
+Tuesday 25 August 2026  20:03:52 +0530 (0:00:00.067)       0:01:27.982 ******** 
+Tuesday 25 August 2026  20:03:52 +0530 (0:00:00.067)       0:01:28.049 ******** 
+
+TASK [download : Set image save/load command for containerd on localhost] ******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:52 +0530 (0:00:00.094)       0:01:28.144 ******** 
+Tuesday 25 August 2026  20:03:52 +0530 (0:00:00.083)       0:01:28.227 ******** 
+
+TASK [download : Download_container | Prepare container download] **************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
+Tuesday 25 August 2026  20:03:52 +0530 (0:00:00.128)       0:01:28.356 ******** 
+
+TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:53 +0530 (0:00:00.672)       0:01:29.028 ******** 
+
+TASK [download : Check_pull_required | Set pull_required if the desired image is not yet loaded] ***
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:53 +0530 (0:00:00.104)       0:01:29.132 ******** 
+Tuesday 25 August 2026  20:03:53 +0530 (0:00:00.076)       0:01:29.209 ******** 
+
+TASK [download : debug] ********************************************************
+ok: [k8s-cp-0] => {
+    "msg": "Pull registry.k8s.io/kube-proxy:v1.35.4 required is: False"
+}
+ok: [k8s-w-0] => {
+    "msg": "Pull registry.k8s.io/kube-proxy:v1.35.4 required is: False"
+}
+Tuesday 25 August 2026  20:03:53 +0530 (0:00:00.095)       0:01:29.304 ******** 
+Tuesday 25 August 2026  20:03:53 +0530 (0:00:00.084)       0:01:29.389 ******** 
+Tuesday 25 August 2026  20:03:53 +0530 (0:00:00.200)       0:01:29.590 ******** 
+Tuesday 25 August 2026  20:03:53 +0530 (0:00:00.067)       0:01:29.657 ******** 
+Tuesday 25 August 2026  20:03:53 +0530 (0:00:00.093)       0:01:29.750 ******** 
+Tuesday 25 August 2026  20:03:53 +0530 (0:00:00.068)       0:01:29.819 ******** 
+Tuesday 25 August 2026  20:03:53 +0530 (0:00:00.070)       0:01:29.889 ******** 
+Tuesday 25 August 2026  20:03:54 +0530 (0:00:00.069)       0:01:29.959 ******** 
+Tuesday 25 August 2026  20:03:54 +0530 (0:00:00.099)       0:01:30.058 ******** 
+
+TASK [download : Download_container | Remove container image from cache] *******
+ok: [k8s-cp-0]
+ok: [k8s-w-0]
+Tuesday 25 August 2026  20:03:54 +0530 (0:00:00.352)       0:01:30.410 ******** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:03:54 +0530 (0:00:00.067)       0:01:30.478 ******** 
+Tuesday 25 August 2026  20:03:54 +0530 (0:00:00.044)       0:01:30.522 ******** 
+
+TASK [download : Download_file | Set pathname of cached file] ******************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:03:54 +0530 (0:00:00.087)       0:01:30.610 ******** 
+
+TASK [download : Download_file | Create dest directory on node] ****************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:03:54 +0530 (0:00:00.329)       0:01:30.939 ******** 
+Tuesday 25 August 2026  20:03:55 +0530 (0:00:00.048)       0:01:30.988 ******** 
+Tuesday 25 August 2026  20:03:55 +0530 (0:00:00.191)       0:01:31.179 ******** 
+
+TASK [download : Download_file | Download item] ********************************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:03:56 +0530 (0:00:01.560)       0:01:32.739 ******** 
+Tuesday 25 August 2026  20:03:56 +0530 (0:00:00.041)       0:01:32.781 ******** 
+Tuesday 25 August 2026  20:03:56 +0530 (0:00:00.048)       0:01:32.830 ******** 
+Tuesday 25 August 2026  20:03:56 +0530 (0:00:00.044)       0:01:32.874 ******** 
+
+TASK [download : Download_file | Extract file archives] ************************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0
+Tuesday 25 August 2026  20:03:56 +0530 (0:00:00.069)       0:01:32.943 ******** 
+
+TASK [download : Extract_file | Unpacking archive] *****************************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:03:59 +0530 (0:00:02.325)       0:01:35.269 ******** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:03:59 +0530 (0:00:00.060)       0:01:35.329 ******** 
+Tuesday 25 August 2026  20:03:59 +0530 (0:00:00.039)       0:01:35.369 ******** 
+
+TASK [download : Download_file | Set pathname of cached file] ******************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:03:59 +0530 (0:00:00.061)       0:01:35.431 ******** 
+
+TASK [download : Download_file | Create dest directory on node] ****************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:03:59 +0530 (0:00:00.300)       0:01:35.731 ******** 
+Tuesday 25 August 2026  20:03:59 +0530 (0:00:00.043)       0:01:35.775 ******** 
+Tuesday 25 August 2026  20:03:59 +0530 (0:00:00.100)       0:01:35.876 ******** 
+
+TASK [download : Download_file | Download item] ********************************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:01 +0530 (0:00:01.474)       0:01:37.350 ******** 
+Tuesday 25 August 2026  20:04:01 +0530 (0:00:00.041)       0:01:37.391 ******** 
+Tuesday 25 August 2026  20:04:01 +0530 (0:00:00.041)       0:01:37.433 ******** 
+Tuesday 25 August 2026  20:04:01 +0530 (0:00:00.042)       0:01:37.476 ******** 
+
+TASK [download : Download_file | Extract file archives] ************************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0
+Tuesday 25 August 2026  20:04:01 +0530 (0:00:00.063)       0:01:37.539 ******** 
+Tuesday 25 August 2026  20:04:01 +0530 (0:00:00.048)       0:01:37.587 ******** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:01 +0530 (0:00:00.060)       0:01:37.648 ******** 
+Tuesday 25 August 2026  20:04:01 +0530 (0:00:00.038)       0:01:37.686 ******** 
+
+TASK [download : Download_file | Set pathname of cached file] ******************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:01 +0530 (0:00:00.067)       0:01:37.753 ******** 
+
+TASK [download : Download_file | Create dest directory on node] ****************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:02 +0530 (0:00:00.287)       0:01:38.041 ******** 
+Tuesday 25 August 2026  20:04:02 +0530 (0:00:00.049)       0:01:38.091 ******** 
+Tuesday 25 August 2026  20:04:02 +0530 (0:00:00.059)       0:01:38.150 ******** 
+
+TASK [download : Download_file | Download item] ********************************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:02 +0530 (0:00:00.430)       0:01:38.581 ******** 
+Tuesday 25 August 2026  20:04:02 +0530 (0:00:00.043)       0:01:38.625 ******** 
+Tuesday 25 August 2026  20:04:02 +0530 (0:00:00.043)       0:01:38.669 ******** 
+Tuesday 25 August 2026  20:04:02 +0530 (0:00:00.043)       0:01:38.712 ******** 
+
+TASK [download : Download_file | Extract file archives] ************************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0
+Tuesday 25 August 2026  20:04:02 +0530 (0:00:00.064)       0:01:38.776 ******** 
+Tuesday 25 August 2026  20:04:02 +0530 (0:00:00.157)       0:01:38.934 ******** 
+
+TASK [download : Set default values for flag variables] ************************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:03 +0530 (0:00:00.055)       0:01:38.989 ******** 
+
+TASK [download : Set_container_facts | Display the name of the image being processed] ***
+ok: [k8s-cp-0] => {
+    "msg": "registry.k8s.io/cpa/cluster-proportional-autoscaler"
+}
+Tuesday 25 August 2026  20:04:03 +0530 (0:00:00.056)       0:01:39.045 ******** 
+
+TASK [download : Set_container_facts | Set if containers should be pulled by digest] ***
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:03 +0530 (0:00:00.055)       0:01:39.100 ******** 
+
+TASK [download : Set_container_facts | Define by what name to pull the image] ***
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:03 +0530 (0:00:00.066)       0:01:39.167 ******** 
+
+TASK [download : Set_container_facts | Define file name of image] **************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:03 +0530 (0:00:00.064)       0:01:39.231 ******** 
+
+TASK [download : Set_container_facts | Define path of image] *******************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:03 +0530 (0:00:00.062)       0:01:39.294 ******** 
+Tuesday 25 August 2026  20:04:03 +0530 (0:00:00.043)       0:01:39.337 ******** 
+
+TASK [download : Set image save/load command for containerd] *******************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:03 +0530 (0:00:00.059)       0:01:39.397 ******** 
+Tuesday 25 August 2026  20:04:03 +0530 (0:00:00.042)       0:01:39.440 ******** 
+Tuesday 25 August 2026  20:04:03 +0530 (0:00:00.044)       0:01:39.484 ******** 
+
+TASK [download : Set image save/load command for containerd on localhost] ******
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:03 +0530 (0:00:00.091)       0:01:39.576 ******** 
+Tuesday 25 August 2026  20:04:03 +0530 (0:00:00.048)       0:01:39.625 ******** 
+
+TASK [download : Download_container | Prepare container download] **************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0
+Tuesday 25 August 2026  20:04:03 +0530 (0:00:00.072)       0:01:39.697 ******** 
+
+TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:04 +0530 (0:00:00.497)       0:01:40.195 ******** 
+
+TASK [download : Check_pull_required | Set pull_required if the desired image is not yet loaded] ***
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:04 +0530 (0:00:00.072)       0:01:40.267 ******** 
+Tuesday 25 August 2026  20:04:04 +0530 (0:00:00.050)       0:01:40.318 ******** 
+
+TASK [download : debug] ********************************************************
+ok: [k8s-cp-0] => {
+    "msg": "Pull registry.k8s.io/cpa/cluster-proportional-autoscaler:v1.8.8 required is: False"
+}
+Tuesday 25 August 2026  20:04:04 +0530 (0:00:00.063)       0:01:40.381 ******** 
+Tuesday 25 August 2026  20:04:04 +0530 (0:00:00.049)       0:01:40.431 ******** 
+Tuesday 25 August 2026  20:04:04 +0530 (0:00:00.055)       0:01:40.486 ******** 
+Tuesday 25 August 2026  20:04:04 +0530 (0:00:00.090)       0:01:40.576 ******** 
+Tuesday 25 August 2026  20:04:04 +0530 (0:00:00.065)       0:01:40.642 ******** 
+Tuesday 25 August 2026  20:04:04 +0530 (0:00:00.069)       0:01:40.712 ******** 
+Tuesday 25 August 2026  20:04:04 +0530 (0:00:00.040)       0:01:40.752 ******** 
+Tuesday 25 August 2026  20:04:04 +0530 (0:00:00.039)       0:01:40.792 ******** 
+Tuesday 25 August 2026  20:04:04 +0530 (0:00:00.040)       0:01:40.832 ******** 
+
+TASK [download : Download_container | Remove container image from cache] *******
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:05 +0530 (0:00:00.281)       0:01:41.113 ******** 
+
+TASK [download : Prep_download | Set a few facts] ******************************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:05 +0530 (0:00:00.059)       0:01:41.173 ******** 
+Tuesday 25 August 2026  20:04:05 +0530 (0:00:00.045)       0:01:41.219 ******** 
+
+TASK [download : Download_file | Set pathname of cached file] ******************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:05 +0530 (0:00:00.067)       0:01:41.287 ******** 
+
+TASK [download : Download_file | Create dest directory on node] ****************
+changed: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:05 +0530 (0:00:00.330)       0:01:41.617 ******** 
+Tuesday 25 August 2026  20:04:05 +0530 (0:00:00.045)       0:01:41.663 ******** 
+Tuesday 25 August 2026  20:04:05 +0530 (0:00:00.063)       0:01:41.726 ******** 
+
+TASK [download : Download_file | Download item] ********************************
+changed: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:14 +0530 (0:00:09.110)       0:01:50.837 ******** 
+Tuesday 25 August 2026  20:04:14 +0530 (0:00:00.043)       0:01:50.881 ******** 
+Tuesday 25 August 2026  20:04:14 +0530 (0:00:00.040)       0:01:50.921 ******** 
+Tuesday 25 August 2026  20:04:15 +0530 (0:00:00.041)       0:01:50.962 ******** 
+
+TASK [download : Download_file | Extract file archives] ************************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0
+Tuesday 25 August 2026  20:04:15 +0530 (0:00:00.069)       0:01:51.032 ******** 
+
+TASK [download : Extract_file | Unpacking archive] *****************************
+changed: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:17 +0530 (0:00:01.925)       0:01:52.958 ******** 
+
+TASK [download : Set default values for flag variables] ************************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:17 +0530 (0:00:00.070)       0:01:53.028 ******** 
+
+TASK [download : Set_container_facts | Display the name of the image being processed] ***
+ok: [k8s-cp-0] => {
+    "msg": "registry.k8s.io/metrics-server/metrics-server"
+}
+Tuesday 25 August 2026  20:04:17 +0530 (0:00:00.072)       0:01:53.101 ******** 
+
+TASK [download : Set_container_facts | Set if containers should be pulled by digest] ***
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:17 +0530 (0:00:00.071)       0:01:53.172 ******** 
+
+TASK [download : Set_container_facts | Define by what name to pull the image] ***
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:17 +0530 (0:00:00.067)       0:01:53.240 ******** 
+
+TASK [download : Set_container_facts | Define file name of image] **************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:17 +0530 (0:00:00.075)       0:01:53.315 ******** 
+
+TASK [download : Set_container_facts | Define path of image] *******************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:17 +0530 (0:00:00.064)       0:01:53.379 ******** 
+Tuesday 25 August 2026  20:04:17 +0530 (0:00:00.043)       0:01:53.423 ******** 
+
+TASK [download : Set image save/load command for containerd] *******************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:17 +0530 (0:00:00.063)       0:01:53.487 ******** 
+Tuesday 25 August 2026  20:04:17 +0530 (0:00:00.042)       0:01:53.530 ******** 
+Tuesday 25 August 2026  20:04:17 +0530 (0:00:00.044)       0:01:53.575 ******** 
+
+TASK [download : Set image save/load command for containerd on localhost] ******
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:17 +0530 (0:00:00.067)       0:01:53.643 ******** 
+Tuesday 25 August 2026  20:04:17 +0530 (0:00:00.047)       0:01:53.691 ******** 
+
+TASK [download : Download_container | Prepare container download] **************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0
+Tuesday 25 August 2026  20:04:17 +0530 (0:00:00.216)       0:01:53.907 ******** 
+
+TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:18 +0530 (0:00:00.580)       0:01:54.487 ******** 
+
+TASK [download : Check_pull_required | Set pull_required if the desired image is not yet loaded] ***
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:04:18 +0530 (0:00:00.068)       0:01:54.555 ******** 
+Tuesday 25 August 2026  20:04:18 +0530 (0:00:00.046)       0:01:54.601 ******** 
+
+TASK [download : debug] ********************************************************
+ok: [k8s-cp-0] => {
+    "msg": "Pull registry.k8s.io/metrics-server/metrics-server:v0.8.1 required is: True"
+}
+Tuesday 25 August 2026  20:04:18 +0530 (0:00:00.060)       0:01:54.662 ******** 
+Tuesday 25 August 2026  20:04:18 +0530 (0:00:00.045)       0:01:54.707 ******** 
+Tuesday 25 August 2026  20:04:18 +0530 (0:00:00.041)       0:01:54.749 ******** 
+Tuesday 25 August 2026  20:04:18 +0530 (0:00:00.039)       0:01:54.789 ******** 
+
+TASK [download : Download_container | Download image if required] **************
+changed: [k8s-cp-0]
+Tuesday 25 August 2026  20:06:10 +0530 (0:01:51.634)       0:03:46.423 ******** 
+Tuesday 25 August 2026  20:06:10 +0530 (0:00:00.122)       0:03:46.546 ******** 
+Tuesday 25 August 2026  20:06:10 +0530 (0:00:00.040)       0:03:46.587 ******** 
+Tuesday 25 August 2026  20:06:10 +0530 (0:00:00.040)       0:03:46.627 ******** 
+Tuesday 25 August 2026  20:06:10 +0530 (0:00:00.040)       0:03:46.667 ******** 
+[WARNING]: Could not match supplied host pattern, ignoring:
+_kubespray_needs_etcd
+
+TASK [download : Download_container | Remove container image from cache] *******
+ok: [k8s-cp-0]
+
+PLAY [Add worker nodes to the etcd play if needed] *****************************
+
+PLAY [Install etcd] ************************************************************
+
+PLAY [Install Kubernetes nodes] ************************************************
+
+PLAY [Install the control plane] ***********************************************
+
+PLAY [Invoke kubeadm and install a CNI] ****************************************
+
+PLAY [Install Calico Route Reflector] ******************************************
+skipping: no hosts matched
+
+PLAY [Patch Kubernetes for Windows] ********************************************
+
+PLAY [Install Kubernetes apps] *************************************************
+Tuesday 25 August 2026  20:06:12 +0530 (0:00:01.291)       0:03:47.959 ******** 
+Tuesday 25 August 2026  20:06:12 +0530 (0:00:00.042)       0:03:48.001 ******** 
+Tuesday 25 August 2026  20:06:12 +0530 (0:00:00.078)       0:03:48.080 ******** 
+Tuesday 25 August 2026  20:06:12 +0530 (0:00:00.038)       0:03:48.118 ******** 
+Tuesday 25 August 2026  20:06:12 +0530 (0:00:00.044)       0:03:48.162 ******** 
+Tuesday 25 August 2026  20:06:12 +0530 (0:00:00.041)       0:03:48.204 ******** 
+Tuesday 25 August 2026  20:06:12 +0530 (0:00:00.053)       0:03:48.257 ******** 
+Tuesday 25 August 2026  20:06:12 +0530 (0:00:00.039)       0:03:48.296 ******** 
+Tuesday 25 August 2026  20:06:12 +0530 (0:00:00.053)       0:03:48.350 ******** 
+Tuesday 25 August 2026  20:06:12 +0530 (0:00:00.089)       0:03:48.440 ******** 
+Tuesday 25 August 2026  20:06:12 +0530 (0:00:00.055)       0:03:48.495 ******** 
+Tuesday 25 August 2026  20:06:12 +0530 (0:00:00.042)       0:03:48.538 ******** 
+Tuesday 25 August 2026  20:06:12 +0530 (0:00:00.044)       0:03:48.582 ******** 
+Tuesday 25 August 2026  20:06:12 +0530 (0:00:00.045)       0:03:48.628 ******** 
+Tuesday 25 August 2026  20:06:12 +0530 (0:00:00.061)       0:03:48.690 ******** 
+Tuesday 25 August 2026  20:06:12 +0530 (0:00:00.041)       0:03:48.731 ******** 
+Tuesday 25 August 2026  20:06:12 +0530 (0:00:00.040)       0:03:48.772 ******** 
+Tuesday 25 August 2026  20:06:12 +0530 (0:00:00.043)       0:03:48.815 ******** 
+Tuesday 25 August 2026  20:06:12 +0530 (0:00:00.041)       0:03:48.856 ******** 
+Tuesday 25 August 2026  20:06:12 +0530 (0:00:00.081)       0:03:48.938 ******** 
+
+TASK [kubernetes-apps/ansible : Kubernetes Apps | Wait for kube-apiserver] *****
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:06:13 +0530 (0:00:00.802)       0:03:49.740 ******** 
+
+TASK [kubernetes-apps/ansible : Kubernetes Apps | CoreDNS] *********************
+changed: [k8s-cp-0] => (item=coredns-clusterrole.yml.j2)
+changed: [k8s-cp-0] => (item=coredns-clusterrolebinding.yml.j2)
+changed: [k8s-cp-0] => (item=coredns-config.yml.j2)
+changed: [k8s-cp-0] => (item=coredns-deployment.yml.j2)
+changed: [k8s-cp-0] => (item=coredns-sa.yml.j2)
+changed: [k8s-cp-0] => (item=coredns-svc.yml.j2)
+changed: [k8s-cp-0] => (item=dns-autoscaler-sa.yml.j2)
+changed: [k8s-cp-0] => (item=dns-autoscaler.yml.j2)
+changed: [k8s-cp-0] => (item=dns-autoscaler-clusterrole.yml.j2)
+changed: [k8s-cp-0] => (item=dns-autoscaler-clusterrolebinding.yml.j2)
+Tuesday 25 August 2026  20:06:19 +0530 (0:00:05.868)       0:03:55.609 ******** 
+Tuesday 25 August 2026  20:06:20 +0530 (0:00:00.400)       0:03:56.009 ******** 
+
+TASK [kubernetes-apps/ansible : Kubernetes Apps | nodelocalDNS] ****************
+changed: [k8s-cp-0] => (item=nodelocaldns-config.yml.j2)
+changed: [k8s-cp-0] => (item=nodelocaldns-daemonset.yml.j2)
+changed: [k8s-cp-0] => (item=nodelocaldns-sa.yml.j2)
+Tuesday 25 August 2026  20:06:22 +0530 (0:00:02.043)       0:03:58.053 ******** 
+Tuesday 25 August 2026  20:06:22 +0530 (0:00:00.245)       0:03:58.298 ******** 
+
+TASK [kubernetes-apps/helm : Helm | Gather os specific variables] **************
+ok: [k8s-cp-0] => (item=/home/claude/Desktop/kubespray/roles/kubernetes-apps/helm/vars/ubuntu.yml)
+Tuesday 25 August 2026  20:06:22 +0530 (0:00:00.217)       0:03:58.516 ******** 
+
+TASK [kubernetes-apps/helm : Helm | Install PyYaml] ****************************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:06:24 +0530 (0:00:01.596)       0:04:00.113 ******** 
+Tuesday 25 August 2026  20:06:24 +0530 (0:00:00.041)       0:04:00.154 ******** 
+
+TASK [kubernetes-apps/helm : Helm | Download helm] *****************************
+included: /home/claude/Desktop/kubespray/roles/kubernetes-apps/helm/tasks/../../../download/tasks/download_file.yml for k8s-cp-0
+Tuesday 25 August 2026  20:06:24 +0530 (0:00:00.063)       0:04:00.218 ******** 
+
+TASK [kubernetes-apps/helm : Prep_download | Set a few facts] ******************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:06:24 +0530 (0:00:00.519)       0:04:00.737 ******** 
+Tuesday 25 August 2026  20:06:24 +0530 (0:00:00.048)       0:04:00.786 ******** 
+
+TASK [kubernetes-apps/helm : Download_file | Set pathname of cached file] ******
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:06:25 +0530 (0:00:01.046)       0:04:01.833 ******** 
+
+TASK [kubernetes-apps/helm : Download_file | Create dest directory on node] ****
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:06:27 +0530 (0:00:01.622)       0:04:03.455 ******** 
+Tuesday 25 August 2026  20:06:27 +0530 (0:00:00.075)       0:04:03.531 ******** 
+Tuesday 25 August 2026  20:06:27 +0530 (0:00:00.064)       0:04:03.595 ******** 
+
+TASK [kubernetes-apps/helm : Download_file | Download item] ********************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:06:32 +0530 (0:00:04.997)       0:04:08.593 ******** 
+Tuesday 25 August 2026  20:06:32 +0530 (0:00:00.049)       0:04:08.643 ******** 
+Tuesday 25 August 2026  20:06:32 +0530 (0:00:00.049)       0:04:08.692 ******** 
+Tuesday 25 August 2026  20:06:32 +0530 (0:00:00.052)       0:04:08.745 ******** 
+
+TASK [kubernetes-apps/helm : Download_file | Extract file archives] ************
+included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0
+Tuesday 25 August 2026  20:06:32 +0530 (0:00:00.070)       0:04:08.816 ******** 
+
+TASK [kubernetes-apps/helm : Extract_file | Unpacking archive] *****************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:06:36 +0530 (0:00:04.068)       0:04:12.884 ******** 
+
+TASK [kubernetes-apps/helm : Helm | Copy helm binary from download dir] ********
+changed: [k8s-cp-0]
+Tuesday 25 August 2026  20:06:38 +0530 (0:00:01.466)       0:04:14.351 ******** 
+
+TASK [kubernetes-apps/helm : Helm | Get helm completion] ***********************
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:06:38 +0530 (0:00:00.398)       0:04:14.749 ******** 
+
+TASK [kubernetes-apps/helm : Helm | Install helm completion] *******************
+changed: [k8s-cp-0]
+Tuesday 25 August 2026  20:06:39 +0530 (0:00:00.754)       0:04:15.504 ******** 
+Tuesday 25 August 2026  20:06:39 +0530 (0:00:00.041)       0:04:15.545 ******** 
+Tuesday 25 August 2026  20:06:39 +0530 (0:00:00.040)       0:04:15.586 ******** 
+Tuesday 25 August 2026  20:06:39 +0530 (0:00:00.041)       0:04:15.628 ******** 
+Tuesday 25 August 2026  20:06:39 +0530 (0:00:00.049)       0:04:15.678 ******** 
+Tuesday 25 August 2026  20:06:39 +0530 (0:00:00.042)       0:04:15.720 ******** 
+Tuesday 25 August 2026  20:06:39 +0530 (0:00:00.042)       0:04:15.763 ******** 
+Tuesday 25 August 2026  20:06:39 +0530 (0:00:00.051)       0:04:15.815 ******** 
+Tuesday 25 August 2026  20:06:39 +0530 (0:00:00.046)       0:04:15.861 ******** 
+Tuesday 25 August 2026  20:06:39 +0530 (0:00:00.046)       0:04:15.908 ******** 
+Tuesday 25 August 2026  20:06:40 +0530 (0:00:00.046)       0:04:15.955 ******** 
+Tuesday 25 August 2026  20:06:40 +0530 (0:00:00.060)       0:04:16.016 ******** 
+
+TASK [kubernetes-apps/metrics_server : Metrics Server | Delete addon dir] ******
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:06:40 +0530 (0:00:00.287)       0:04:16.303 ******** 
+
+TASK [kubernetes-apps/metrics_server : Metrics Server | Create addon dir] ******
+changed: [k8s-cp-0]
+Tuesday 25 August 2026  20:06:40 +0530 (0:00:00.324)       0:04:16.628 ******** 
+
+TASK [kubernetes-apps/metrics_server : Metrics Server | Templates list] ********
+ok: [k8s-cp-0]
+Tuesday 25 August 2026  20:06:40 +0530 (0:00:00.064)       0:04:16.692 ******** 
+
+TASK [kubernetes-apps/metrics_server : Metrics Server | Create manifests] ******
+changed: [k8s-cp-0] => (item={'name': 'auth-delegator', 'file': 'auth-delegator.yaml', 'type': 'clusterrolebinding'})
+changed: [k8s-cp-0] => (item={'name': 'auth-reader', 'file': 'auth-reader.yaml', 'type': 'rolebinding'})
+changed: [k8s-cp-0] => (item={'name': 'metrics-server-sa', 'file': 'metrics-server-sa.yaml', 'type': 'sa'})
+changed: [k8s-cp-0] => (item={'name': 'metrics-server-deployment', 'file': 'metrics-server-deployment.yaml', 'type': 'deploy'})
+changed: [k8s-cp-0] => (item={'name': 'metrics-server-service', 'file': 'metrics-server-service.yaml', 'type': 'service'})
+changed: [k8s-cp-0] => (item={'name': 'metrics-apiservice', 'file': 'metrics-apiservice.yaml', 'type': 'service'})
+changed: [k8s-cp-0] => (item={'name': 'resource-reader-clusterrolebinding', 'file': 'resource-reader-clusterrolebinding.yaml', 'type': 'clusterrolebinding'})
+changed: [k8s-cp-0] => (item={'name': 'resource-reader', 'file': 'resource-reader.yaml', 'type': 'clusterrole'})
+Tuesday 25 August 2026  20:06:45 +0530 (0:00:04.996)       0:04:21.689 ******** 
+
+TASK [kubernetes-apps/metrics_server : Metrics Server | Apply manifests] *******
+ok: [k8s-cp-0] => (item={'diff': [], 'dest': '/etc/kubernetes/addons/metrics_server/auth-delegator.yaml', 'src': '/root/.ansible/tmp/ansible-tmp-1787668600.816612-29072-135557459209281/.source.yaml', 'md5sum': 'a2e49286b8bbafb52f97f0368ff89c43', 'checksum': '8cfc753862a1346516e9c5e042e0cf676f10b4fa', 'changed': True, 'uid': 0, 'gid': 0, 'owner': 'root', 'group': 'root', 'mode': '0644', 'state': 'file', 'size': 356, 'invocation': {'module_args': {'src': '/root/.ansible/tmp/ansible-tmp-1787668600.816612-29072-135557459209281/.source.yaml', 'dest': '/etc/kubernetes/addons/metrics_server/auth-delegator.yaml', 'mode': '0644', 'follow': False, '_original_basename': 'auth-delegator.yaml.j2', 'checksum': '8cfc753862a1346516e9c5e042e0cf676f10b4fa', 'backup': False, 'force': True, 'unsafe_writes': False, 'content': None, 'validate': None, 'directory_mode': None, 'remote_src': None, 'local_follow': None, 'owner': None, 'group': None, 'seuser': None, 'serole': None, 'selevel': None, 'setype': None, 'attributes': None}}, 'failed': False, 'item': {'name': 'auth-delegator', 'file': 'auth-delegator.yaml', 'type': 'clusterrolebinding'}, 'ansible_loop_var': 'item'})
+ok: [k8s-cp-0] => (item={'diff': [], 'dest': '/etc/kubernetes/addons/metrics_server/auth-reader.yaml', 'src': '/root/.ansible/tmp/ansible-tmp-1787668601.4580693-29072-118853388620383/.source.yaml', 'md5sum': 'a39930ff9d867fbf611179c50d3df238', 'checksum': 'b3996d26650d597868c364128e541469818f30c5', 'changed': True, 'uid': 0, 'gid': 0, 'owner': 'root', 'group': 'root', 'mode': '0644', 'state': 'file', 'size': 377, 'invocation': {'module_args': {'src': '/root/.ansible/tmp/ansible-tmp-1787668601.4580693-29072-118853388620383/.source.yaml', 'dest': '/etc/kubernetes/addons/metrics_server/auth-reader.yaml', 'mode': '0644', 'follow': False, '_original_basename': 'auth-reader.yaml.j2', 'checksum': 'b3996d26650d597868c364128e541469818f30c5', 'backup': False, 'force': True, 'unsafe_writes': False, 'content': None, 'validate': None, 'directory_mode': None, 'remote_src': None, 'local_follow': None, 'owner': None, 'group': None, 'seuser': None, 'serole': None, 'selevel': None, 'setype': None, 'attributes': None}}, 'failed': False, 'item': {'name': 'auth-reader', 'file': 'auth-reader.yaml', 'type': 'rolebinding'}, 'ansible_loop_var': 'item'})
+ok: [k8s-cp-0] => (item={'diff': [], 'dest': '/etc/kubernetes/addons/metrics_server/metrics-server-sa.yaml', 'src': '/root/.ansible/tmp/ansible-tmp-1787668602.0499938-29072-34993059257568/.source.yaml', 'md5sum': 'f00ec451a258e5b1e559d846372e5409', 'checksum': 'fe40a9b0eed0c5c27b769fe60501ebaf40feafb9', 'changed': True, 'uid': 0, 'gid': 0, 'owner': 'root', 'group': 'root', 'mode': '0644', 'state': 'file', 'size': 155, 'invocation': {'module_args': {'src': '/root/.ansible/tmp/ansible-tmp-1787668602.0499938-29072-34993059257568/.source.yaml', 'dest': '/etc/kubernetes/addons/metrics_server/metrics-server-sa.yaml', 'mode': '0644', 'follow': False, '_original_basename': 'metrics-server-sa.yaml.j2', 'checksum': 'fe40a9b0eed0c5c27b769fe60501ebaf40feafb9', 'backup': False, 'force': True, 'unsafe_writes': False, 'content': None, 'validate': None, 'directory_mode': None, 'remote_src': None, 'local_follow': None, 'owner': None, 'group': None, 'seuser': None, 'serole': None, 'selevel': None, 'setype': None, 'attributes': None}}, 'failed': False, 'item': {'name': 'metrics-server-sa', 'file': 'metrics-server-sa.yaml', 'type': 'sa'}, 'ansible_loop_var': 'item'})
+ok: [k8s-cp-0] => (item={'diff': [], 'dest': '/etc/kubernetes/addons/metrics_server/metrics-server-deployment.yaml', 'src': '/root/.ansible/tmp/ansible-tmp-1787668602.6559823-29072-34412976562004/.source.yaml', 'md5sum': 'b7fa2cd653d945b021826448352fbaaa', 'checksum': '13d6d2ed463fde3284c7d499eb2aa53b7a37a022', 'changed': True, 'uid': 0, 'gid': 0, 'owner': 'root', 'group': 'root', 'mode': '0644', 'state': 'file', 'size': 2693, 'invocation': {'module_args': {'src': '/root/.ansible/tmp/ansible-tmp-1787668602.6559823-29072-34412976562004/.source.yaml', 'dest': '/etc/kubernetes/addons/metrics_server/metrics-server-deployment.yaml', 'mode': '0644', 'follow': False, '_original_basename': 'metrics-server-deployment.yaml.j2', 'checksum': '13d6d2ed463fde3284c7d499eb2aa53b7a37a022', 'backup': False, 'force': True, 'unsafe_writes': False, 'content': None, 'validate': None, 'directory_mode': None, 'remote_src': None, 'local_follow': None, 'owner': None, 'group': None, 'seuser': None, 'serole': None, 'selevel': None, 'setype': None, 'attributes': None}}, 'failed': False, 'item': {'name': 'metrics-server-deployment', 'file': 'metrics-server-deployment.yaml', 'type': 'deploy'}, 'ansible_loop_var': 'item'})
+ok: [k8s-cp-0] => (item={'diff': [], 'dest': '/etc/kubernetes/addons/metrics_server/metrics-server-service.yaml', 'src': '/root/.ansible/tmp/ansible-tmp-1787668603.2447307-29072-168239770177441/.source.yaml', 'md5sum': 'f7d491045015277ce9ed340a146b1686', 'checksum': '11587f8dea9295b1f158f96fbc1b6777d612466b', 'changed': True, 'uid': 0, 'gid': 0, 'owner': 'root', 'group': 'root', 'mode': '0644', 'state': 'file', 'size': 347, 'invocation': {'module_args': {'src': '/root/.ansible/tmp/ansible-tmp-1787668603.2447307-29072-168239770177441/.source.yaml', 'dest': '/etc/kubernetes/addons/metrics_server/metrics-server-service.yaml', 'mode': '0644', 'follow': False, '_original_basename': 'metrics-server-service.yaml.j2', 'checksum': '11587f8dea9295b1f158f96fbc1b6777d612466b', 'backup': False, 'force': True, 'unsafe_writes': False, 'content': None, 'validate': None, 'directory_mode': None, 'remote_src': None, 'local_follow': None, 'owner': None, 'group': None, 'seuser': None, 'serole': None, 'selevel': None, 'setype': None, 'attributes': None}}, 'failed': False, 'item': {'name': 'metrics-server-service', 'file': 'metrics-server-service.yaml', 'type': 'service'}, 'ansible_loop_var': 'item'})
+ok: [k8s-cp-0] => (item={'diff': [], 'dest': '/etc/kubernetes/addons/metrics_server/metrics-apiservice.yaml', 'src': '/root/.ansible/tmp/ansible-tmp-1787668603.8623486-29072-59340738319196/.source.yaml', 'md5sum': 'ed1e6d9f13ca7c524245006a1f3f3a58', 'checksum': 'b19bf502a84bf126504527f20d46a74e55bbb5dd', 'changed': True, 'uid': 0, 'gid': 0, 'owner': 'root', 'group': 'root', 'mode': '0644', 'state': 'file', 'size': 346, 'invocation': {'module_args': {'src': '/root/.ansible/tmp/ansible-tmp-1787668603.8623486-29072-59340738319196/.source.yaml', 'dest': '/etc/kubernetes/addons/metrics_server/metrics-apiservice.yaml', 'mode': '0644', 'follow': False, '_original_basename': 'metrics-apiservice.yaml.j2', 'checksum': 'b19bf502a84bf126504527f20d46a74e55bbb5dd', 'backup': False, 'force': True, 'unsafe_writes': False, 'content': None, 'validate': None, 'directory_mode': None, 'remote_src': None, 'local_follow': None, 'owner': None, 'group': None, 'seuser': None, 'serole': None, 'selevel': None, 'setype': None, 'attributes': None}}, 'failed': False, 'item': {'name': 'metrics-apiservice', 'file': 'metrics-apiservice.yaml', 'type': 'service'}, 'ansible_loop_var': 'item'})
+ok: [k8s-cp-0] => (item={'diff': [], 'dest': '/etc/kubernetes/addons/metrics_server/resource-reader-clusterrolebinding.yaml', 'src': '/root/.ansible/tmp/ansible-tmp-1787668604.5131087-29072-226948964138881/.source.yaml', 'md5sum': 'fcc1f0bb7c7242dad4ac63a46421ba0f', 'checksum': '8fa6f59e380e7cd19b24a7cda2873e459218c718', 'changed': True, 'uid': 0, 'gid': 0, 'owner': 'root', 'group': 'root', 'mode': '0644', 'state': 'file', 'size': 345, 'invocation': {'module_args': {'src': '/root/.ansible/tmp/ansible-tmp-1787668604.5131087-29072-226948964138881/.source.yaml', 'dest': '/etc/kubernetes/addons/metrics_server/resource-reader-clusterrolebinding.yaml', 'mode': '0644', 'follow': False, '_original_basename': 'resource-reader-clusterrolebinding.yaml.j2', 'checksum': '8fa6f59e380e7cd19b24a7cda2873e459218c718', 'backup': False, 'force': True, 'unsafe_writes': False, 'content': None, 'validate': None, 'directory_mode': None, 'remote_src': None, 'local_follow': None, 'owner': None, 'group': None, 'seuser': None, 'serole': None, 'selevel': None, 'setype': None, 'attributes': None}}, 'failed': False, 'item': {'name': 'resource-reader-clusterrolebinding', 'file': 'resource-reader-clusterrolebinding.yaml', 'type': 'clusterrolebinding'}, 'ansible_loop_var': 'item'})
+ok: [k8s-cp-0] => (item={'diff': [], 'dest': '/etc/kubernetes/addons/metrics_server/resource-reader.yaml', 'src': '/root/.ansible/tmp/ansible-tmp-1787668605.1444907-29072-265927992669843/.source.yaml', 'md5sum': '5aacf6c1f4071e354c695b7d45fba43b', 'checksum': 'a9d1e097c908f01cce159a2e491f11493fdb6ee7', 'changed': True, 'uid': 0, 'gid': 0, 'owner': 'root', 'group': 'root', 'mode': '0644', 'state': 'file', 'size': 319, 'invocation': {'module_args': {'src': '/root/.ansible/tmp/ansible-tmp-1787668605.1444907-29072-265927992669843/.source.yaml', 'dest': '/etc/kubernetes/addons/metrics_server/resource-reader.yaml', 'mode': '0644', 'follow': False, '_original_basename': 'resource-reader.yaml.j2', 'checksum': 'a9d1e097c908f01cce159a2e491f11493fdb6ee7', 'backup': False, 'force': True, 'unsafe_writes': False, 'content': None, 'validate': None, 'directory_mode': None, 'remote_src': None, 'local_follow': None, 'owner': None, 'group': None, 'seuser': None, 'serole': None, 'selevel': None, 'setype': None, 'attributes': None}}, 'failed': False, 'item': {'name': 'resource-reader', 'file': 'resource-reader.yaml', 'type': 'clusterrole'}, 'ansible_loop_var': 'item'})
+Tuesday 25 August 2026  20:06:49 +0530 (0:00:03.377)       0:04:25.067 ******** 
+Tuesday 25 August 2026  20:06:49 +0530 (0:00:00.065)       0:04:25.132 ******** 
+Tuesday 25 August 2026  20:06:49 +0530 (0:00:00.078)       0:04:25.210 ******** 
+Tuesday 25 August 2026  20:06:49 +0530 (0:00:00.040)       0:04:25.251 ******** 
+Tuesday 25 August 2026  20:06:49 +0530 (0:00:00.045)       0:04:25.296 ******** 
+Tuesday 25 August 2026  20:06:49 +0530 (0:00:00.039)       0:04:25.336 ******** 
+Tuesday 25 August 2026  20:06:49 +0530 (0:00:00.039)       0:04:25.376 ******** 
+Tuesday 25 August 2026  20:06:49 +0530 (0:00:00.063)       0:04:25.439 ******** 
+Tuesday 25 August 2026  20:06:49 +0530 (0:00:00.085)       0:04:25.525 ******** 
+Tuesday 25 August 2026  20:06:49 +0530 (0:00:00.055)       0:04:25.580 ******** 
+Tuesday 25 August 2026  20:06:49 +0530 (0:00:00.181)       0:04:25.761 ******** 
+Tuesday 25 August 2026  20:06:49 +0530 (0:00:00.044)       0:04:25.806 ******** 
+Tuesday 25 August 2026  20:06:49 +0530 (0:00:00.044)       0:04:25.851 ******** 
+Tuesday 25 August 2026  20:06:49 +0530 (0:00:00.043)       0:04:25.895 ******** 
+Tuesday 25 August 2026  20:06:50 +0530 (0:00:00.062)       0:04:25.957 ******** 
+Tuesday 25 August 2026  20:06:50 +0530 (0:00:00.079)       0:04:26.036 ******** 
+Tuesday 25 August 2026  20:06:50 +0530 (0:00:00.047)       0:04:26.083 ******** 
+Tuesday 25 August 2026  20:06:50 +0530 (0:00:00.041)       0:04:26.125 ******** 
+Tuesday 25 August 2026  20:06:50 +0530 (0:00:00.063)       0:04:26.189 ******** 
+Tuesday 25 August 2026  20:06:50 +0530 (0:00:00.058)       0:04:26.247 ******** 
+Tuesday 25 August 2026  20:06:50 +0530 (0:00:00.080)       0:04:26.327 ******** 
+Tuesday 25 August 2026  20:06:50 +0530 (0:00:00.044)       0:04:26.372 ******** 
+Tuesday 25 August 2026  20:06:50 +0530 (0:00:00.046)       0:04:26.418 ******** 
+Tuesday 25 August 2026  20:06:50 +0530 (0:00:00.060)       0:04:26.478 ******** 
+Tuesday 25 August 2026  20:06:50 +0530 (0:00:00.079)       0:04:26.557 ******** 
+Tuesday 25 August 2026  20:06:50 +0530 (0:00:00.043)       0:04:26.601 ******** 
+Tuesday 25 August 2026  20:06:50 +0530 (0:00:00.080)       0:04:26.682 ******** 
+Tuesday 25 August 2026  20:06:50 +0530 (0:00:00.066)       0:04:26.748 ******** 
+Tuesday 25 August 2026  20:06:50 +0530 (0:00:00.065)       0:04:26.814 ******** 
+Tuesday 25 August 2026  20:06:50 +0530 (0:00:00.053)       0:04:26.868 ******** 
+Tuesday 25 August 2026  20:06:50 +0530 (0:00:00.060)       0:04:26.928 ******** 
+Tuesday 25 August 2026  20:06:51 +0530 (0:00:00.042)       0:04:26.971 ******** 
+Tuesday 25 August 2026  20:06:51 +0530 (0:00:00.053)       0:04:27.025 ******** 
+Tuesday 25 August 2026  20:06:51 +0530 (0:00:00.041)       0:04:27.066 ******** 
+Tuesday 25 August 2026  20:06:51 +0530 (0:00:00.051)       0:04:27.118 ******** 
+Tuesday 25 August 2026  20:06:51 +0530 (0:00:00.040)       0:04:27.158 ******** 
+Tuesday 25 August 2026  20:06:51 +0530 (0:00:00.054)       0:04:27.212 ******** 
+Tuesday 25 August 2026  20:06:51 +0530 (0:00:00.040)       0:04:27.253 ******** 
+Tuesday 25 August 2026  20:06:51 +0530 (0:00:00.053)       0:04:27.306 ******** 
+Tuesday 25 August 2026  20:06:51 +0530 (0:00:00.044)       0:04:27.350 ******** 
+Tuesday 25 August 2026  20:06:51 +0530 (0:00:00.074)       0:04:27.425 ******** 
+Tuesday 25 August 2026  20:06:51 +0530 (0:00:00.052)       0:04:27.478 ******** 
+Tuesday 25 August 2026  20:06:51 +0530 (0:00:00.070)       0:04:27.548 ******** 
+Tuesday 25 August 2026  20:06:51 +0530 (0:00:00.098)       0:04:27.647 ******** 
+Tuesday 25 August 2026  20:06:51 +0530 (0:00:00.055)       0:04:27.702 ******** 
+Tuesday 25 August 2026  20:06:51 +0530 (0:00:00.086)       0:04:27.788 ******** 
+Tuesday 25 August 2026  20:06:52 +0530 (0:00:00.167)       0:04:27.955 ******** 
+Tuesday 25 August 2026  20:06:52 +0530 (0:00:00.048)       0:04:28.004 ******** 
+Tuesday 25 August 2026  20:06:52 +0530 (0:00:00.047)       0:04:28.051 ******** 
+Tuesday 25 August 2026  20:06:52 +0530 (0:00:00.061)       0:04:28.113 ******** 
+Tuesday 25 August 2026  20:06:52 +0530 (0:00:00.053)       0:04:28.166 ******** 
+Tuesday 25 August 2026  20:06:52 +0530 (0:00:00.045)       0:04:28.211 ******** 
+Tuesday 25 August 2026  20:06:52 +0530 (0:00:00.045)       0:04:28.257 ******** 
+Tuesday 25 August 2026  20:06:52 +0530 (0:00:00.064)       0:04:28.322 ******** 
+Tuesday 25 August 2026  20:06:52 +0530 (0:00:00.078)       0:04:28.400 ******** 
+Tuesday 25 August 2026  20:06:52 +0530 (0:00:00.067)       0:04:28.468 ******** 
+Tuesday 25 August 2026  20:06:52 +0530 (0:00:00.062)       0:04:28.531 ******** 
+Tuesday 25 August 2026  20:06:52 +0530 (0:00:00.106)       0:04:28.638 ******** 
+Tuesday 25 August 2026  20:06:52 +0530 (0:00:00.075)       0:04:28.714 ******** 
+Tuesday 25 August 2026  20:06:52 +0530 (0:00:00.051)       0:04:28.766 ******** 
+Tuesday 25 August 2026  20:06:52 +0530 (0:00:00.057)       0:04:28.824 ******** 
+Tuesday 25 August 2026  20:06:52 +0530 (0:00:00.099)       0:04:28.924 ******** 
+Tuesday 25 August 2026  20:06:53 +0530 (0:00:00.063)       0:04:28.987 ******** 
+Tuesday 25 August 2026  20:06:53 +0530 (0:00:00.110)       0:04:29.097 ******** 
+Tuesday 25 August 2026  20:06:53 +0530 (0:00:00.079)       0:04:29.177 ******** 
+Tuesday 25 August 2026  20:06:53 +0530 (0:00:00.055)       0:04:29.233 ******** 
+Tuesday 25 August 2026  20:06:53 +0530 (0:00:00.052)       0:04:29.285 ******** 
+Tuesday 25 August 2026  20:06:53 +0530 (0:00:00.052)       0:04:29.337 ******** 
+Tuesday 25 August 2026  20:06:53 +0530 (0:00:00.049)       0:04:29.387 ******** 
+Tuesday 25 August 2026  20:06:53 +0530 (0:00:00.049)       0:04:29.436 ******** 
+Tuesday 25 August 2026  20:06:53 +0530 (0:00:00.066)       0:04:29.503 ******** 
+Tuesday 25 August 2026  20:06:53 +0530 (0:00:00.057)       0:04:29.560 ******** 
+Tuesday 25 August 2026  20:06:53 +0530 (0:00:00.057)       0:04:29.618 ******** 
+Tuesday 25 August 2026  20:06:53 +0530 (0:00:00.051)       0:04:29.669 ******** 
+Tuesday 25 August 2026  20:06:53 +0530 (0:00:00.094)       0:04:29.763 ******** 
+Tuesday 25 August 2026  20:06:53 +0530 (0:00:00.050)       0:04:29.813 ******** 
+Tuesday 25 August 2026  20:06:53 +0530 (0:00:00.048)       0:04:29.862 ******** 
+Tuesday 25 August 2026  20:06:53 +0530 (0:00:00.048)       0:04:29.910 ******** 
+Tuesday 25 August 2026  20:06:54 +0530 (0:00:00.051)       0:04:29.962 ******** 
+Tuesday 25 August 2026  20:06:54 +0530 (0:00:00.050)       0:04:30.012 ******** 
+Tuesday 25 August 2026  20:06:54 +0530 (0:00:00.056)       0:04:30.068 ******** 
+Tuesday 25 August 2026  20:06:54 +0530 (0:00:00.050)       0:04:30.118 ******** 
+Tuesday 25 August 2026  20:06:54 +0530 (0:00:00.049)       0:04:30.168 ******** 
+Tuesday 25 August 2026  20:06:54 +0530 (0:00:00.052)       0:04:30.220 ******** 
+Tuesday 25 August 2026  20:06:54 +0530 (0:00:00.050)       0:04:30.271 ******** 
+Tuesday 25 August 2026  20:06:54 +0530 (0:00:00.051)       0:04:30.323 ******** 
+Tuesday 25 August 2026  20:06:54 +0530 (0:00:00.180)       0:04:30.503 ******** 
+Tuesday 25 August 2026  20:06:54 +0530 (0:00:00.051)       0:04:30.555 ******** 
+Tuesday 25 August 2026  20:06:54 +0530 (0:00:00.072)       0:04:30.628 ******** 
+Tuesday 25 August 2026  20:06:54 +0530 (0:00:00.048)       0:04:30.676 ******** 
+Tuesday 25 August 2026  20:06:54 +0530 (0:00:00.051)       0:04:30.728 ******** 
+Tuesday 25 August 2026  20:06:54 +0530 (0:00:00.068)       0:04:30.797 ******** 
+Tuesday 25 August 2026  20:06:54 +0530 (0:00:00.056)       0:04:30.853 ******** 
+Tuesday 25 August 2026  20:06:54 +0530 (0:00:00.050)       0:04:30.904 ******** 
+Tuesday 25 August 2026  20:06:54 +0530 (0:00:00.045)       0:04:30.949 ******** 
+Tuesday 25 August 2026  20:06:55 +0530 (0:00:00.097)       0:04:31.046 ******** 
+Tuesday 25 August 2026  20:06:55 +0530 (0:00:00.055)       0:04:31.102 ******** 
+Tuesday 25 August 2026  20:06:55 +0530 (0:00:00.104)       0:04:31.207 ******** 
+Tuesday 25 August 2026  20:06:55 +0530 (0:00:00.087)       0:04:31.294 ******** 
+Tuesday 25 August 2026  20:06:55 +0530 (0:00:00.054)       0:04:31.349 ******** 
+Tuesday 25 August 2026  20:06:55 +0530 (0:00:00.078)       0:04:31.428 ******** 
+Tuesday 25 August 2026  20:06:55 +0530 (0:00:00.052)       0:04:31.481 ******** 
+Tuesday 25 August 2026  20:06:55 +0530 (0:00:00.049)       0:04:31.530 ******** 
+Tuesday 25 August 2026  20:06:55 +0530 (0:00:00.085)       0:04:31.616 ******** 
+
+PLAY [Apply resolv.conf changes now that cluster DNS is up] ********************
+Tuesday 25 August 2026  20:06:55 +0530 (0:00:00.171)       0:04:31.787 ******** 
+Tuesday 25 August 2026  20:06:55 +0530 (0:00:00.089)       0:04:31.877 ******** 
+
+PLAY RECAP *********************************************************************
+k8s-cp-0                   : ok=316  changed=11   unreachable=0    failed=0    skipped=421  rescued=0    ignored=0   
+k8s-w-0                    : ok=216  changed=0    unreachable=0    failed=0    skipped=185  rescued=0    ignored=0   
+
+Tuesday 25 August 2026  20:06:56 +0530 (0:00:00.095)       0:04:31.972 ******** 
+=============================================================================== 
+download : Download_container | Download image if required ------------ 111.63s
+download : Download_file | Download item -------------------------------- 9.11s
+download : Download_file | Download item -------------------------------- 6.76s
+kubernetes-apps/ansible : Kubernetes Apps | CoreDNS --------------------- 5.87s
+kubernetes-apps/helm : Download_file | Download item -------------------- 5.00s
+kubernetes-apps/metrics_server : Metrics Server | Create manifests ------ 5.00s
+kubernetes-apps/helm : Extract_file | Unpacking archive ----------------- 4.07s
+download : Extract_file | Unpacking archive ----------------------------- 3.56s
+kubernetes-apps/metrics_server : Metrics Server | Apply manifests ------- 3.38s
+download : Extract_file | Unpacking archive ----------------------------- 2.40s
+download : Extract_file | Unpacking archive ----------------------------- 2.33s
+download : Download | Download files / images --------------------------- 2.13s
+download : Download_file | Create dest directory on node ---------------- 2.13s
+kubernetes-apps/ansible : Kubernetes Apps | nodelocalDNS ---------------- 2.04s
+download : Prep_kubeadm_images | Copy kubeadm binary from download dir to system path --- 1.97s
+download : Extract_file | Unpacking archive ----------------------------- 1.93s
+download : Download_file | Download item -------------------------------- 1.78s
+download : Download_file | Download item -------------------------------- 1.63s
+kubernetes/preinstall : Create kubernetes directories ------------------- 1.62s
+kubernetes-apps/helm : Download_file | Create dest directory on node ---- 1.62s
