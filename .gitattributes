@@ -1,0 +1,13 @@
+# GitHub/Linguist excludes YAML (data) and Markdown (prose) from language stats
+# by default. This repo is mostly Ansible YAML and documentation, so count them.
+*.yml  linguist-detectable=true
+*.yaml linguist-detectable=true
+*.ini  linguist-detectable=true
+*.md   linguist-detectable=true
+
+# Raw Ansible output - kept as reference, but not authored source.
+logs/** linguist-generated=true
+
+# Normalise line endings
+* text=auto eol=lf
+*.sh text eol=lf
