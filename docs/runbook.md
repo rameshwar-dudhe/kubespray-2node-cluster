@@ -36,7 +36,7 @@ sudo apt-get install -y python3.14-venv python3-pip sshpass
 ## 2. Clone Kubespray and pin a release
 
 ```bash
-cd /home/claude/Desktop/kubespray
+cd ~/kubespray
 git clone https://github.com/kubernetes-sigs/kubespray.git .
 git checkout v2.31.0
 ```
@@ -58,7 +58,7 @@ The control node's `~/.ssh/id_ed25519` key was already authorized for `root` on 
 nodes. To (re)install it:
 
 ```bash
-./ops/00-bootstrap-ssh.sh <user> <password>
+./scripts/bootstrap-ssh.sh <password>   # user comes from cluster.env
 ```
 
 Verify:
@@ -137,7 +137,7 @@ ansible-playbook -i inventory/mycluster/inventory.ini \
     --become --become-user=root cluster.yml
 ```
 
-Or `./ops/01-deploy.sh`. Took **25m 32s**; almost all of it was artifact downloads
+Or `./scripts/deploy.sh`. Took **25m 32s**; almost all of it was artifact downloads
 (three single downloads accounted for ~8.5 min).
 
 Result: `k8s-cp-0 ok=639 changed=136 failed=0`, `k8s-w-0 ok=439 changed=87 failed=0`.
@@ -145,7 +145,7 @@ Result: `k8s-cp-0 ok=639 changed=136 failed=0`, `k8s-w-0 ok=439 changed=87 faile
 ## 9. Post-deploy fix — CoreDNS CrashLoopBackOff
 
 > Full root-cause analysis, including how it was diagnosed step by step:
-> [`COREDNS-LOOP-RCA.md`](COREDNS-LOOP-RCA.md)
+> [`coredns-loop-rca.md`](coredns-loop-rca.md)
 
 **Both CoreDNS replicas crashlooped immediately after deploy:**
 
@@ -187,7 +187,7 @@ Corefile now reads `forward . 192.168.56.2 8.8.8.8`, and both replicas run 1/1.
 ## 10. kubeconfig on the control node
 
 ```bash
-./ops/02-fetch-kubeconfig.sh
+./scripts/fetch-kubeconfig.sh
 ```
 
 Copies `/etc/kubernetes/admin.conf` off `k8s-cp-0` and rewrites the server URL from
@@ -255,9 +255,9 @@ k8s-w-0    Ready    <none>          v1.35.4   192.168.56.135   containerd://2.2.
 source .venv/bin/activate
 
 kubectl get nodes                  # from control node, kubeconfig already in place
-./ops/01-deploy.sh                 # re-run / converge (idempotent)
-./ops/02-fetch-kubeconfig.sh       # refresh kubeconfig
-./ops/99-reset.sh                  # DESTRUCTIVE: tear cluster back to bare nodes
+./scripts/deploy.sh                 # re-run / converge (idempotent)
+./scripts/fetch-kubeconfig.sh       # refresh kubeconfig
+./scripts/reset.sh                  # DESTRUCTIVE: tear cluster back to bare nodes
 ```
 
 Add a node: add it to `[kube_node]`, then
@@ -283,14 +283,17 @@ minor releases.
 ## Files added to this repo
 
 ```
-ops/00-bootstrap-ssh.sh        install SSH key + passwordless sudo
-ops/01-deploy.sh               run cluster.yml
-ops/02-fetch-kubeconfig.sh     pull admin.conf, rewrite server URL
-ops/99-reset.sh                run reset.yml (destructive)
+scripts/lib.sh                  shared config loading
+scripts/bootstrap-ssh.sh        install SSH key + passwordless sudo
+scripts/deploy.sh               run cluster.yml
+scripts/fetch-kubeconfig.sh     pull admin.conf, rewrite server URL
+scripts/reset.sh                run reset.yml (destructive)
+cluster.env.example             template for your node addresses
+Makefile                        make deploy / kubeconfig / reset
 logs/deploy.log                full deploy transcript
 logs/dnsfix.log                DNS remediation transcript
 logs/addons.log                helm + metrics-server transcript
-COREDNS-LOOP-RCA.md            CoreDNS loop root-cause analysis
+coredns-loop-rca.md            CoreDNS loop root-cause analysis
 inventory/mycluster/           inventory + group_vars (gitignored upstream)
-RUNBOOK.md                     this file
+runbook.md                     this file
 ```

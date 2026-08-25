@@ -151,7 +151,7 @@ Tuesday 25 August 2026  20:26:16 +0530 (0:00:00.447)       0:00:03.459 ********
 Tuesday 25 August 2026  20:26:16 +0530 (0:00:00.221)       0:00:03.680 ******** 
 
 TASK [bootstrap_os : Include tasks] ********************************************
-included: /home/claude/Desktop/kubespray/roles/bootstrap_os/tasks/ubuntu.yml for k8s-cp-0, k8s-w-0 => (item=/home/claude/Desktop/kubespray/roles/bootstrap_os/tasks/ubuntu.yml)
+included: ~/kubespray/roles/bootstrap_os/tasks/ubuntu.yml for k8s-cp-0, k8s-w-0 => (item=~/kubespray/roles/bootstrap_os/tasks/ubuntu.yml)
 Tuesday 25 August 2026  20:26:17 +0530 (0:00:00.240)       0:00:03.920 ******** 
 
 TASK [bootstrap_os : Check if bootstrap is needed] *****************************

@@ -151,7 +151,7 @@ Tuesday 25 August 2026  19:30:00 +0530 (0:00:00.082)       0:00:01.241 ********
 Tuesday 25 August 2026  19:30:00 +0530 (0:00:00.072)       0:00:01.314 ******** 
 
 TASK [bootstrap_os : Include tasks] ********************************************
-included: /home/claude/Desktop/kubespray/roles/bootstrap_os/tasks/ubuntu.yml for k8s-cp-0, k8s-w-0 => (item=/home/claude/Desktop/kubespray/roles/bootstrap_os/tasks/ubuntu.yml)
+included: ~/kubespray/roles/bootstrap_os/tasks/ubuntu.yml for k8s-cp-0, k8s-w-0 => (item=~/kubespray/roles/bootstrap_os/tasks/ubuntu.yml)
 Tuesday 25 August 2026  19:30:01 +0530 (0:00:00.083)       0:00:01.398 ******** 
 
 TASK [bootstrap_os : Check if bootstrap is needed] *****************************
@@ -841,7 +841,7 @@ ok: [k8s-w-0]
 Tuesday 25 August 2026  19:31:25 +0530 (0:00:00.312)       0:01:25.472 ******** 
 
 TASK [container-engine/runc : Runc | Download runc binary] *********************
-included: /home/claude/Desktop/kubespray/roles/container-engine/runc/tasks/../../../download/tasks/download_file.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/container-engine/runc/tasks/../../../download/tasks/download_file.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:31:25 +0530 (0:00:00.103)       0:01:25.576 ******** 
 
 TASK [container-engine/runc : Prep_download | Set a few facts] *****************
@@ -871,7 +871,7 @@ Tuesday 25 August 2026  19:31:41 +0530 (0:00:00.043)       0:01:41.578 ********
 Tuesday 25 August 2026  19:31:41 +0530 (0:00:00.041)       0:01:41.620 ******** 
 
 TASK [container-engine/runc : Download_file | Extract file archives] ***********
-included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:31:41 +0530 (0:00:00.074)       0:01:41.694 ******** 
 Tuesday 25 August 2026  19:31:41 +0530 (0:00:00.507)       0:01:42.202 ******** 
 
@@ -881,7 +881,7 @@ changed: [k8s-w-0]
 Tuesday 25 August 2026  19:31:42 +0530 (0:00:00.918)       0:01:43.120 ******** 
 
 TASK [container-engine/crictl : Crictl | Download crictl] **********************
-included: /home/claude/Desktop/kubespray/roles/container-engine/crictl/tasks/../../../download/tasks/download_file.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/container-engine/crictl/tasks/../../../download/tasks/download_file.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:31:42 +0530 (0:00:00.074)       0:01:43.195 ******** 
 
 TASK [container-engine/crictl : Prep_download | Set a few facts] ***************
@@ -911,7 +911,7 @@ Tuesday 25 August 2026  19:32:02 +0530 (0:00:00.046)       0:02:02.883 ********
 Tuesday 25 August 2026  19:32:02 +0530 (0:00:00.047)       0:02:02.931 ******** 
 
 TASK [container-engine/crictl : Download_file | Extract file archives] *********
-included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:32:02 +0530 (0:00:00.069)       0:02:03.000 ******** 
 
 TASK [container-engine/crictl : Extract_file | Unpacking archive] **************
@@ -930,7 +930,7 @@ changed: [k8s-w-0]
 Tuesday 25 August 2026  19:32:08 +0530 (0:00:00.662)       0:02:08.813 ******** 
 
 TASK [container-engine/nerdctl : Nerdctl | Download nerdctl] *******************
-included: /home/claude/Desktop/kubespray/roles/container-engine/nerdctl/tasks/../../../download/tasks/download_file.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/container-engine/nerdctl/tasks/../../../download/tasks/download_file.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:32:08 +0530 (0:00:00.071)       0:02:08.885 ******** 
 
 TASK [container-engine/nerdctl : Prep_download | Set a few facts] **************
@@ -960,7 +960,7 @@ Tuesday 25 August 2026  19:32:24 +0530 (0:00:00.046)       0:02:24.587 ********
 Tuesday 25 August 2026  19:32:24 +0530 (0:00:00.044)       0:02:24.632 ******** 
 
 TASK [container-engine/nerdctl : Download_file | Extract file archives] ********
-included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:32:24 +0530 (0:00:00.066)       0:02:24.698 ******** 
 
 TASK [container-engine/nerdctl : Extract_file | Unpacking archive] *************
@@ -984,7 +984,7 @@ changed: [k8s-w-0]
 Tuesday 25 August 2026  19:32:29 +0530 (0:00:00.748)       0:02:30.191 ******** 
 
 TASK [container-engine/containerd : Containerd | Download containerd] **********
-included: /home/claude/Desktop/kubespray/roles/container-engine/containerd/tasks/../../../download/tasks/download_file.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/container-engine/containerd/tasks/../../../download/tasks/download_file.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:32:29 +0530 (0:00:00.084)       0:02:30.276 ******** 
 
 TASK [container-engine/containerd : Prep_download | Set a few facts] ***********
@@ -1014,7 +1014,7 @@ Tuesday 25 August 2026  19:32:57 +0530 (0:00:00.060)       0:02:57.468 ********
 Tuesday 25 August 2026  19:32:57 +0530 (0:00:00.057)       0:02:57.525 ******** 
 
 TASK [container-engine/containerd : Download_file | Extract file archives] *****
-included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:32:57 +0530 (0:00:00.079)       0:02:57.605 ******** 
 Tuesday 25 August 2026  19:32:57 +0530 (0:00:00.604)       0:02:58.209 ******** 
 
@@ -1128,11 +1128,11 @@ Tuesday 25 August 2026  19:33:12 +0530 (0:00:00.403)       0:03:12.953 ********
 Tuesday 25 August 2026  19:33:12 +0530 (0:00:00.054)       0:03:13.008 ******** 
 
 TASK [download : Download | Get kubeadm binary and list of required images] ****
-included: /home/claude/Desktop/kubespray/roles/download/tasks/prep_kubeadm_images.yml for k8s-cp-0
+included: ~/kubespray/roles/download/tasks/prep_kubeadm_images.yml for k8s-cp-0
 Tuesday 25 August 2026  19:33:12 +0530 (0:00:00.096)       0:03:13.104 ******** 
 
 TASK [download : Prep_kubeadm_images | Download kubeadm binary] ****************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0
+included: ~/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0
 Tuesday 25 August 2026  19:33:13 +0530 (0:00:00.522)       0:03:13.627 ******** 
 
 TASK [download : Prep_download | Set a few facts] ******************************
@@ -1158,7 +1158,7 @@ Tuesday 25 August 2026  19:36:44 +0530 (0:00:00.027)       0:06:44.621 ********
 Tuesday 25 August 2026  19:36:44 +0530 (0:00:00.027)       0:06:44.649 ******** 
 
 TASK [download : Download_file | Extract file archives] ************************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0
+included: ~/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0
 Tuesday 25 August 2026  19:36:44 +0530 (0:00:00.037)       0:06:44.686 ******** 
 Tuesday 25 August 2026  19:36:44 +0530 (0:00:00.421)       0:06:45.108 ******** 
 
@@ -1186,29 +1186,29 @@ ok: [k8s-cp-0]
 Tuesday 25 August 2026  19:36:46 +0530 (0:00:00.045)       0:06:47.170 ******** 
 
 TASK [download : Download | Download files / images] ***************************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0 => (item={'key': 'etcd', 'value': {'container': False, 'file': True, 'enabled': True, 'dest': '/tmp/releases/etcd-3.6.10-linux-amd64.tar.gz', 'repo': 'quay.io/coreos/etcd', 'tag': 'v3.6.10', 'checksum': 'sha256:ed579fafab5701e3aaa95509969e7bc74776a4ae5269d32e3928408b406456ec', 'url': 'https://github.com/etcd-io/etcd/releases/download/v3.6.10/etcd-v3.6.10-linux-amd64.tar.gz', 'unarchive': True, 'owner': 'root', 'mode': '0755', 'groups': ['etcd']}})
-included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'cni', 'value': {'enabled': True, 'file': True, 'dest': '/tmp/releases/cni-plugins-linux-amd64-1.9.1.tgz', 'checksum': 'sha256:b98f74a0f8522f0a83867178729c1aa70f2158f90c45a2ca8fa791db1c76b303', 'url': 'https://github.com/containernetworking/plugins/releases/download/v1.9.1/cni-plugins-linux-amd64-v1.9.1.tgz', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
-included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'kubeadm', 'value': {'enabled': True, 'file': True, 'dest': '/tmp/releases/kubeadm-1.35.4-amd64', 'checksum': 'sha256:0c0497da793f8897c14e45340da919534b615294a1aab69dc1998896c0f11145', 'url': 'https://dl.k8s.io/release/v1.35.4/bin/linux/amd64/kubeadm', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
-included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'kubelet', 'value': {'enabled': True, 'file': True, 'dest': '/tmp/releases/kubelet-1.35.4-amd64', 'checksum': 'sha256:983a6ba5a49823dcdd745c674e5e2416377dd27d6ad1b42d2befa0fb961a19f6', 'url': 'https://dl.k8s.io/release/v1.35.4/bin/linux/amd64/kubelet', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
-included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0 => (item={'key': 'kubectl', 'value': {'enabled': True, 'file': True, 'dest': '/tmp/releases/kubectl-1.35.4-amd64', 'checksum': 'sha256:b529430df69a688fd61b64ad2299edb5fd71cb58be2a4779dba624c7d3510efd', 'url': 'https://dl.k8s.io/release/v1.35.4/bin/linux/amd64/kubectl', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['kube_control_plane']}})
-included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'crictl', 'value': {'file': True, 'enabled': True, 'dest': '/tmp/releases/crictl-1.35.0-linux-amd64.tar.gz', 'checksum': 'sha256:2e141e5b22cb189c40365a11807d69b76b9b3caced89fac2f4ec879408ce2177', 'url': 'https://github.com/kubernetes-sigs/cri-tools/releases/download/v1.35.0/crictl-v1.35.0-linux-amd64.tar.gz', 'unarchive': True, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
-included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'runc', 'value': {'file': True, 'enabled': True, 'dest': '/tmp/releases/runc-1.4.2.amd64', 'checksum': 'sha256:ac8a90f9e225bb9322189937b230cdc5478d5753f0e31e1bda98a5cf06bd9539', 'url': 'https://github.com/opencontainers/runc/releases/download/v1.4.2/runc.amd64', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
-included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'containerd', 'value': {'enabled': True, 'file': True, 'dest': '/tmp/releases/containerd-2.2.3-linux-amd64.tar.gz', 'checksum': 'sha256:ca26ef5138f17b847bbeeec36d4bf5e002b54d25858197a870c125d57f44d32f', 'url': 'https://github.com/containerd/containerd/releases/download/v2.2.3/containerd-2.2.3-linux-amd64.tar.gz', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
-included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'nerdctl', 'value': {'file': True, 'enabled': True, 'dest': '/tmp/releases/nerdctl-2.2.2-linux-amd64.tar.gz', 'checksum': 'sha256:6f637760fb2875e3454e97c3de7438fd17281b5996908cbd8ee1c872b0653cc8', 'url': 'https://github.com/containerd/nerdctl/releases/download/v2.2.2/nerdctl-2.2.2-linux-amd64.tar.gz', 'unarchive': True, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
-included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'calicoctl', 'value': {'enabled': True, 'file': True, 'dest': '/tmp/releases/calicoctl-3.31.5-amd64', 'checksum': 'sha256:d1dd3a3fb2f5640987eab589dc1dcb03c47c11b32bc19a65c45c39421cd887d2', 'url': 'https://github.com/projectcalico/calico/releases/download/v3.31.5/calicoctl-linux-amd64', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
-included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'calico_node', 'value': {'enabled': True, 'container': True, 'repo': 'quay.io/calico/node', 'tag': 'v3.31.5', 'checksum': '', 'groups': ['k8s_cluster']}})
-included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'calico_cni', 'value': {'enabled': True, 'container': True, 'repo': 'quay.io/calico/cni', 'tag': 'v3.31.5', 'checksum': '', 'groups': ['k8s_cluster']}})
-included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'calico_policy', 'value': {'enabled': True, 'container': True, 'repo': 'quay.io/calico/kube-controllers', 'tag': 'v3.31.5', 'checksum': '', 'groups': ['k8s_cluster']}})
-included: /home/claude/Desktop/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0 => (item={'key': 'calico_crds', 'value': {'file': True, 'enabled': True, 'dest': '/tmp/releases/calico-3.31.5-kdd-crds/crds.yaml', 'checksum': 'sha256:1d6d5e523f92ee1e8227a48c016229c668f94035431b82f19139affeb45dbeff', 'url': 'https://github.com/projectcalico/calico/raw/v3.31.5/manifests/crds.yaml', 'owner': 'root', 'mode': '0755', 'groups': ['kube_control_plane']}})
-included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'pod_infra', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/pause', 'tag': '3.10.1', 'checksum': '', 'groups': ['k8s_cluster']}})
-included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'nginx', 'value': {'enabled': True, 'container': True, 'repo': 'docker.io/library/nginx', 'tag': '1.28.2-alpine', 'checksum': '', 'groups': ['kube_node']}})
-included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'coredns', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/coredns/coredns', 'tag': 'v1.12.4', 'checksum': '', 'groups': ['k8s_cluster']}})
-included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'nodelocaldns', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/dns/k8s-dns-node-cache', 'tag': '1.25.0', 'checksum': '', 'groups': ['k8s_cluster']}})
-included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0 => (item={'key': 'dnsautoscaler', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/cpa/cluster-proportional-autoscaler', 'tag': 'v1.8.8', 'checksum': '', 'groups': ['kube_control_plane']}})
-included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'kubeadm_kube-apiserver', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/kube-apiserver', 'tag': 'v1.35.4', 'groups': ['k8s_cluster']}})
-included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'kubeadm_kube-controller-manager', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/kube-controller-manager', 'tag': 'v1.35.4', 'groups': ['k8s_cluster']}})
-included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'kubeadm_kube-scheduler', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/kube-scheduler', 'tag': 'v1.35.4', 'groups': ['k8s_cluster']}})
-included: /home/claude/Desktop/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'kubeadm_kube-proxy', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/kube-proxy', 'tag': 'v1.35.4', 'groups': ['k8s_cluster']}})
+included: ~/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0 => (item={'key': 'etcd', 'value': {'container': False, 'file': True, 'enabled': True, 'dest': '/tmp/releases/etcd-3.6.10-linux-amd64.tar.gz', 'repo': 'quay.io/coreos/etcd', 'tag': 'v3.6.10', 'checksum': 'sha256:ed579fafab5701e3aaa95509969e7bc74776a4ae5269d32e3928408b406456ec', 'url': 'https://github.com/etcd-io/etcd/releases/download/v3.6.10/etcd-v3.6.10-linux-amd64.tar.gz', 'unarchive': True, 'owner': 'root', 'mode': '0755', 'groups': ['etcd']}})
+included: ~/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'cni', 'value': {'enabled': True, 'file': True, 'dest': '/tmp/releases/cni-plugins-linux-amd64-1.9.1.tgz', 'checksum': 'sha256:b98f74a0f8522f0a83867178729c1aa70f2158f90c45a2ca8fa791db1c76b303', 'url': 'https://github.com/containernetworking/plugins/releases/download/v1.9.1/cni-plugins-linux-amd64-v1.9.1.tgz', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
+included: ~/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'kubeadm', 'value': {'enabled': True, 'file': True, 'dest': '/tmp/releases/kubeadm-1.35.4-amd64', 'checksum': 'sha256:0c0497da793f8897c14e45340da919534b615294a1aab69dc1998896c0f11145', 'url': 'https://dl.k8s.io/release/v1.35.4/bin/linux/amd64/kubeadm', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
+included: ~/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'kubelet', 'value': {'enabled': True, 'file': True, 'dest': '/tmp/releases/kubelet-1.35.4-amd64', 'checksum': 'sha256:983a6ba5a49823dcdd745c674e5e2416377dd27d6ad1b42d2befa0fb961a19f6', 'url': 'https://dl.k8s.io/release/v1.35.4/bin/linux/amd64/kubelet', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
+included: ~/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0 => (item={'key': 'kubectl', 'value': {'enabled': True, 'file': True, 'dest': '/tmp/releases/kubectl-1.35.4-amd64', 'checksum': 'sha256:b529430df69a688fd61b64ad2299edb5fd71cb58be2a4779dba624c7d3510efd', 'url': 'https://dl.k8s.io/release/v1.35.4/bin/linux/amd64/kubectl', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['kube_control_plane']}})
+included: ~/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'crictl', 'value': {'file': True, 'enabled': True, 'dest': '/tmp/releases/crictl-1.35.0-linux-amd64.tar.gz', 'checksum': 'sha256:2e141e5b22cb189c40365a11807d69b76b9b3caced89fac2f4ec879408ce2177', 'url': 'https://github.com/kubernetes-sigs/cri-tools/releases/download/v1.35.0/crictl-v1.35.0-linux-amd64.tar.gz', 'unarchive': True, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
+included: ~/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'runc', 'value': {'file': True, 'enabled': True, 'dest': '/tmp/releases/runc-1.4.2.amd64', 'checksum': 'sha256:ac8a90f9e225bb9322189937b230cdc5478d5753f0e31e1bda98a5cf06bd9539', 'url': 'https://github.com/opencontainers/runc/releases/download/v1.4.2/runc.amd64', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
+included: ~/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'containerd', 'value': {'enabled': True, 'file': True, 'dest': '/tmp/releases/containerd-2.2.3-linux-amd64.tar.gz', 'checksum': 'sha256:ca26ef5138f17b847bbeeec36d4bf5e002b54d25858197a870c125d57f44d32f', 'url': 'https://github.com/containerd/containerd/releases/download/v2.2.3/containerd-2.2.3-linux-amd64.tar.gz', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
+included: ~/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'nerdctl', 'value': {'file': True, 'enabled': True, 'dest': '/tmp/releases/nerdctl-2.2.2-linux-amd64.tar.gz', 'checksum': 'sha256:6f637760fb2875e3454e97c3de7438fd17281b5996908cbd8ee1c872b0653cc8', 'url': 'https://github.com/containerd/nerdctl/releases/download/v2.2.2/nerdctl-2.2.2-linux-amd64.tar.gz', 'unarchive': True, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
+included: ~/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'calicoctl', 'value': {'enabled': True, 'file': True, 'dest': '/tmp/releases/calicoctl-3.31.5-amd64', 'checksum': 'sha256:d1dd3a3fb2f5640987eab589dc1dcb03c47c11b32bc19a65c45c39421cd887d2', 'url': 'https://github.com/projectcalico/calico/releases/download/v3.31.5/calicoctl-linux-amd64', 'unarchive': False, 'owner': 'root', 'mode': '0755', 'groups': ['k8s_cluster']}})
+included: ~/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'calico_node', 'value': {'enabled': True, 'container': True, 'repo': 'quay.io/calico/node', 'tag': 'v3.31.5', 'checksum': '', 'groups': ['k8s_cluster']}})
+included: ~/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'calico_cni', 'value': {'enabled': True, 'container': True, 'repo': 'quay.io/calico/cni', 'tag': 'v3.31.5', 'checksum': '', 'groups': ['k8s_cluster']}})
+included: ~/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'calico_policy', 'value': {'enabled': True, 'container': True, 'repo': 'quay.io/calico/kube-controllers', 'tag': 'v3.31.5', 'checksum': '', 'groups': ['k8s_cluster']}})
+included: ~/kubespray/roles/download/tasks/download_file.yml for k8s-cp-0 => (item={'key': 'calico_crds', 'value': {'file': True, 'enabled': True, 'dest': '/tmp/releases/calico-3.31.5-kdd-crds/crds.yaml', 'checksum': 'sha256:1d6d5e523f92ee1e8227a48c016229c668f94035431b82f19139affeb45dbeff', 'url': 'https://github.com/projectcalico/calico/raw/v3.31.5/manifests/crds.yaml', 'owner': 'root', 'mode': '0755', 'groups': ['kube_control_plane']}})
+included: ~/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'pod_infra', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/pause', 'tag': '3.10.1', 'checksum': '', 'groups': ['k8s_cluster']}})
+included: ~/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'nginx', 'value': {'enabled': True, 'container': True, 'repo': 'docker.io/library/nginx', 'tag': '1.28.2-alpine', 'checksum': '', 'groups': ['kube_node']}})
+included: ~/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'coredns', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/coredns/coredns', 'tag': 'v1.12.4', 'checksum': '', 'groups': ['k8s_cluster']}})
+included: ~/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'nodelocaldns', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/dns/k8s-dns-node-cache', 'tag': '1.25.0', 'checksum': '', 'groups': ['k8s_cluster']}})
+included: ~/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0 => (item={'key': 'dnsautoscaler', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/cpa/cluster-proportional-autoscaler', 'tag': 'v1.8.8', 'checksum': '', 'groups': ['kube_control_plane']}})
+included: ~/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'kubeadm_kube-apiserver', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/kube-apiserver', 'tag': 'v1.35.4', 'groups': ['k8s_cluster']}})
+included: ~/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'kubeadm_kube-controller-manager', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/kube-controller-manager', 'tag': 'v1.35.4', 'groups': ['k8s_cluster']}})
+included: ~/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'kubeadm_kube-scheduler', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/kube-scheduler', 'tag': 'v1.35.4', 'groups': ['k8s_cluster']}})
+included: ~/kubespray/roles/download/tasks/download_container.yml for k8s-cp-0, k8s-w-0 => (item={'key': 'kubeadm_kube-proxy', 'value': {'enabled': True, 'container': True, 'repo': 'registry.k8s.io/kube-proxy', 'tag': 'v1.35.4', 'groups': ['k8s_cluster']}})
 Tuesday 25 August 2026  19:36:48 +0530 (0:00:01.546)       0:06:48.716 ******** 
 
 TASK [download : Prep_download | Set a few facts] ******************************
@@ -1234,7 +1234,7 @@ Tuesday 25 August 2026  19:36:57 +0530 (0:00:00.024)       0:06:57.914 ********
 Tuesday 25 August 2026  19:36:57 +0530 (0:00:00.028)       0:06:57.943 ******** 
 
 TASK [download : Download_file | Extract file archives] ************************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0
+included: ~/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0
 Tuesday 25 August 2026  19:36:57 +0530 (0:00:00.042)       0:06:57.985 ******** 
 
 TASK [download : Extract_file | Unpacking archive] *****************************
@@ -1268,7 +1268,7 @@ Tuesday 25 August 2026  19:37:30 +0530 (0:00:00.047)       0:07:31.250 ********
 Tuesday 25 August 2026  19:37:30 +0530 (0:00:00.052)       0:07:31.303 ******** 
 
 TASK [download : Download_file | Extract file archives] ************************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:37:30 +0530 (0:00:00.076)       0:07:31.380 ******** 
 Tuesday 25 August 2026  19:37:31 +0530 (0:00:00.051)       0:07:31.432 ******** 
 
@@ -1299,7 +1299,7 @@ Tuesday 25 August 2026  19:37:51 +0530 (0:00:00.046)       0:07:51.414 ********
 Tuesday 25 August 2026  19:37:51 +0530 (0:00:00.044)       0:07:51.459 ******** 
 
 TASK [download : Download_file | Extract file archives] ************************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:37:51 +0530 (0:00:00.094)       0:07:51.554 ******** 
 Tuesday 25 August 2026  19:37:51 +0530 (0:00:00.052)       0:07:51.607 ******** 
 
@@ -1330,7 +1330,7 @@ Tuesday 25 August 2026  19:40:42 +0530 (0:00:00.042)       0:10:43.110 ********
 Tuesday 25 August 2026  19:40:42 +0530 (0:00:00.050)       0:10:43.160 ******** 
 
 TASK [download : Download_file | Extract file archives] ************************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:40:42 +0530 (0:00:00.081)       0:10:43.242 ******** 
 Tuesday 25 August 2026  19:40:42 +0530 (0:00:00.048)       0:10:43.291 ******** 
 
@@ -1357,7 +1357,7 @@ Tuesday 25 August 2026  19:43:15 +0530 (0:00:00.028)       0:13:16.018 ********
 Tuesday 25 August 2026  19:43:15 +0530 (0:00:00.025)       0:13:16.044 ******** 
 
 TASK [download : Download_file | Extract file archives] ************************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0
+included: ~/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0
 Tuesday 25 August 2026  19:43:15 +0530 (0:00:00.039)       0:13:16.084 ******** 
 Tuesday 25 August 2026  19:43:15 +0530 (0:00:00.030)       0:13:16.114 ******** 
 
@@ -1388,7 +1388,7 @@ Tuesday 25 August 2026  19:43:16 +0530 (0:00:00.041)       0:13:17.198 ********
 Tuesday 25 August 2026  19:43:16 +0530 (0:00:00.042)       0:13:17.240 ******** 
 
 TASK [download : Download_file | Extract file archives] ************************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:43:16 +0530 (0:00:00.070)       0:13:17.311 ******** 
 
 TASK [download : Extract_file | Unpacking archive] *****************************
@@ -1423,7 +1423,7 @@ Tuesday 25 August 2026  19:43:19 +0530 (0:00:00.042)       0:13:19.482 ********
 Tuesday 25 August 2026  19:43:19 +0530 (0:00:00.040)       0:13:19.523 ******** 
 
 TASK [download : Download_file | Extract file archives] ************************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:43:19 +0530 (0:00:00.070)       0:13:19.594 ******** 
 Tuesday 25 August 2026  19:43:19 +0530 (0:00:00.048)       0:13:19.642 ******** 
 
@@ -1454,7 +1454,7 @@ Tuesday 25 August 2026  19:43:20 +0530 (0:00:00.040)       0:13:20.708 ********
 Tuesday 25 August 2026  19:43:20 +0530 (0:00:00.040)       0:13:20.748 ******** 
 
 TASK [download : Download_file | Extract file archives] ************************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:43:20 +0530 (0:00:00.062)       0:13:20.810 ******** 
 Tuesday 25 August 2026  19:43:20 +0530 (0:00:00.047)       0:13:20.858 ******** 
 
@@ -1485,7 +1485,7 @@ Tuesday 25 August 2026  19:43:21 +0530 (0:00:00.040)       0:13:21.841 ********
 Tuesday 25 August 2026  19:43:21 +0530 (0:00:00.045)       0:13:21.886 ******** 
 
 TASK [download : Download_file | Extract file archives] ************************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:43:21 +0530 (0:00:00.062)       0:13:21.949 ******** 
 
 TASK [download : Extract_file | Unpacking archive] *****************************
@@ -1520,7 +1520,7 @@ Tuesday 25 August 2026  19:44:10 +0530 (0:00:00.044)       0:14:11.381 ********
 Tuesday 25 August 2026  19:44:11 +0530 (0:00:00.043)       0:14:11.424 ******** 
 
 TASK [download : Download_file | Extract file archives] ************************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:44:11 +0530 (0:00:00.066)       0:14:11.490 ******** 
 Tuesday 25 August 2026  19:44:11 +0530 (0:00:00.050)       0:14:11.541 ******** 
 
@@ -1573,7 +1573,7 @@ Tuesday 25 August 2026  19:44:11 +0530 (0:00:00.063)       0:14:12.168 ********
 Tuesday 25 August 2026  19:44:11 +0530 (0:00:00.044)       0:14:12.212 ******** 
 
 TASK [download : Download_container | Prepare container download] **************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:44:11 +0530 (0:00:00.077)       0:14:12.290 ******** 
 
 TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
@@ -1662,7 +1662,7 @@ Tuesday 25 August 2026  19:45:49 +0530 (0:00:00.063)       0:15:49.844 ********
 Tuesday 25 August 2026  19:45:49 +0530 (0:00:00.046)       0:15:49.891 ******** 
 
 TASK [download : Download_container | Prepare container download] **************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:45:49 +0530 (0:00:00.077)       0:15:49.968 ******** 
 
 TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
@@ -1751,7 +1751,7 @@ Tuesday 25 August 2026  19:46:34 +0530 (0:00:00.063)       0:16:35.218 ********
 Tuesday 25 August 2026  19:46:34 +0530 (0:00:00.046)       0:16:35.265 ******** 
 
 TASK [download : Download_container | Prepare container download] **************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:46:34 +0530 (0:00:00.077)       0:16:35.342 ******** 
 
 TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
@@ -1814,7 +1814,7 @@ Tuesday 25 August 2026  19:47:11 +0530 (0:00:00.026)       0:17:11.516 ********
 Tuesday 25 August 2026  19:47:11 +0530 (0:00:00.025)       0:17:11.542 ******** 
 
 TASK [download : Download_file | Extract file archives] ************************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0
+included: ~/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0
 Tuesday 25 August 2026  19:47:11 +0530 (0:00:00.062)       0:17:11.605 ******** 
 Tuesday 25 August 2026  19:47:11 +0530 (0:00:00.031)       0:17:11.636 ******** 
 
@@ -1867,7 +1867,7 @@ Tuesday 25 August 2026  19:47:11 +0530 (0:00:00.063)       0:17:12.260 ********
 Tuesday 25 August 2026  19:47:11 +0530 (0:00:00.056)       0:17:12.316 ******** 
 
 TASK [download : Download_container | Prepare container download] **************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:47:11 +0530 (0:00:00.074)       0:17:12.390 ******** 
 
 TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
@@ -1956,7 +1956,7 @@ Tuesday 25 August 2026  19:47:16 +0530 (0:00:00.061)       0:17:16.738 ********
 Tuesday 25 August 2026  19:47:16 +0530 (0:00:00.043)       0:17:16.781 ******** 
 
 TASK [download : Download_container | Prepare container download] **************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:47:16 +0530 (0:00:00.075)       0:17:16.857 ******** 
 
 TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
@@ -2045,7 +2045,7 @@ Tuesday 25 August 2026  19:47:39 +0530 (0:00:00.063)       0:17:40.375 ********
 Tuesday 25 August 2026  19:47:40 +0530 (0:00:00.052)       0:17:40.428 ******** 
 
 TASK [download : Download_container | Prepare container download] **************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:47:40 +0530 (0:00:00.088)       0:17:40.516 ******** 
 
 TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
@@ -2134,7 +2134,7 @@ Tuesday 25 August 2026  19:48:14 +0530 (0:00:00.076)       0:18:15.100 ********
 Tuesday 25 August 2026  19:48:14 +0530 (0:00:00.054)       0:18:15.154 ******** 
 
 TASK [download : Download_container | Prepare container download] **************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:48:14 +0530 (0:00:00.089)       0:18:15.243 ******** 
 
 TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
@@ -2213,7 +2213,7 @@ Tuesday 25 August 2026  19:48:53 +0530 (0:00:00.045)       0:18:54.027 ********
 Tuesday 25 August 2026  19:48:53 +0530 (0:00:00.027)       0:18:54.055 ******** 
 
 TASK [download : Download_container | Prepare container download] **************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0
+included: ~/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0
 Tuesday 25 August 2026  19:48:53 +0530 (0:00:00.044)       0:18:54.099 ******** 
 
 TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
@@ -2295,7 +2295,7 @@ Tuesday 25 August 2026  19:49:12 +0530 (0:00:00.082)       0:19:13.089 ********
 Tuesday 25 August 2026  19:49:12 +0530 (0:00:00.049)       0:19:13.139 ******** 
 
 TASK [download : Download_container | Prepare container download] **************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:49:12 +0530 (0:00:00.251)       0:19:13.391 ******** 
 
 TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
@@ -2384,7 +2384,7 @@ Tuesday 25 August 2026  19:49:59 +0530 (0:00:00.061)       0:20:00.056 ********
 Tuesday 25 August 2026  19:49:59 +0530 (0:00:00.044)       0:20:00.100 ******** 
 
 TASK [download : Download_container | Prepare container download] **************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:49:59 +0530 (0:00:00.076)       0:20:00.177 ******** 
 
 TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
@@ -2473,7 +2473,7 @@ Tuesday 25 August 2026  19:50:46 +0530 (0:00:00.062)       0:20:46.493 ********
 Tuesday 25 August 2026  19:50:46 +0530 (0:00:00.058)       0:20:46.552 ******** 
 
 TASK [download : Download_container | Prepare container download] **************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:50:46 +0530 (0:00:00.074)       0:20:46.627 ******** 
 
 TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
@@ -2562,7 +2562,7 @@ Tuesday 25 August 2026  19:51:13 +0530 (0:00:00.064)       0:21:14.380 ********
 Tuesday 25 August 2026  19:51:14 +0530 (0:00:00.077)       0:21:14.457 ******** 
 
 TASK [download : Download_container | Prepare container download] **************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/download/tasks/check_pull_required.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:51:14 +0530 (0:00:00.072)       0:21:14.530 ******** 
 
 TASK [download : Check_pull_required |  Generate a list of information about the images on a node] ***
@@ -2631,7 +2631,7 @@ ok: [k8s-cp-0]
 Tuesday 25 August 2026  19:51:54 +0530 (0:00:00.325)       0:21:54.481 ******** 
 
 TASK [etcd : Check etcd certs] *************************************************
-included: /home/claude/Desktop/kubespray/roles/etcd/tasks/check_certs.yml for k8s-cp-0
+included: ~/kubespray/roles/etcd/tasks/check_certs.yml for k8s-cp-0
 Tuesday 25 August 2026  19:51:54 +0530 (0:00:00.048)       0:21:54.529 ******** 
 [WARNING]: Skipped '/etc/ssl/etcd/ssl' path due to this access issue:
 '/etc/ssl/etcd/ssl' is not a directory
@@ -2684,7 +2684,7 @@ ok: [k8s-cp-0]
 Tuesday 25 August 2026  19:51:56 +0530 (0:00:00.106)       0:21:56.919 ******** 
 
 TASK [etcd : Generate etcd certs] **********************************************
-included: /home/claude/Desktop/kubespray/roles/etcd/tasks/gen_certs_script.yml for k8s-cp-0
+included: ~/kubespray/roles/etcd/tasks/gen_certs_script.yml for k8s-cp-0
 Tuesday 25 August 2026  19:51:56 +0530 (0:00:00.054)       0:21:56.974 ******** 
 
 TASK [etcd : Gen_certs | create etcd cert dir] *********************************
@@ -2716,7 +2716,7 @@ Tuesday 25 August 2026  19:51:59 +0530 (0:00:00.031)       0:21:59.898 ********
 Tuesday 25 August 2026  19:51:59 +0530 (0:00:00.039)       0:21:59.938 ******** 
 
 TASK [etcd : Trust etcd CA] ****************************************************
-included: /home/claude/Desktop/kubespray/roles/etcd/tasks/upd_ca_trust.yml for k8s-cp-0
+included: ~/kubespray/roles/etcd/tasks/upd_ca_trust.yml for k8s-cp-0
 Tuesday 25 August 2026  19:51:59 +0530 (0:00:00.048)       0:21:59.986 ******** 
 
 TASK [etcd : Gen_certs | target ca-certificate store file] *********************
@@ -2737,7 +2737,7 @@ Tuesday 25 August 2026  19:52:02 +0530 (0:00:00.031)       0:22:03.075 ********
 Tuesday 25 August 2026  19:52:02 +0530 (0:00:00.031)       0:22:03.107 ******** 
 
 TASK [etcd : Install etcd] *****************************************************
-included: /home/claude/Desktop/kubespray/roles/etcd/tasks/install_host.yml for k8s-cp-0
+included: ~/kubespray/roles/etcd/tasks/install_host.yml for k8s-cp-0
 Tuesday 25 August 2026  19:52:02 +0530 (0:00:00.063)       0:22:03.170 ******** 
 
 TASK [etcd : Get currently-deployed etcd version] ******************************
@@ -2764,7 +2764,7 @@ Tuesday 25 August 2026  19:52:04 +0530 (0:00:00.608)       0:22:04.491 ********
 Tuesday 25 August 2026  19:52:04 +0530 (0:00:00.049)       0:22:04.540 ******** 
 
 TASK [etcdctl_etcdutl : Download etcd binary] **********************************
-included: /home/claude/Desktop/kubespray/roles/etcdctl_etcdutl/tasks/../../download/tasks/download_file.yml for k8s-cp-0
+included: ~/kubespray/roles/etcdctl_etcdutl/tasks/../../download/tasks/download_file.yml for k8s-cp-0
 Tuesday 25 August 2026  19:52:04 +0530 (0:00:00.048)       0:22:04.588 ******** 
 
 TASK [etcdctl_etcdutl : Prep_download | Set a few facts] ***********************
@@ -2790,7 +2790,7 @@ Tuesday 25 August 2026  19:52:11 +0530 (0:00:00.031)       0:22:12.354 ********
 Tuesday 25 August 2026  19:52:11 +0530 (0:00:00.030)       0:22:12.385 ******** 
 
 TASK [etcdctl_etcdutl : Download_file | Extract file archives] *****************
-included: /home/claude/Desktop/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0
+included: ~/kubespray/roles/download/tasks/extract_file.yml for k8s-cp-0
 Tuesday 25 August 2026  19:52:12 +0530 (0:00:00.134)       0:22:12.520 ******** 
 
 TASK [etcdctl_etcdutl : Extract_file | Unpacking archive] **********************
@@ -2811,7 +2811,7 @@ changed: [k8s-cp-0]
 Tuesday 25 August 2026  19:52:19 +0530 (0:00:00.590)       0:22:20.294 ******** 
 
 TASK [etcd : Configure etcd] ***************************************************
-included: /home/claude/Desktop/kubespray/roles/etcd/tasks/configure.yml for k8s-cp-0
+included: ~/kubespray/roles/etcd/tasks/configure.yml for k8s-cp-0
 Tuesday 25 August 2026  19:52:19 +0530 (0:00:00.064)       0:22:20.358 ******** 
 
 TASK [etcd : Configure | Check if etcd cluster is healthy] *********************
@@ -2820,7 +2820,7 @@ Tuesday 25 August 2026  19:52:25 +0530 (0:00:05.346)       0:22:25.705 ********
 Tuesday 25 August 2026  19:52:25 +0530 (0:00:00.035)       0:22:25.740 ******** 
 
 TASK [etcd : Configure | Refresh etcd config] **********************************
-included: /home/claude/Desktop/kubespray/roles/etcd/tasks/refresh_config.yml for k8s-cp-0
+included: ~/kubespray/roles/etcd/tasks/refresh_config.yml for k8s-cp-0
 Tuesday 25 August 2026  19:52:25 +0530 (0:00:00.044)       0:22:25.784 ******** 
 
 TASK [etcd : Refresh config | Create etcd config file] *************************
@@ -2855,7 +2855,7 @@ Tuesday 25 August 2026  19:52:30 +0530 (0:00:00.034)       0:22:31.027 ********
 Tuesday 25 August 2026  19:52:30 +0530 (0:00:00.035)       0:22:31.063 ******** 
 
 TASK [etcd : Refresh etcd config] **********************************************
-included: /home/claude/Desktop/kubespray/roles/etcd/tasks/refresh_config.yml for k8s-cp-0
+included: ~/kubespray/roles/etcd/tasks/refresh_config.yml for k8s-cp-0
 Tuesday 25 August 2026  19:52:30 +0530 (0:00:00.055)       0:22:31.119 ******** 
 
 TASK [etcd : Refresh config | Create etcd config file] *************************
@@ -2866,7 +2866,7 @@ Tuesday 25 August 2026  19:52:31 +0530 (0:00:00.041)       0:22:32.000 ********
 Tuesday 25 August 2026  19:52:31 +0530 (0:00:00.063)       0:22:32.064 ******** 
 
 TASK [etcd : Refresh etcd config again for idempotency] ************************
-included: /home/claude/Desktop/kubespray/roles/etcd/tasks/refresh_config.yml for k8s-cp-0
+included: ~/kubespray/roles/etcd/tasks/refresh_config.yml for k8s-cp-0
 Tuesday 25 August 2026  19:52:31 +0530 (0:00:00.062)       0:22:32.127 ******** 
 
 TASK [etcd : Refresh config | Create etcd config file] *************************
@@ -3164,7 +3164,7 @@ ok: [k8s-cp-0]
 Tuesday 25 August 2026  19:53:13 +0530 (0:00:00.052)       0:23:14.324 ******** 
 
 TASK [kubernetes/control-plane : Kubeadm | Join other control plane nodes] *****
-included: /home/claude/Desktop/kubespray/roles/kubernetes/control-plane/tasks/kubeadm-secondary.yml for k8s-cp-0
+included: ~/kubespray/roles/kubernetes/control-plane/tasks/kubeadm-secondary.yml for k8s-cp-0
 Tuesday 25 August 2026  19:53:13 +0530 (0:00:00.063)       0:23:14.388 ******** 
 
 TASK [kubernetes/control-plane : Set kubeadm_discovery_address] ****************
@@ -3454,13 +3454,13 @@ Tuesday 25 August 2026  19:53:40 +0530 (0:00:00.072)       0:23:41.281 ********
 Tuesday 25 August 2026  19:53:40 +0530 (0:00:00.074)       0:23:41.356 ******** 
 
 TASK [network_plugin/calico : Calico | Gather os specific variables] ***********
-ok: [k8s-cp-0] => (item=/home/claude/Desktop/kubespray/roles/network_plugin/calico/vars/debian.yml)
-ok: [k8s-w-0] => (item=/home/claude/Desktop/kubespray/roles/network_plugin/calico/vars/debian.yml)
+ok: [k8s-cp-0] => (item=~/kubespray/roles/network_plugin/calico/vars/debian.yml)
+ok: [k8s-w-0] => (item=~/kubespray/roles/network_plugin/calico/vars/debian.yml)
 Tuesday 25 August 2026  19:53:41 +0530 (0:00:00.137)       0:23:41.493 ******** 
 Tuesday 25 August 2026  19:53:41 +0530 (0:00:00.058)       0:23:41.552 ******** 
 
 TASK [network_plugin/calico : Calico install] **********************************
-included: /home/claude/Desktop/kubespray/roles/network_plugin/calico/tasks/install.yml for k8s-cp-0, k8s-w-0
+included: ~/kubespray/roles/network_plugin/calico/tasks/install.yml for k8s-cp-0, k8s-w-0
 Tuesday 25 August 2026  19:53:41 +0530 (0:00:00.112)       0:23:41.664 ******** 
 Tuesday 25 August 2026  19:53:41 +0530 (0:00:00.060)       0:23:41.724 ******** 
 

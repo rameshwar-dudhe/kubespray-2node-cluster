@@ -11,3 +11,6 @@ kubeconfig
 __pycache__/
 
 *.retry
+
+# local environment config (contains your real addresses)
+cluster.env
